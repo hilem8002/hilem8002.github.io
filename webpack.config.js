@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { HotModuleReplacementPlugin } = require("webpack");
 const { ModuleFederationPlugin } = require("webpack").container;
 const WebpackPwaManifest = require("webpack-pwa-manifest");
-var OfflinePlugin = require('@lcdp/offline-plugin');
-var deps = require('./package.json').dependencies;
+var OfflinePlugin = require("@lcdp/offline-plugin");
+var deps = require("./package.json").dependencies;
 
 const path = require("path");
 
@@ -12,8 +12,8 @@ const path = require("path");
 
 const moduleRedundency = ({
   moduleName,
-  urls
-}) => (`promise new Promise(async (resolve) => {
+  urls,
+}) => `promise new Promise(async (resolve) => {
 
   function getRandomNumber(min, max) {
     if (min > max) {
@@ -69,13 +69,13 @@ const moduleRedundency = ({
   // inject this script with the src set to the versioned remoteEntry.js
   document.head.appendChild(script);
 })
-`);
+`;
 
 module.exports = {
   // mode: isDevelopment ? "development" : "production",
   entry: "./src/index.js",
-  mode: 'development',
-  devtool: 'source-map',
+  mode: "development",
+  devtool: "source-map",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
@@ -85,7 +85,7 @@ module.exports = {
     minimize: false,
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json', '.mjs']
+    extensions: [".ts", ".js", ".json", ".mjs"],
   },
   module: {
     rules: [
@@ -102,8 +102,8 @@ module.exports = {
         include: /node_modules/,
         type: "javascript/auto",
         resolve: {
-          fullySpecified: false
-        }
+          fullySpecified: false,
+        },
       },
       // css and scss loader
       {
@@ -117,13 +117,12 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
-    //   // ts and tsx loader
-    //     {
-    //         test: /\.(ts|tsx)$/,
-    //         use: "ts-loader",
-    //         exclude: /node_modules/,
-    //     },
-
+      //   // ts and tsx loader
+      //     {
+      //         test: /\.(ts|tsx)$/,
+      //         use: "ts-loader",
+      //         exclude: /node_modules/,
+      //     },
     ],
   },
   plugins: [
@@ -173,13 +172,13 @@ module.exports = {
       name: "chatApp",
       filename: "remoteEntry.js",
       remotes: {
-        "cryptography": moduleRedundency({
-          moduleName: 'cryptography',
+        cryptography: moduleRedundency({
+          moduleName: "cryptography",
           urls: [
             // 'http://localhost:3000/remoteEntry.js', // local for testing
-            'https://positive-intentions.github.io/cryptography/remoteEntry.js',
-            'https://cryptography.positive-intentions.com/remoteEntry.js'
-          ]
+            "https://positive-intentions.github.io/cryptography/remoteEntry.js",
+            "https://cryptography.positive-intentions.com/remoteEntry.js",
+          ],
         }),
       },
       shared: {
@@ -190,23 +189,23 @@ module.exports = {
         "react-dom": {
           singleton: true,
           requiredVersion: deps["react-dom"],
-        }
-      }
+        },
+      },
     }),
-    new OfflinePlugin()
+    new OfflinePlugin(),
   ],
   devServer: {
     // Add this configuration to serve the CSS file with the correct MIME type
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
-    server: 'https',
+    server: "https",
     // static: path.resolve(__dirname, "/public"),
     // // watchContentBase: true,
     // hot: true,
     // historyApiFallback: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
 };

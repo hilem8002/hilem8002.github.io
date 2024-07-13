@@ -77,10 +77,10 @@ const App = () => {
   // }, []);
 
   const userPreferredTheme =
-    (window.matchMedia &&
+    window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
-      : "light");
+      : "light";
 
   const [mode, setMode] = React.useState(userPreferredTheme);
   const colorMode = React.useMemo(
@@ -141,8 +141,8 @@ const App = () => {
     <React.StrictMode>
       <SnackbarProvider>
         <Redux>
-            <ReduxConnectedCryptography>
-          <I18nextProvider i18n={i18n}>
+          <ReduxConnectedCryptography>
+            <I18nextProvider i18n={i18n}>
               <ReduxConnectedPeerProvider>
                 <ColorModeContext.Provider value={colorMode}>
                   <ThemeProvider theme={theme}>
@@ -154,8 +154,8 @@ const App = () => {
                   </ThemeProvider>
                 </ColorModeContext.Provider>
               </ReduxConnectedPeerProvider>
-          </I18nextProvider>
-            </ReduxConnectedCryptography>
+            </I18nextProvider>
+          </ReduxConnectedCryptography>
         </Redux>
       </SnackbarProvider>
     </React.StrictMode>

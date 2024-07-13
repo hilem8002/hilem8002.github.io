@@ -118,7 +118,7 @@ export default function Maintainance() {
 
   const handleIceCandidate = async (rtcIceCandidate) => {
     const iceCandidate = JSON.parse(
-      rtcIceCandidate.replace(/(\r\n|\n|\r)/gm, "")
+      rtcIceCandidate.replace(/(\r\n|\n|\r)/gm, ""),
     );
     await rtc.addIceCandidate(iceCandidate);
   };
@@ -161,23 +161,23 @@ export default function Maintainance() {
             endAdornment: (
               <>
                 <InputAdornment position="end">
-                              <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={console.log}
-                              edge="end"
-                              >
-                              <UploadIcon />
-                              </IconButton>
-                          </InputAdornment>
-                          <InputAdornment position="end">
-                              <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={console.log}
-                              edge="end"
-                              >
-                              <DownloadIcon />
-                              </IconButton>
-                          </InputAdornment>
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={console.log}
+                    edge="end"
+                  >
+                    <UploadIcon />
+                  </IconButton>
+                </InputAdornment>
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={console.log}
+                    edge="end"
+                  >
+                    <DownloadIcon />
+                  </IconButton>
+                </InputAdornment>
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"
@@ -346,7 +346,7 @@ export default function Maintainance() {
           send
         </Button>
 
-        {!false && (<QRInput defaultValue="hello world" />)}
+        {!false && <QRInput defaultValue="hello world" />}
       </div>
     </PageContainer>
   );

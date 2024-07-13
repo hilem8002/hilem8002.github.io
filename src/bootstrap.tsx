@@ -3,7 +3,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import MainApp from "./App.tsx";
 
-import * as OfflinePluginRuntime from '@lcdp/offline-plugin/runtime';
+import * as OfflinePluginRuntime from "@lcdp/offline-plugin/runtime";
 OfflinePluginRuntime.install();
 
 export const App = () => {

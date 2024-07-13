@@ -57,7 +57,6 @@ import {
 // registerNotifications();
 // getDeliveredNotifications();
 
-
 export const SnackbarProvider = ({ children }) => {
   return (
     <SnackbarProviderOriginal

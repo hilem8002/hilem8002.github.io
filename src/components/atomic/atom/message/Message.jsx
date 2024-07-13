@@ -9,8 +9,8 @@ import Avatar from "@mui/material/Avatar";
 import Badge from "@mui/material/Badge";
 import Attachment from "./Attachment";
 import Payload from "./Payload";
-import DoneIcon from '@mui/icons-material/Done';
-import DoneAllIcon from '@mui/icons-material/DoneAll';
+import DoneIcon from "@mui/icons-material/Done";
+import DoneAllIcon from "@mui/icons-material/DoneAll";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -203,7 +203,7 @@ export default function Message({
               fontSize: 16,
               right: 16,
               bottom: 4,
-              position: 'absolute'
+              position: "absolute",
             }}
           />
         </CardContent>

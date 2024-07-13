@@ -80,7 +80,7 @@ function GroupsListPage() {
         ...pod,
         onClick: () => navigate(`/pod/${pod.id}`),
         name:
-          (pod.users?.length > 2)
+          pod.users?.length > 2
             ? pod.name
             : storedContacts.find(
                 (contact) =>
@@ -90,7 +90,7 @@ function GroupsListPage() {
                   )[0],
               )?.displayName ?? "Please wait",
         avatarUrl:
-          (pod.users?.length > 2)
+          pod.users?.length > 2
             ? pod.avatar
             : storedContacts.find(
                 (contact) =>
@@ -410,7 +410,10 @@ export default function Pods() {
           //   icon: "help",
           //   onClick: () => setActivateNumber(0),
           // },
-          <DocLink key="docs" docLink="https://positive-intentions.com/docs/basics/pods" />,
+          <DocLink
+            key="docs"
+            docLink="https://positive-intentions.com/docs/basics/pods"
+          />,
         ],
         menuProps: {
           icon: "more",

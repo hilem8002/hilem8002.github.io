@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { findDOMNode } from 'react-dom';
+import { findDOMNode } from "react-dom";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -143,13 +143,13 @@ export default function Conversation({
 
   useEffect(() => {
     //scroll to bottom
-    console.log('scrolling to bottom')
+    console.log("scrolling to bottom");
     window.scrollTo({
       top: document.documentElement.scrollHeight,
       behavior: "smooth",
     });
     scrollRef.current.scrollIntoView({ behaviour: "smooth" });
-  }, [list.length])
+  }, [list.length]);
 
   return (
     <List className={classes.list} onSc>

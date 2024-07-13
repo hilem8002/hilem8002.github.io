@@ -58,7 +58,7 @@ import {
   VirtualJoysticksCamera,
   SceneLoader,
   PhysicsImpostor,
-  Quaternion
+  Quaternion,
 } from "@babylonjs/core";
 import SceneComponent from "./SceneComponent.jsx"; // uses above component in same directory
 // import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
@@ -353,7 +353,6 @@ const onSceneReady = async (
 
   // Load the hand model
   SceneLoader.ImportMeshAsync("", handModelUrl, "", scene).then((result) => {
-
     const handMesh = result.meshes[0];
     handMesh.position = new Vector3(0, 2, 0); // Adjust position as needed
     handMesh.scaling.scaleInPlace(4); // Scale if necessary
@@ -369,7 +368,6 @@ const onSceneReady = async (
     //   thumbProximal.setRotationQuaternion(Quaternion.FromEulerAngles(0, 0, Math.PI / 8));
     //   thumbDistal.setRotationQuaternion(Quaternion.FromEulerAngles(0, 0, Math.PI / 8));
     // }
-
 
     // Optionally set the orientation of the hand
     handMesh.rotation = new Vector3(0, Tools.ToRadians(180), 0);

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import PageContainer from "../../atomic/organism/page-container/PageContainer";
 // import './handpose-estimation'
-import './style.css'
+import "./style.css";
 
 const useStyles = makeStyles((theme) => ({
   padding: {
@@ -19,10 +19,9 @@ export default function Maintainance() {
 
   // mount handpose after component is mounted
   useEffect(() => {
-    import('./handpose-estimation')
-      .catch((err) => {
-        console.error(err);
-      });
+    import("./handpose-estimation").catch((err) => {
+      console.error(err);
+    });
   }, []);
 
   return (
@@ -43,20 +42,19 @@ export default function Maintainance() {
       }}
     >
       <div style={{ textAlign: "center", padding: 20 }}>
-                <div id="main">
-                  <div class="container">
-                    <div class="canvas-wrapper">
-                      <canvas id="output"></canvas>
-                      <video id="video" playsinline>
-                      </video>
-                    </div>
-                    <div id="stats"></div>
-                    <div class="scatter-container">
-                      <div id="scatter-gl-container-left"></div>
-                      <div id="scatter-gl-container-right"></div>
-                    </div>
-                  </div>
-                </div>
+        <div id="main">
+          <div class="container">
+            <div class="canvas-wrapper">
+              <canvas id="output"></canvas>
+              <video id="video" playsinline></video>
+            </div>
+            <div id="stats"></div>
+            <div class="scatter-container">
+              <div id="scatter-gl-container-left"></div>
+              <div id="scatter-gl-container-right"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </PageContainer>
   );

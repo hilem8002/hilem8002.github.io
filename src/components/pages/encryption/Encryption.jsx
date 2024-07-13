@@ -5,13 +5,13 @@ import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import PageContainer from "../../atomic/organism/page-container/PageContainer";
 
-import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
+import PropTypes from "prop-types";
+import SwipeableViews from "react-swipeable-views";
+import { useTheme } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 import QRText from "../../atomic/molecules/qr-text/QRText";
 import QRFile from "../../atomic/molecules/qr-file/QRFile";
 import RSA from "./RSA";
@@ -47,7 +47,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 
@@ -90,37 +90,37 @@ export default function Maintainance() {
       }}
     >
       <div style={{ textAlign: "center", padding: 20 }}>
-      <Box sx={{ bgcolor: 'background.paper' }}>
-      <AppBar position="static">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="inherit"
-          variant="fullWidth"
-          aria-label="full width tabs example"
-        >
-          <Tab label="RSA" {...a11yProps(0)} />
-          <Tab label="Symmetric" {...a11yProps(1)} />
-          <Tab label="Hashing" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          <RSA />
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <Symmetric />
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          <Hashing />
-        </TabPanel>
-      </SwipeableViews>
-    </Box>
+        <Box sx={{ bgcolor: "background.paper" }}>
+          <AppBar position="static">
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              indicatorColor="primary"
+              textColor="inherit"
+              variant="fullWidth"
+              aria-label="full width tabs example"
+            >
+              <Tab label="RSA" {...a11yProps(0)} />
+              <Tab label="Symmetric" {...a11yProps(1)} />
+              <Tab label="Hashing" {...a11yProps(2)} />
+            </Tabs>
+          </AppBar>
+          <SwipeableViews
+            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+            index={value}
+            onChangeIndex={handleChangeIndex}
+          >
+            <TabPanel value={value} index={0} dir={theme.direction}>
+              <RSA />
+            </TabPanel>
+            <TabPanel value={value} index={1} dir={theme.direction}>
+              <Symmetric />
+            </TabPanel>
+            <TabPanel value={value} index={2} dir={theme.direction}>
+              <Hashing />
+            </TabPanel>
+          </SwipeableViews>
+        </Box>
       </div>
     </PageContainer>
   );

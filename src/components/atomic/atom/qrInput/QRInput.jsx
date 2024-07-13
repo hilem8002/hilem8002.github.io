@@ -22,7 +22,7 @@ import UploadIcon from "@mui/icons-material/Upload";
 
 const useStyles = makeStyles((theme) => ({
   qrcodeReader: {
-    display: 'block',
+    display: "block",
     // height: '100vh',
     width: "100%",
     // top: 0,
@@ -32,8 +32,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default ({ value: controlledValue, defaultValue, qr, scan, back, next, onScan }) => {
-    const classes = useStyles();
+export default ({
+  value: controlledValue,
+  defaultValue,
+  qr,
+  scan,
+  back,
+  next,
+  onScan,
+}) => {
+  const classes = useStyles();
   const [isQRMode, setIsQRMode] = useState(qr);
   const [scanning, setScanning] = useState(scan);
   const [fileParts, setFileParts] = useState([]);
@@ -66,7 +74,7 @@ export default ({ value: controlledValue, defaultValue, qr, scan, back, next, on
   const handleScan = (data) => {
     const scannedData = JSON.parse(data);
     const hasPartBeenScanned = fileParts.some(
-      (part) => part?.part === scannedData?.part
+      (part) => part?.part === scannedData?.part,
     );
     if (hasPartBeenScanned) return;
     const newFileParts = [...fileParts, scannedData];
@@ -99,140 +107,142 @@ export default ({ value: controlledValue, defaultValue, qr, scan, back, next, on
   }, [isPlaying, selectedPart]);
 
   const handleCopyToClipboard = () => {
-    navigator.clipboard.writeText(
-        value
-    );
+    navigator.clipboard.writeText(value);
   };
 
-  console.log({ value })
+  console.log({ value });
 
   return (
     <>
       {(!!true || !isQRMode) && (
-        <Accordion
-        expanded={isQRMode || scanning}
-      >
-        <AccordionSummary
-        aria-controls="panel4bh-content"
-        id="panel4bh-header"
-      >
-        <TextField
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          label={"WebRTC offer"}
-          name="webRTC"
-          value={scanning ? 'Scanning...' : value}
-          onChange={(e) => !scanning && setValue(e.target.value || "")}
-          autoComplete="off"
-          InputProps={{
-            endAdornment: (
-                <>
-                {!!value && (
+        <Accordion expanded={isQRMode || scanning}>
+          <AccordionSummary
+            aria-controls="panel4bh-content"
+            id="panel4bh-header"
+          >
+            <TextField
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              label={"WebRTC offer"}
+              name="webRTC"
+              value={scanning ? "Scanning..." : value}
+              onChange={(e) => !scanning && setValue(e.target.value || "")}
+              autoComplete="off"
+              InputProps={{
+                endAdornment: (
                   <>
-                  <InputAdornment position="end">
-                            <IconButton
+                    {!!value && (
+                      <>
+                        <InputAdornment position="end">
+                          <IconButton
                             aria-label="toggle password visibility"
                             onClick={console.log}
                             edge="end"
-                            >
+                          >
                             <UploadIcon />
-                            </IconButton>
+                          </IconButton>
                         </InputAdornment>
                         <InputAdornment position="end">
-                            <IconButton
+                          <IconButton
                             aria-label="toggle password visibility"
                             onClick={console.log}
                             edge="end"
-                            >
+                          >
                             <DownloadIcon />
-                            </IconButton>
+                          </IconButton>
                         </InputAdornment>
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={() => handleCopyToClipboard()}
-                      edge="end"
-                    >
-                      <ContentCopyIcon />
-                    </IconButton>
-                  </InputAdornment>
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={() => handleCopyToClipboard()}
+                            edge="end"
+                          >
+                            <ContentCopyIcon />
+                          </IconButton>
+                        </InputAdornment>
+                      </>
+                    )}
+
+                    {!qr && !scan && (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={() => {
+                            setIsQRMode(!isQRMode);
+                            if (isQRMode) {
+                              setScanning(false);
+                            }
+                          }}
+                          edge="end"
+                        >
+                          <QrCode2Icon />
+                        </IconButton>
+                      </InputAdornment>
+                    )}
                   </>
-              )}
-
-              {!qr && !scan && (<InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={() => {
-                    setIsQRMode(!isQRMode)
-                    if (isQRMode) {
-                      setScanning(false);
-                    }
-                }}
-                  edge="end"
-                >
-                  <QrCode2Icon />
-                </IconButton>
-              </InputAdornment>)}
-                </>
-            ),
-          }}
-        />
-      </AccordionSummary>
-      <AccordionDetails>
-      {!scanning && fileParts.length > 0 && (
-            <div style={{ background: "white", padding: 20 }}>
-              <QRCode
-                size={256}
-                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                value={JSON.stringify(fileParts?.[selectedPart]) || ""}
-                viewBox={`0 0 256 256`}
-              />
-            </div>
-          )}
-
-          {scanning && (
-            <QRReader
-              id={`qrcode-reader-${fileParts?.length}`}
-              key={`qrcode-reader-${fileParts?.length}`}
-              className={classes.qrcodeReader}
-              onError={handleError}
-              onScan={(data) => {
-                data && handleScan(data.text);
-              }}
-              constraints={{
-                video: {
-                  facingMode: "environment",
-                },
+                ),
               }}
             />
-          )}
-          {!qr && !scan && (<Button
-            type="button"
-            fullWidth
-            variant="contained"
-            onClick={() => {
-                setFileParts([]);
-                setScanning(!scanning)
-            }}
-            color={scanning ? "error" : "primary"}
-          >
-            {scanning ? ("Stop Scanning") : "Scan QR"}
-          </Button>)}
+          </AccordionSummary>
+          <AccordionDetails>
+            {!scanning && fileParts.length > 0 && (
+              <div style={{ background: "white", padding: 20 }}>
+                <QRCode
+                  size={256}
+                  style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                  value={JSON.stringify(fileParts?.[selectedPart]) || ""}
+                  viewBox={`0 0 256 256`}
+                />
+              </div>
+            )}
 
-          {!!back && (<Button
-            type="button"
-            fullWidth
-            variant="contained"
-            onClick={() => {
-                back()
-            }}
-            color={scanning ? "error" : "primary"}
-          >
-            cancel
-          </Button>)}
+            {scanning && (
+              <QRReader
+                id={`qrcode-reader-${fileParts?.length}`}
+                key={`qrcode-reader-${fileParts?.length}`}
+                className={classes.qrcodeReader}
+                onError={handleError}
+                onScan={(data) => {
+                  data && handleScan(data.text);
+                }}
+                constraints={{
+                  video: {
+                    facingMode: "environment",
+                  },
+                }}
+              />
+            )}
+            {!qr && !scan && (
+              <Button
+                type="button"
+                fullWidth
+                variant="contained"
+                onClick={() => {
+                  setFileParts([]);
+                  setScanning(!scanning);
+                }}
+                color={scanning ? "error" : "primary"}
+              >
+                {scanning ? "Stop Scanning" : "Scan QR"}
+              </Button>
+            )}
 
-      {(!scanning && fileParts.length > 1) && (
+            {!!back && (
+              <Button
+                type="button"
+                fullWidth
+                variant="contained"
+                onClick={() => {
+                  back();
+                }}
+                color={scanning ? "error" : "primary"}
+              >
+                cancel
+              </Button>
+            )}
+
+            {!scanning && fileParts.length > 1 && (
               <>
                 <Typography gutterBottom>Seek Part</Typography>
                 <Slider
@@ -249,7 +259,7 @@ export default ({ value: controlledValue, defaultValue, qr, scan, back, next, on
                     setSelectedPart(value);
                   }}
                 />
-      
+
                 <IconButton
                   aria-label="delete"
                   size="large"
@@ -284,24 +294,24 @@ export default ({ value: controlledValue, defaultValue, qr, scan, back, next, on
                   <SkipNextIcon fontSize="inherit" />
                 </IconButton>
 
-                {!!next && (<Button
-                  type="button"
-                  fullWidth
-                  variant="contained"
-                  onClick={() => {
-                      next()
-                  }}
-                  color={scanning ? "error" : "primary"}
-                >
-                  next stage
-                </Button>)}
+                {!!next && (
+                  <Button
+                    type="button"
+                    fullWidth
+                    variant="contained"
+                    onClick={() => {
+                      next();
+                    }}
+                    color={scanning ? "error" : "primary"}
+                  >
+                    next stage
+                  </Button>
+                )}
               </>
             )}
-      </AccordionDetails>
+          </AccordionDetails>
         </Accordion>
       )}
-
-      
     </>
   );
 };

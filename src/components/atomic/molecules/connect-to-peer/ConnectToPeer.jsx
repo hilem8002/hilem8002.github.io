@@ -140,7 +140,7 @@ const ConnectToPeer = ({ qr, open, link, collapse }) => {
   const handleScan = (data) => {
     if (!data?.text) return;
     data && setResult(data);
-    const peerLink = new URL(data.text)?.hash?.split?.('/')[2];
+    const peerLink = new URL(data.text)?.hash?.split?.("/")[2];
     peerLink && navigate(`/login/${peerLink}`);
 
     if (collapse) {
@@ -318,23 +318,25 @@ const ConnectToPeer = ({ qr, open, link, collapse }) => {
             </Button>
           </AccordionDetails>
         </Accordion>
-        {!false && (<Accordion
-          expanded={expanded.includes("panel5")}
-          onChange={handleChange("panel5")}
-        >
-          <AccordionSummary
-            expandIcon={qr ? undefined : <ExpandMoreIcon />}
-            aria-controls="panel4bh-content"
-            id="panel4bh-header"
+        {!false && (
+          <Accordion
+            expanded={expanded.includes("panel5")}
+            onChange={handleChange("panel5")}
           >
-            <Typography sx={{ flexShrink: 0 }}>
-              {t("components.connectToPeer.shareWebRtcQr")}
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            {expanded.includes("panel5") && (<WebRTCWizard />)}
-          </AccordionDetails>
-        </Accordion>)}
+            <AccordionSummary
+              expandIcon={qr ? undefined : <ExpandMoreIcon />}
+              aria-controls="panel4bh-content"
+              id="panel4bh-header"
+            >
+              <Typography sx={{ flexShrink: 0 }}>
+                {t("components.connectToPeer.shareWebRtcQr")}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              {expanded.includes("panel5") && <WebRTCWizard />}
+            </AccordionDetails>
+          </Accordion>
+        )}
       </AccordionDetails>
     </Accordion>
   );

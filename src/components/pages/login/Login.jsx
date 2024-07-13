@@ -198,29 +198,29 @@ import noRegistration from "../../../../public/home-icons/no-registration.png";
 import pushNotifications from "../../../../public/home-icons/push-notifications.png";
 import videoCalls from "../../../../public/home-icons/video-calls.png";
 import DocLink from "../../atomic/atom/docLink/DocLink";
-import TinderCard from 'react-tinder-card'
+import TinderCard from "react-tinder-card";
 
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const responsiveCarouselConfig = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 1
+    items: 1,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 1
+    items: 1,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 1
+    items: 1,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
+    items: 1,
+  },
 };
 
 import avatar1 from "../../../../public/avatars/1.jpg";
@@ -232,7 +232,6 @@ import avatar6 from "../../../../public/avatars/6.jpg";
 import avatar7 from "../../../../public/avatars/7.jpg";
 import avatar8 from "../../../../public/avatars/8.jpg";
 import avatar9 from "../../../../public/avatars/9.jpg";
-
 
 const avatars = [
   {
@@ -273,8 +272,8 @@ const SimpleSlider = ({ onSelect }) => {
     slidesToShow: 2,
     speed: 500,
     style: {
-      height: '108px'
-    }
+      height: "108px",
+    },
   };
   // heading with artist link dark mode adjusted color based on the default from material ui for text
   return (
@@ -435,37 +434,40 @@ export default function LoginPage() {
   }, []);
 
   // list of random groups from chancejs
-  const randomGroups = [
-    'Random String',
-    'Animals',
-    'Countries',
-    'Months',
-  ]
+  const randomGroups = ["Random String", "Animals", "Countries", "Months"];
 
   const [idType, setIdType] = useState(randomGroups[0]);
   const [fromUser, setFromUser] = useState(storedId || randomString());
 
   const removeAllNonAlphaNumeric = (str) => {
     // except hyphen
-    return str.replace(/[^a-zA-Z0-9-]/g, '');
-  }
+    return str.replace(/[^a-zA-Z0-9-]/g, "");
+  };
 
   const setNewId = () => {
-    if (idType === 'Random String') {
+    if (idType === "Random String") {
       setFromUser(randomString());
-    } else if (idType === 'Animals') {
+    } else if (idType === "Animals") {
       // create list of 6 animals as a hyphen separated string
-      const animals = Array.from({ length: 6 }, () => chance.animal()).map((a) => a.toLowerCase().replace(/\s/g, '-')).join('-');
+      const animals = Array.from({ length: 6 }, () => chance.animal())
+        .map((a) => a.toLowerCase().replace(/\s/g, "-"))
+        .join("-");
 
       setFromUser(removeAllNonAlphaNumeric(animals));
-    } else if (idType === 'Countries') {
-      const countries = Array.from({ length: 6 }, () => chance.country({ full: true })).map((a) => a.toLowerCase().replace(/\s/g, '-')).join('-');
+    } else if (idType === "Countries") {
+      const countries = Array.from({ length: 6 }, () =>
+        chance.country({ full: true }),
+      )
+        .map((a) => a.toLowerCase().replace(/\s/g, "-"))
+        .join("-");
       setFromUser(removeAllNonAlphaNumeric(countries));
-    } else if (idType === 'Months') {
-      const months = Array.from({ length: 6 }, () => chance.month()).map((a) => a.toLowerCase().replace(/\s/g, '-')).join('-');
+    } else if (idType === "Months") {
+      const months = Array.from({ length: 6 }, () => chance.month())
+        .map((a) => a.toLowerCase().replace(/\s/g, "-"))
+        .join("-");
       setFromUser(months);
     }
-  }
+  };
 
   useEffect(() => {
     setNewId();
@@ -878,17 +880,22 @@ export default function LoginPage() {
   // the hipain image to use as the default file
 
   const onSwipe = (direction) => {
-    console.log('You swiped: ' + direction)
-  }
-  
+    console.log("You swiped: " + direction);
+  };
+
   const onCardLeftScreen = (myIdentifier) => {
-    console.log(myIdentifier + ' left the screen')
-  }
-  
+    console.log(myIdentifier + " left the screen");
+  };
+
   const CustomDot = ({ active, onClick }) => {
-    return active ? 
-    '🐳' : <button style={{ all: 'unset' }} onClick={onClick}>🐋</button>;
-  }
+    return active ? (
+      "🐳"
+    ) : (
+      <button style={{ all: "unset" }} onClick={onClick}>
+        🐋
+      </button>
+    );
+  };
 
   return (
     <PageContainer
@@ -951,24 +958,20 @@ export default function LoginPage() {
             //     !isInstalledPwa ? {
             //       text: t('components.menuItems.install'), icon: 'install', onClick: () => {
             //           sendNotification?.(t('components.menuItems.requestingToInstall'), { variant: 'info' })
-
             //           if (deferredPrompt) {
             //               deferredPrompt.prompt()
             //                   .then((result) => {
             //                       if (result.outcome === 'accepted') {
             //                           console.log('Installation accepted');
             //                           sendNotification?.(t('components.menuItems.installPossible'), { variant: 'success' })
-
             //                       } else {
             //                           console.log('Installation dismissed');
             //                           sendNotification?.(t('components.menuItems.installDismissed'), { variant: 'warning' })
-
             //                       }
             //                   })
             //                   .catch((error) => {
             //                       console.error('Installation prompt error:', error);
             //                       sendNotification?.(t('components.menuItems.installFailed'), { variant: 'warning' })
-
             //                   });
             //           } else {
             //               console.error('The beforeinstallprompt event has not been fired.');
@@ -978,7 +981,6 @@ export default function LoginPage() {
             //   } : null,
             //   ]
             // },
-
             // { text: t('components.menuItems.language'), icon: 'translate', onClick: () => navigate('/privacy'), subMenuItems: [
             //   { text: 'English', onClick: () => i18n.changeLanguage('en') },
             //   { text: 'Spanish', onClick: () => i18n.changeLanguage('es') },
@@ -994,66 +996,66 @@ export default function LoginPage() {
       {/* add an imagae at the top */}
       {/* {avatarBase64 && (<img className={classes.img} src={avatarBase64} alt="random" />)} */}
       <form noValidate className={classes.form}>
-      <Carousel
-        responsive={responsiveCarouselConfig}
-        swipeable={true}
-        draggable={true}
-        showDots={true}
-        arrows={false}
-        renderButtonGroupOutside={true}
-        customDot={<CustomDot />}
-      >
-        <div>
-          <Avatar
-            src={decentralisedImage}
-            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
-          />
-          {t("loginPage.decentralized")}
-        </div>
-        {/* <div>
+        <Carousel
+          responsive={responsiveCarouselConfig}
+          swipeable={true}
+          draggable={true}
+          showDots={true}
+          arrows={false}
+          renderButtonGroupOutside={true}
+          customDot={<CustomDot />}
+        >
+          <div>
+            <Avatar
+              src={decentralisedImage}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            {t("loginPage.decentralized")}
+          </div>
+          {/* <div>
           <Avatar
             src={agnosticImage}
             style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
           />
           {t("loginPage.agnostic")}
         </div> */}
-        <div>
-          <Avatar
-            src={dataImportExportImage}
-            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
-          />
-          {t("loginPage.dataImportExport")}
-        </div>
-        <div>
-          <Avatar
-            src={noRegistration}
-            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
-          />
-          {t("loginPage.noInstall")}
-        </div>
-        {/* <div>
+          <div>
+            <Avatar
+              src={dataImportExportImage}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            {t("loginPage.dataImportExport")}
+          </div>
+          <div>
+            <Avatar
+              src={noRegistration}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            {t("loginPage.noInstall")}
+          </div>
+          {/* <div>
           <Avatar
             src={pushNotifications}
             style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
           />
           {t("loginPage.pushNotifications")}
         </div> */}
-        {/* <div>
+          {/* <div>
           <Avatar
             src={videoCalls}
             style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
           />
           {t("loginPage.p2pCalls")}
         </div> */}
-        <div>
-        <Avatar
-          src={hipaintImage}
-          style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
-        />
-        {!false && (
-          <>
-            {/* <Typography variant="p" gutterBottom> */}
-              {/* {t("loginPage.welcome")}
+          <div>
+            <Avatar
+              src={hipaintImage}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            {!false && (
+              <>
+                {/* <Typography variant="p" gutterBottom> */}
+                {/* {t("loginPage.welcome")}
               <br />
               <br />
               <Avatar
@@ -1098,7 +1100,7 @@ export default function LoginPage() {
               {t("loginPage.p2pCalls")}
               <br />
               <br /> */}
-              {/* <Typography variant="body1" gutterBottom>
+                {/* <Typography variant="body1" gutterBottom>
                 {t("loginPage.featuresInclude")}
                 <ul>
                   <li>{t("loginPage.noCookies")}</li>
@@ -1114,9 +1116,9 @@ export default function LoginPage() {
                 </ul>
                 {t("loginPage.getStarted")}
               </Typography> */}
-            {/* </Typography> */}
-            {/* some spacing */}
-            {/* <TinderCard
+                {/* </Typography> */}
+                {/* some spacing */}
+                {/* <TinderCard
               onSwipe={onSwipe}
               onCardLeftScreen={() => onCardLeftScreen('fooBar')}
               // preventSwipe={['right', 'left']}
@@ -1139,277 +1141,276 @@ export default function LoginPage() {
               </Typography>
             </TinderCard> */}
 
-            {(storedUsername && contacts.length === 0)
-              ? (
-                <div className={classes.connect}>
-                  <ConnectToPeer
-                    open={!contacts.length}
-                    link={!contacts.length}
-                  />
-                </div>
-              )
-              : (
-                <>
-
-                  <Accordion
-                    ref={ref2}
-                    expanded={expanded === "profile"}
-                    onChange={handleChange("profile")}
-                  >
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel4bh-content"
-                      id="panel4bh-header"
+                {storedUsername && contacts.length === 0 ? (
+                  <div className={classes.connect}>
+                    <ConnectToPeer
+                      open={!contacts.length}
+                      link={!contacts.length}
+                    />
+                  </div>
+                ) : (
+                  <>
+                    <Accordion
+                      ref={ref2}
+                      expanded={expanded === "profile"}
+                      onChange={handleChange("profile")}
                     >
-                      <Typography sx={{ flexShrink: 0 }}>
-                        {t("loginPage.setProfile")}
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <SimpleSlider onSelect={setAvatar} />
-                      {
-                        <>
-                          <Avatar
-                            src={avatarBase64 ?? hipaintImage}
-                            style={{
-                              minHeight: "300px",
-                              minWidth: "300px",
-                              margin: "auto",
-                            }}
-                          />
-                          <br />
-                        </>
-                      }
-                      <Button
-                        type="button"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        onClick={() => setAvatarRef?.current?.click()}
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel4bh-content"
+                        id="panel4bh-header"
                       >
-                        {t("loginPage.setAvatar")}
-                      </Button>
-                      <input
-                        type="file"
-                        name="picture"
-                        ref={setAvatarRef}
-                        className={classes.hidden}
-                        accept="image/*"
-                        onChange={handleAvatar}
-                      />
-
-                      <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="username"
-                        label={t("loginPage.displayName")}
-                        name="username"
-                        onChange={handleUsernameChange}
-                        autoFocus
-                        value={username}
-                        autoComplete="off"
-                        InputProps={{
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <IconButton
-                                aria-label="toggle password visibility"
-                                onClick={() => setUsername(`${chance.animal()}`)}
-                                edge="end"
-                              >
-                                <RefreshIcon />
-                              </IconButton>
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-
-                      <SignatureCanvas
-                        heading={t("loginPage.cryptoSignature")}
-                        onChange={handleEncryptionSignatureChange}
-                      />
-
-                      <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Connection ID Type</InputLabel>
-                        <Select
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          value={idType}
-                          label="Connection ID Type"
-                          onChange={(e) => setIdType(e.target.value)}
-                        >
-                          <MenuItem value={'Random String'}>Random String</MenuItem>
-                          <MenuItem value={'Animals'}>Animals</MenuItem>
-                          <MenuItem value={'Countries'}>Countries</MenuItem>
-                          <MenuItem value={'Months'}>Months</MenuItem>
-
-
-                        </Select>
-                      </FormControl>
-
-                      <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="username"
-                        label={t("loginPage.connectionId")}
-                        name="username"
-                        autoFocus
-                        value={fromUser}
-                        autoComplete="off"
-                        InputProps={{
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <IconButton
-                                aria-label="toggle password visibility"
-                                onClick={() => setNewId()}
-                                edge="end"
-                              >
-                                <RefreshIcon />
-                              </IconButton>
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-
-                    </AccordionDetails>
-                  </Accordion>
-
-                  <Accordion
-                    ref={ref3}
-                    expanded={expanded === "notifications"}
-                    onChange={handleChange("notifications")}
-                  >
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel4bh-content"
-                      id="panel4bh-header"
-                    >
-                      <Typography sx={{ flexShrink: 0 }}>
-                        {t("loginPage.setPreference")}
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <FormGroup>
-                        <FormControlLabel
-                          control={<Switch {...inAppNotifications} />}
-                          label={t("loginPage.inAppNotification")}
-                        />
-                        <FormControlLabel
-                          control={<Switch {...browserNotification} />}
-                          label={t("loginPage.browserNotification")}
-                        />
-                        <FormControlLabel
-                          control={<Switch {...experimentalFeatures} />}
-                          label="Enable experimental features"
-                        />
-                      </FormGroup>
-
-                      <TextField
-                        variant="outlined"
-                        margin="normal"
-                        fullWidth
-                        id="peerjs-server"
-                        label="PeerJS server"
-                        name="peerjs-server"
-                        onChange={handlePeerjsServerChange}
-                        value={peerjsServer}
-                        placeholder="https://0.peerjs.com"
-                        autoComplete="off"
-                      />
-                    </AccordionDetails>
-                  </Accordion>
-
-                  <Accordion
-                    ref={ref4}
-                    expanded={expanded === "panel4"}
-                    onChange={handleChange("panel4")}
-                  >
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel4bh-content"
-                      id="panel4bh-header"
-                    >
-                      <Typography sx={{ width: "90%", flexShrink: 0 }}>
-                        <Checkbox {...tacCheckbox} />
-                        <span style={{ color: "red" }}>*</span>
-                        {t("loginPage.termsAgreement")}
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography>
-                        {/* <TermsAndConditions /> */}
+                        <Typography sx={{ flexShrink: 0 }}>
+                          {t("loginPage.setProfile")}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <SimpleSlider onSelect={setAvatar} />
+                        {
+                          <>
+                            <Avatar
+                              src={avatarBase64 ?? hipaintImage}
+                              style={{
+                                minHeight: "300px",
+                                minWidth: "300px",
+                                margin: "auto",
+                              }}
+                            />
+                            <br />
+                          </>
+                        }
                         <Button
                           type="button"
                           fullWidth
                           variant="contained"
                           color="primary"
-                          onClick={() => navigate("/terms")}
+                          onClick={() => setAvatarRef?.current?.click()}
                         >
-                          {t("loginPage.goToTermsAndConditions")}
+                          {t("loginPage.setAvatar")}
                         </Button>
-                      </Typography>
-                      <br />
-                      <Typography>
-                        {/* <TermsAndConditions /> */}
-                        <Button
-                          type="button"
+                        <input
+                          type="file"
+                          name="picture"
+                          ref={setAvatarRef}
+                          className={classes.hidden}
+                          accept="image/*"
+                          onChange={handleAvatar}
+                        />
+
+                        <TextField
+                          variant="outlined"
+                          margin="normal"
+                          required
                           fullWidth
-                          variant="contained"
-                          color="primary"
-                          onClick={() => navigate("/terms/privacy")}
-                        >
-                          {t("loginPage.goToPrivacyPolicy")}
-                        </Button>
-                      </Typography>
-                      {/* <Checkbox {...tacCheckbox} /><span style={{ color: 'red'}}>*</span>{t('loginPage.termsAgreement')} */}
-                    </AccordionDetails>
-                  </Accordion>
-                  <br />
+                          id="username"
+                          label={t("loginPage.displayName")}
+                          name="username"
+                          onChange={handleUsernameChange}
+                          autoFocus
+                          value={username}
+                          autoComplete="off"
+                          InputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <IconButton
+                                  aria-label="toggle password visibility"
+                                  onClick={() =>
+                                    setUsername(`${chance.animal()}`)
+                                  }
+                                  edge="end"
+                                >
+                                  <RefreshIcon />
+                                </IconButton>
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
 
-                  <Button
-                    ref={ref5}
-                    type="button"
-                    fullWidth
-                    variant="contained"
-                    color="success"
-                    disabled={isSubmitDisabled}
-                    onClick={handleSubmit}
-                  >
-                    {t("loginPage.connect")}
-                  </Button>
-                  <br />
-                  <br />
+                        <SignatureCanvas
+                          heading={t("loginPage.cryptoSignature")}
+                          onChange={handleEncryptionSignatureChange}
+                        />
 
-                  <Button
-                    ref={ref6}
-                    type="button"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    disabled={!agreedToTerms}
-                    onClick={() => fileRef?.current?.click()}
-                  >
-                    {t("loginPage.loadProfileFromFile")}
-                  </Button>
-                  <input
-                    type="file"
-                    accept=".zip"
-                    className={classes.hidden}
-                    ref={fileRef}
-                    onChange={handleFile}
-                  />
-                  <br />
-                  <br />
-                </>
-              )
-            }
-          </>
-        )}
-        </div>
-      </Carousel>
+                        <FormControl fullWidth>
+                          <InputLabel id="demo-simple-select-label">
+                            Connection ID Type
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={idType}
+                            label="Connection ID Type"
+                            onChange={(e) => setIdType(e.target.value)}
+                          >
+                            <MenuItem value={"Random String"}>
+                              Random String
+                            </MenuItem>
+                            <MenuItem value={"Animals"}>Animals</MenuItem>
+                            <MenuItem value={"Countries"}>Countries</MenuItem>
+                            <MenuItem value={"Months"}>Months</MenuItem>
+                          </Select>
+                        </FormControl>
+
+                        <TextField
+                          variant="outlined"
+                          margin="normal"
+                          required
+                          fullWidth
+                          id="username"
+                          label={t("loginPage.connectionId")}
+                          name="username"
+                          autoFocus
+                          value={fromUser}
+                          autoComplete="off"
+                          InputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <IconButton
+                                  aria-label="toggle password visibility"
+                                  onClick={() => setNewId()}
+                                  edge="end"
+                                >
+                                  <RefreshIcon />
+                                </IconButton>
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                      </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion
+                      ref={ref3}
+                      expanded={expanded === "notifications"}
+                      onChange={handleChange("notifications")}
+                    >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel4bh-content"
+                        id="panel4bh-header"
+                      >
+                        <Typography sx={{ flexShrink: 0 }}>
+                          {t("loginPage.setPreference")}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <FormGroup>
+                          <FormControlLabel
+                            control={<Switch {...inAppNotifications} />}
+                            label={t("loginPage.inAppNotification")}
+                          />
+                          <FormControlLabel
+                            control={<Switch {...browserNotification} />}
+                            label={t("loginPage.browserNotification")}
+                          />
+                          <FormControlLabel
+                            control={<Switch {...experimentalFeatures} />}
+                            label="Enable experimental features"
+                          />
+                        </FormGroup>
+
+                        <TextField
+                          variant="outlined"
+                          margin="normal"
+                          fullWidth
+                          id="peerjs-server"
+                          label="PeerJS server"
+                          name="peerjs-server"
+                          onChange={handlePeerjsServerChange}
+                          value={peerjsServer}
+                          placeholder="https://0.peerjs.com"
+                          autoComplete="off"
+                        />
+                      </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion
+                      ref={ref4}
+                      expanded={expanded === "panel4"}
+                      onChange={handleChange("panel4")}
+                    >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel4bh-content"
+                        id="panel4bh-header"
+                      >
+                        <Typography sx={{ width: "90%", flexShrink: 0 }}>
+                          <Checkbox {...tacCheckbox} />
+                          <span style={{ color: "red" }}>*</span>
+                          {t("loginPage.termsAgreement")}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Typography>
+                          {/* <TermsAndConditions /> */}
+                          <Button
+                            type="button"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            onClick={() => navigate("/terms")}
+                          >
+                            {t("loginPage.goToTermsAndConditions")}
+                          </Button>
+                        </Typography>
+                        <br />
+                        <Typography>
+                          {/* <TermsAndConditions /> */}
+                          <Button
+                            type="button"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            onClick={() => navigate("/terms/privacy")}
+                          >
+                            {t("loginPage.goToPrivacyPolicy")}
+                          </Button>
+                        </Typography>
+                        {/* <Checkbox {...tacCheckbox} /><span style={{ color: 'red'}}>*</span>{t('loginPage.termsAgreement')} */}
+                      </AccordionDetails>
+                    </Accordion>
+                    <br />
+
+                    <Button
+                      ref={ref5}
+                      type="button"
+                      fullWidth
+                      variant="contained"
+                      color="success"
+                      disabled={isSubmitDisabled}
+                      onClick={handleSubmit}
+                    >
+                      {t("loginPage.connect")}
+                    </Button>
+                    <br />
+                    <br />
+
+                    <Button
+                      ref={ref6}
+                      type="button"
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                      disabled={!agreedToTerms}
+                      onClick={() => fileRef?.current?.click()}
+                    >
+                      {t("loginPage.loadProfileFromFile")}
+                    </Button>
+                    <input
+                      type="file"
+                      accept=".zip"
+                      className={classes.hidden}
+                      ref={fileRef}
+                      onChange={handleFile}
+                    />
+                    <br />
+                    <br />
+                  </>
+                )}
+              </>
+            )}
+          </div>
+        </Carousel>
       </form>
 
       {/* <Adsense

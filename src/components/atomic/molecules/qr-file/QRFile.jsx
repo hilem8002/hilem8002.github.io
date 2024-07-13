@@ -48,14 +48,14 @@ const QRFile = () => {
 
   const handleCopyConnectionIdToClipboard = () => {
     navigator.clipboard.writeText(
-      `${window.location.origin}/#/login/${storedConnectionId}${contactNamePreset ? `/${contactNamePreset}` : ""}`
+      `${window.location.origin}/#/login/${storedConnectionId}${contactNamePreset ? `/${contactNamePreset}` : ""}`,
     );
   };
 
   const handleScan = (data) => {
     const scannedData = JSON.parse(data);
     const hasPartBeenScanned = fileParts.some(
-      (part) => part?.part === scannedData?.part
+      (part) => part?.part === scannedData?.part,
     );
     if (hasPartBeenScanned) return;
     const newFileParts = [...fileParts, scannedData];
@@ -108,7 +108,7 @@ const QRFile = () => {
         JSON.stringify({
           name: file.name,
           data: base64,
-        })
+        }),
       );
 
       // split base64 string into parts pf 100 characters

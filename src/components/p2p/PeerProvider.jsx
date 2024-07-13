@@ -656,7 +656,7 @@ export default function PeerProvider({
         screen ? "getDisplayMedia" : "getUserMedia"
       ]({
         video: cast ? { facingMode: "environment" } : !!video,
-        audio: audio ? true : false
+        audio: audio ? true : false,
       });
 
       const call = peer.call(peerId, stream, { metadata: { cast } });

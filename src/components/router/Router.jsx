@@ -216,8 +216,8 @@ export default () => {
             ),
           },
           {
-            path: '/pod/:podId/desk',
-            element: <Computer />
+            path: "/pod/:podId/desk",
+            element: <Computer />,
           },
           {
             path: "/profile",
@@ -279,7 +279,7 @@ export default () => {
           {
             path: "/desk",
             element: <Computer />,
-          }
+          },
         ]),
       );
     }

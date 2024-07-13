@@ -15,42 +15,44 @@
  * =============================================================================
  */
 
-import '@tensorflow/tfjs-backend-webgl';
+import "@tensorflow/tfjs-backend-webgl";
 // import * as mpHands from '@mediapipe/hands';
 
-import * as tfjsWasm from '@tensorflow/tfjs-backend-wasm';
+import * as tfjsWasm from "@tensorflow/tfjs-backend-wasm";
 
 tfjsWasm.setWasmPaths(`https://chat.positive-intentions.com/wasm`);
 
-import * as handdetection from '@tensorflow-models/hand-pose-detection';
+import * as handdetection from "@tensorflow-models/hand-pose-detection";
 
-import {Camera} from './camera';
-import {setupDatGui} from './option_panel';
-import {STATE} from './shared/params';
-import {setupStats} from './shared/stats_panel';
-import {setBackendAndEnvFlags} from './shared/util';
+import { Camera } from "./camera";
+import { setupDatGui } from "./option_panel";
+import { STATE } from "./shared/params";
+import { setupStats } from "./shared/stats_panel";
+import { setBackendAndEnvFlags } from "./shared/util";
 
 let detector, camera, stats;
-let startInferenceTime, numInferences = 0;
-let inferenceTimeSum = 0, lastPanelUpdate = 0;
+let startInferenceTime,
+  numInferences = 0;
+let inferenceTimeSum = 0,
+  lastPanelUpdate = 0;
 let rafId;
 
 async function createDetector() {
   switch (STATE.model) {
     case handdetection.SupportedModels.MediaPipeHands:
-      const runtime = STATE.backend.split('-')[0];
-      if (runtime === 'mediapipe') {
+      const runtime = STATE.backend.split("-")[0];
+      if (runtime === "mediapipe") {
         return handdetection.createDetector(STATE.model, {
           runtime,
           modelType: STATE.modelConfig.type,
           maxHands: STATE.modelConfig.maxNumHands,
-          solutionPath: `https://chat.positive-intentions.com/wasm`
+          solutionPath: `https://chat.positive-intentions.com/wasm`,
         });
-      } else if (runtime === 'tfjs') {
+      } else if (runtime === "tfjs") {
         return handdetection.createDetector(STATE.model, {
           runtime,
           modelType: STATE.modelConfig.type,
-          maxHands: STATE.modelConfig.maxNumHands
+          maxHands: STATE.modelConfig.maxNumHands,
         });
       }
   }
@@ -129,9 +131,9 @@ async function renderResult() {
     // Detectors can throw errors, for example when using custom URLs that
     // contain a model that doesn't provide the expected output.
     try {
-      hands = await detector.estimateHands(
-          camera.video,
-          {flipHorizontal: false});
+      hands = await detector.estimateHands(camera.video, {
+        flipHorizontal: false,
+      });
     } catch (error) {
       detector.dispose();
       detector = null;
@@ -159,14 +161,14 @@ async function renderPrediction() {
   }
 
   rafId = requestAnimationFrame(renderPrediction);
-};
+}
 
 async function app() {
   // Gui content will change depending on which model is in the query string.
   const urlParams = new URLSearchParams(window.location.search);
-  if (!urlParams.has('model')) {
+  if (!urlParams.has("model")) {
     // set default model to "mediapipe_hands"
-    urlParams.set('model', 'mediapipe_hands');
+    urlParams.set("model", "mediapipe_hands");
   }
 
   await setupDatGui(urlParams);
@@ -180,6 +182,6 @@ async function app() {
   detector = await createDetector();
 
   renderPrediction();
-};
+}
 
 app();

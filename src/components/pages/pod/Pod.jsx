@@ -705,7 +705,7 @@ import {
 } from "../../atomic/atom/dropdown/Dropdown";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import { presetIcons } from "../../atomic/molecules/app-header/AppHeader";
 
 const lightBackground = "/backgrounds/light-leaves.png";
@@ -850,7 +850,7 @@ export default function Pod() {
   // const peersActivelyTyping = Object.keys(peerIsTyping ?? {}) || []
   // .filter(key => !!peerIsTyping[key])
 
-  console.log({ peerIsTyping })
+  console.log({ peerIsTyping });
 
   const [peersActivelyTyping, setPeersActivelyTyping] = useState(
     Object.keys(peerIsTyping ?? {}) || [].filter((key) => !!peerIsTyping[key]),
@@ -1138,11 +1138,17 @@ export default function Pod() {
 
     activeCalls
       .filter((call) => call._remoteStream)
-      .map((call) => ({ remote: call._remoteStream, local: call._localStream, metadata: call.metadata }))
+      .map((call) => ({
+        remote: call._remoteStream,
+        local: call._localStream,
+        metadata: call.metadata,
+      }))
       .forEach(async ({ remote, local, metadata }, index) => {
         const isCasting = metadata?.cast;
         if (isCasting || remote) {
-          document.getElementById(`remote-video-${index}`).srcObject = isCasting ? local : remote;
+          document.getElementById(`remote-video-${index}`).srcObject = isCasting
+            ? local
+            : remote;
           await document.getElementById(`remote-video-${index}`).play();
           setCallActive(true);
         }
@@ -1310,69 +1316,69 @@ export default function Pod() {
 
   const handleSpeedDialOpen = () => {
     setSpeedDialOpen(!speedDialOpen);
-  }
+  };
 
   const defaultMenuItems = [
     {
       text: "Attach file",
-      icon: 'attachment',
+      icon: "attachment",
       onClick: handleAttachFile,
     },
     {
       text: "Attach image",
-      icon: 'image',
+      icon: "image",
       onClick: handleAttachImage,
     },
     {
       text: "Attach location",
-      icon: 'place',
+      icon: "place",
       onClick: handleAttachLocation,
     },
     {
-      text: 'Live location',
-      icon: 'place',
+      text: "Live location",
+      icon: "place",
       disabled: true,
     },
     {
       text: "Attach audio",
-      icon: 'mic',
+      icon: "mic",
       onClick: handleClickOpen,
     },
     {
       text: "Video call",
-      icon: 'camera',
+      icon: "camera",
       onClick: () => makeCall({ video: true, audio: true }),
     },
     {
       text: "Call",
-      icon: 'call',
+      icon: "call",
       onClick: () => makeCall({ audio: true }),
     },
     {
       text: "Screen share",
-      icon: 'screen',
+      icon: "screen",
       onClick: () => makeCall({ screen: true, video: true, audio: true }),
     },
     {
       text: "Cast",
-      icon: 'cast',
+      icon: "cast",
       onClick: () => makeCall({ audio: true, video: true, cast: true }),
     },
     {
       text: "Verse",
-      icon: 'verse',
+      icon: "verse",
       onClick: () => navigate(`/pod/${podId}/verse`),
     },
     {
       text: "Files",
-      icon: 'folder',
+      icon: "folder",
       onClick: () => navigate(`/pod/${podId}/files`),
     },
     {
       text: "Desk",
-      icon: 'computer',
+      icon: "computer",
       onClick: () => navigate(`/pod/${podId}/desk`),
-    }
+    },
   ].reverse();
 
   return (
@@ -1409,11 +1415,17 @@ export default function Pod() {
           icon: "more",
           items: headerActions,
         },
-        customButtons: (isOnline && !activeCalls.length) ? [
-          // !isGroup && !isMobile && { icon: 'screen', onClick: () => makeCall({ screen: true, video: true, audio: true }) },
-          !isGroup && { icon: 'camera', onClick: () => makeCall({ video: true, audio: true }) },
-          // !isGroup && { icon: 'call', onClick: () => makeCall({ audio: true }) },
-        ].filter(i => !!i) : undefined
+        customButtons:
+          isOnline && !activeCalls.length
+            ? [
+                // !isGroup && !isMobile && { icon: 'screen', onClick: () => makeCall({ screen: true, video: true, audio: true }) },
+                !isGroup && {
+                  icon: "camera",
+                  onClick: () => makeCall({ video: true, audio: true }),
+                },
+                // !isGroup && { icon: 'call', onClick: () => makeCall({ audio: true }) },
+              ].filter((i) => !!i)
+            : undefined,
       }}
       className={classes.conversation}
     >
@@ -1431,14 +1443,14 @@ export default function Pod() {
                 message.from === storedConnectionId
                   ? storedUsername
                   : storedContacts.find((contact) => {
-                    return contact.connectionId === message.from;
-                  })?.displayName,
+                      return contact.connectionId === message.from;
+                    })?.displayName,
               avatar:
                 message.from === storedConnectionId
                   ? storedAvatar
                   : storedContacts.find((contact) => {
-                    return contact.id === message.from;
-                  })?.avatar,
+                      return contact.id === message.from;
+                    })?.avatar,
               isOnline: activeConnections.includes(message.from),
               attachmentSha: message.payload?.sha,
               type: message.from === storedConnectionId ? "sent" : "recieved",
@@ -1514,62 +1526,69 @@ export default function Pod() {
               id="outlined-adornment-weight"
               startAdornment={
                 <>
-                  <InputAdornment position="start"><Dropdown
-                    keepOpen
-                    trigger={
-                      <IconButton
-                        aria-label="send message"
-                        onClick={handleAttachImage}
-                        // icon is green when there is text in the input field
-                        color={"primary"}
-                        edge="end"
-                      >
-                        <Badge
-                          badgeContent={imageAttachment ? "1" : null}
-                          color="info"
+                  <InputAdornment position="start">
+                    <Dropdown
+                      keepOpen
+                      trigger={
+                        <IconButton
+                          aria-label="send message"
+                          onClick={handleAttachImage}
+                          // icon is green when there is text in the input field
+                          color={"primary"}
+                          edge="end"
                         >
-                          <AddIcon />
-                        </Badge>
-                      </IconButton>
-                    }
-                    menu={defaultMenuItems.map((item, index) => {
-                      return !(item?.subMenuItems?.length > 0) ? (
-                        <div>
-                          <DropdownMenuItem onClick={item.onClick} disabled={item.disabled}>
-                          <ListItemIcon>
-                            {presetIcons[item?.icon]}
-                          </ListItemIcon>
+                          <Badge
+                            badgeContent={imageAttachment ? "1" : null}
+                            color="info"
+                          >
+                            <AddIcon />
+                          </Badge>
+                        </IconButton>
+                      }
+                      menu={defaultMenuItems.map((item, index) => {
+                        return !(item?.subMenuItems?.length > 0) ? (
+                          <div>
+                            <DropdownMenuItem
+                              onClick={item.onClick}
+                              disabled={item.disabled}
+                            >
+                              <ListItemIcon>
+                                {presetIcons[item?.icon]}
+                              </ListItemIcon>
+                              <ListItemText>{item.text}</ListItemText>
+                            </DropdownMenuItem>
+                          </div>
+                        ) : (
+                          <DropdownNestedMenuItem
+                            label={item.text}
+                            rightAnchored
+                            menu={[
+                              ...(item.subMenuItems ?? []).map(
+                                (subItem, index) => {
+                                  return (
+                                    !!subItem && (
+                                      <DropdownMenuItem
+                                        onClick={subItem.onClick}
+                                      >
+                                        <ListItemIcon>
+                                          {presetIcons[subItem?.icon]}
+                                        </ListItemIcon>
+                                        <ListItemText>
+                                          {subItem.text}
+                                        </ListItemText>
+                                      </DropdownMenuItem>
+                                    )
+                                  );
+                                },
+                              ),
+                            ]}
+                          >
                             <ListItemText>{item.text}</ListItemText>
-                          </DropdownMenuItem>
-                        </div>
-                      ) : (
-                        <DropdownNestedMenuItem
-                          label={item.text}
-                          rightAnchored
-                          menu={[
-                            ...(item.subMenuItems ?? []).map((subItem, index) => {
-                              return (
-                                !!subItem && (
-                                  <DropdownMenuItem onClick={subItem.onClick}>
-                                    <ListItemIcon>
-                                      {presetIcons[subItem?.icon]}
-                                    </ListItemIcon>
-                                    <ListItemText>{subItem.text}</ListItemText>
-                                  </DropdownMenuItem>
-                                )
-                              );
-                            }),
-                          ]}
-                        >
-                          <ListItemText>{item.text}</ListItemText>
-                        </DropdownNestedMenuItem>
-                      );
-                    })}
-                  />
-
-
+                          </DropdownNestedMenuItem>
+                        );
+                      })}
+                    />
                   </InputAdornment>
-                  
                 </>
               }
               endAdornment={
@@ -1725,7 +1744,7 @@ export default function Pod() {
                   const stream = call._remoteStream;
                   const localStream = call._localStream;
                   const isCasting = call.metadata?.cast;
-                  console.log({ call, stream, localStream, isCasting })
+                  console.log({ call, stream, localStream, isCasting });
                   // option to answer call
                   if (localStream && !callActive) handleAnswerCall(call);
                   // // autsswerCall(call)
@@ -1746,7 +1765,7 @@ export default function Pod() {
 
                   return (
                     <div className={classes.form}>
-                      {(stream) && (
+                      {stream && (
                         <>
                           <video
                             id={`remote-video-${index}`}

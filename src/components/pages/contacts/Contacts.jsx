@@ -311,7 +311,10 @@ export default function ContactsListPage({ headerOverride }) {
           //   icon: "help",
           //   onClick: () => setActivateNumber(0),
           // },
-          <DocLink key="docLink" docLink="https://positive-intentions.com/docs/basics/peers" />,
+          <DocLink
+            key="docLink"
+            docLink="https://positive-intentions.com/docs/basics/peers"
+          />,
         ],
         menuProps: {
           icon: "more",
@@ -412,7 +415,7 @@ export default function ContactsListPage({ headerOverride }) {
       )}
       <CoachMark {...coach} />
       <Avatar
-          src={hipaintImage}
+        src={hipaintImage}
         style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
       />
 

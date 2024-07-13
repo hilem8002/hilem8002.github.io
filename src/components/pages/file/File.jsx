@@ -206,8 +206,7 @@ export default function File() {
     } else {
       return "";
     }
-  }
-
+  };
 
   return (
     <PageContainer

@@ -16,7 +16,7 @@ import Menu from "@mui/material/Menu";
 import Avatar from "@mui/material/Avatar";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import VideocamIcon from "@mui/icons-material/Videocam";
-import QrCode2Icon from '@mui/icons-material/QrCode2';
+import QrCode2Icon from "@mui/icons-material/QrCode2";
 import { useNavigate } from "react-router-dom";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -38,10 +38,10 @@ import ListItemText from "@mui/material/ListItemText";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import PermMediaIcon from "@mui/icons-material/PermMedia";
-import SupportIcon from '@mui/icons-material/Support';
+import SupportIcon from "@mui/icons-material/Support";
 import DescriptionIcon from "@mui/icons-material/Description";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-import KeyIcon from '@mui/icons-material/Key';
+import KeyIcon from "@mui/icons-material/Key";
 import ScienceIcon from "@mui/icons-material/Science";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
@@ -49,26 +49,32 @@ import RedditIcon from "@mui/icons-material/Reddit";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import LiveTvIcon from '@mui/icons-material/LiveTv';
+import LiveTvIcon from "@mui/icons-material/LiveTv";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import Download from "@mui/icons-material/DownloadForOffline";
-import DataSaverOffIcon from '@mui/icons-material/DataSaverOff';
+import DataSaverOffIcon from "@mui/icons-material/DataSaverOff";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
-import CoffeeIcon from '@mui/icons-material/Coffee';
-import LocalParkingIcon from '@mui/icons-material/LocalParking';
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
+import CoffeeIcon from "@mui/icons-material/Coffee";
+import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import NavigationIcon from "@mui/icons-material/Navigation";
-import PrivacyTipIcon from '@mui/icons-material/PrivacyTip';
-import WavingHandIcon from '@mui/icons-material/WavingHand';
+import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
+import WavingHandIcon from "@mui/icons-material/WavingHand";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-import { SiKofi, SiPatreon, SiOpencollective, SiMedium, SiDiscord } from "rocketicons/si";
-import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import {
+  SiKofi,
+  SiPatreon,
+  SiOpencollective,
+  SiMedium,
+  SiDiscord,
+} from "rocketicons/si";
+import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import { useTranslation } from "react-i18next";
 import { ColorModeContext } from "../../../../App.tsx";
 import { useTheme } from "@mui/material/styles";
 import { useNotification } from "../../../notifications/notificationManager";
 import { languages } from "../../../translations/i18n";
-import CellTowerIcon from '@mui/icons-material/CellTower';
+import CellTowerIcon from "@mui/icons-material/CellTower";
 import Copyright from "@mui/icons-material/Copyright";
 import Slide from "@mui/material/Slide";
 import { BiDesktop } from "rocketicons/bi";
@@ -214,9 +220,16 @@ const CustomDropdown = ({ menuItems }) => {
 
   useEffect(() => {
     const handleFullscreenChange = async () => {
-      const isInFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement;
-      
-      if (!isInFullscreen && isFullScreen && document.documentElement.requestFullscreen) {
+      const isInFullscreen =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement;
+
+      if (
+        !isInFullscreen &&
+        isFullScreen &&
+        document.documentElement.requestFullscreen
+      ) {
         // Attempt to enter fullscreen
         try {
           await document.documentElement.requestFullscreen();
@@ -232,10 +245,9 @@ const CustomDropdown = ({ menuItems }) => {
         }
       }
     };
-  
+
     handleFullscreenChange();
   }, [isFullScreen]);
-  
 
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   useEffect(() => {
@@ -354,8 +366,7 @@ const CustomDropdown = ({ menuItems }) => {
         {
           text: t("components.menuItems.discord"),
           icon: "discord",
-          onClick: () =>
-            window.open("https://discord.gg/unnQnR67nR"),
+          onClick: () => window.open("https://discord.gg/unnQnR67nR"),
         },
         {
           text: t("components.menuItems.medium"),
@@ -469,27 +480,30 @@ const CustomDropdown = ({ menuItems }) => {
       icon: "donate",
       subMenuItems: [
         {
-            text: t("components.menuItems.github"),
-            icon: "github",
-            onClick: () => window.open("https://github.com/sponsors/positive-intentions"),
+          text: t("components.menuItems.github"),
+          icon: "github",
+          onClick: () =>
+            window.open("https://github.com/sponsors/positive-intentions"),
         },
         {
-            text: t("components.menuItems.kofi"),
-            icon: "coffee",
-            onClick: () => window.open("https://ko-fi.com/positive_intentions"),
+          text: t("components.menuItems.kofi"),
+          icon: "coffee",
+          onClick: () => window.open("https://ko-fi.com/positive_intentions"),
         },
         {
-            text: t("components.menuItems.openCollective"),
-            icon: "openCollective",
-            onClick: () => window.open("https://opencollective.com/positive_intentions"),
+          text: t("components.menuItems.openCollective"),
+          icon: "openCollective",
+          onClick: () =>
+            window.open("https://opencollective.com/positive_intentions"),
         },
         {
-            text: t("components.menuItems.patreon"),
-            icon: "patreon",
-            onClick: () => window.open("https://www.patreon.com/positive_intentions"),
-        }
+          text: t("components.menuItems.patreon"),
+          icon: "patreon",
+          onClick: () =>
+            window.open("https://www.patreon.com/positive_intentions"),
+        },
       ],
-    }
+    },
   ];
 
   return (
@@ -630,8 +644,8 @@ export default function AppHeader(
             aria-label="menu"
             // sx={{ mr: 2 }}
             onClick={() => {
-              if (typeof backButton === 'function') backButton();
-              navigate(typeof backButton === "string" ? backButton : -1)
+              if (typeof backButton === "function") backButton();
+              navigate(typeof backButton === "string" ? backButton : -1);
             }}
           >
             <Badge color="info" badgeContent={backCount}>
@@ -670,22 +684,22 @@ export default function AppHeader(
         </Typography>
 
         {customButtons.map((button, index) => {
-          return button.onClick
-            ? (
-              <IconButton
-                key={index}
-                ref={menuRef}
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={button.onClick}
-                color="inherit"
-              >
-                {presetIcons[button.icon]}
-              </IconButton>
-            )
-            : button;
+          return button.onClick ? (
+            <IconButton
+              key={index}
+              ref={menuRef}
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={button.onClick}
+              color="inherit"
+            >
+              {presetIcons[button.icon]}
+            </IconButton>
+          ) : (
+            button
+          );
         })}
 
         <CustomDropdown menuItems={menuProps} />

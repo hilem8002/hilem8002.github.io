@@ -14,7 +14,9 @@ const ReduxConnectedCryptography = ({ children }) => {
   });
 
   return (
-    <CryptographyProvider entropy={userProfile.encryptionSignature + randomString()}>
+    <CryptographyProvider
+      entropy={userProfile.encryptionSignature + randomString()}
+    >
       {children}
     </CryptographyProvider>
   );
