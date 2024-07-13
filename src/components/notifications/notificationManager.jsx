@@ -90,7 +90,7 @@ export const useNotification = () => {
     blockchain: storedBlockchain,
   });
 
-  const storedInAppNotification = compiledProfile?.settings?.inAppNotification;
+  const storedInAppNotification = true; // compiledProfile?.settings?.inAppNotification;
   const storedBrowserNotification =
     compiledProfile?.settings?.browserNotification;
 
@@ -110,9 +110,9 @@ export const useNotification = () => {
 
     // return if the window has focus so no notification are
     // displayed while the app is open in focus
-    if (!document.hidden) {
-      return;
-    }
+    // if (!document.hidden) {
+    //   return;
+    // }
 
     try {
       if (
@@ -157,6 +157,9 @@ export const useNotification = () => {
       if (storedInAppNotification || props[0].insist) {
         enqueueSnackbar(message, ...props);
       }
+
+      // hack to always enable notifications
+      enqueueSnackbar(message, ...props);
     } catch (e) {
       console.log(e);
     }

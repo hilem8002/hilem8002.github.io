@@ -141,6 +141,16 @@ export default function Conversation({
     captureEvent: true,
   });
 
+  useEffect(() => {
+    //scroll to bottom
+    console.log('scrolling to bottom')
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+    scrollRef.current.scrollIntoView({ behaviour: "smooth" });
+  }, [list.length])
+
   return (
     <List className={classes.list} onSc>
       {list.map((item) => (

@@ -1329,6 +1329,11 @@ export default function Pod() {
       onClick: handleAttachLocation,
     },
     {
+      text: 'Live location',
+      icon: 'place',
+      disabled: true,
+    },
+    {
       text: "Attach audio",
       icon: 'mic',
       onClick: handleClickOpen,
@@ -1368,7 +1373,7 @@ export default function Pod() {
       icon: 'computer',
       onClick: () => navigate(`/pod/${podId}/desk`),
     }
-  ];
+  ].reverse();
 
   return (
     <PageContainer
@@ -1530,7 +1535,7 @@ export default function Pod() {
                     menu={defaultMenuItems.map((item, index) => {
                       return !(item?.subMenuItems?.length > 0) ? (
                         <div>
-                          <DropdownMenuItem onClick={item.onClick}>
+                          <DropdownMenuItem onClick={item.onClick} disabled={item.disabled}>
                           <ListItemIcon>
                             {presetIcons[item?.icon]}
                           </ListItemIcon>

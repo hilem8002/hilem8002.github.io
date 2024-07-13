@@ -1681,6 +1681,10 @@ var Transition = /*#__PURE__*/index_js_default().forwardRef(function Transition(
 });
 // EXTERNAL MODULE: ./node_modules/react-tinder-card/index.js
 var react_tinder_card = __webpack_require__(72694);
+// EXTERNAL MODULE: ./node_modules/react-multi-carousel/index.js
+var react_multi_carousel = __webpack_require__(24145);
+// EXTERNAL MODULE: ./node_modules/react-multi-carousel/lib/styles.css
+var styles = __webpack_require__(23545);
 ;// CONCATENATED MODULE: ./public/avatars/1.jpg
 const _1_namespaceObject = __webpack_require__.p + "9ea0e16afc9516dcea53.jpg";
 ;// CONCATENATED MODULE: ./public/avatars/2.jpg
@@ -1901,6 +1905,39 @@ function Login_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
+var responsiveCarouselConfig = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: {
+      max: 4000,
+      min: 3000
+    },
+    items: 1
+  },
+  desktop: {
+    breakpoint: {
+      max: 3000,
+      min: 1024
+    },
+    items: 1
+  },
+  tablet: {
+    breakpoint: {
+      max: 1024,
+      min: 464
+    },
+    items: 1
+  },
+  mobile: {
+    breakpoint: {
+      max: 464,
+      min: 0
+    },
+    items: 1
+  }
+};
 
 
 
@@ -2362,7 +2399,7 @@ function LoginPage() {
             // Use await here
 
             zip.forEach( /*#__PURE__*/function () {
-              var _ref5 = Login_asyncToGenerator( /*#__PURE__*/Login_regeneratorRuntime().mark(function _callee(relativePath, zipEntry) {
+              var _ref6 = Login_asyncToGenerator( /*#__PURE__*/Login_regeneratorRuntime().mark(function _callee(relativePath, zipEntry) {
                 var content, _JSON$parse, pods, contacts, encryption, userProfile;
                 return Login_regeneratorRuntime().wrap(function _callee$(_context) {
                   while (1) switch (_context.prev = _context.next) {
@@ -2383,7 +2420,7 @@ function LoginPage() {
                 }, _callee);
               }));
               return function (_x2, _x3) {
-                return _ref5.apply(this, arguments);
+                return _ref6.apply(this, arguments);
               };
             }());
             _context2.next = 12;
@@ -2592,6 +2629,16 @@ function LoginPage() {
   var onCardLeftScreen = function onCardLeftScreen(myIdentifier) {
     console.log(myIdentifier + ' left the screen');
   };
+  var CustomDot = function CustomDot(_ref5) {
+    var active = _ref5.active,
+      onClick = _ref5.onClick;
+    return active ? '🐳' : /*#__PURE__*/index_js_default().createElement("button", {
+      style: {
+        all: 'unset'
+      },
+      onClick: onClick
+    }, "\uD83D\uDC0B");
+  };
   return /*#__PURE__*/index_js_default().createElement(page_container_PageContainer/* default */.A, {
     headerProps: {
       title: pageTitle,
@@ -2694,7 +2741,36 @@ function LoginPage() {
   }, /*#__PURE__*/index_js_default().createElement(react_coach_mark_dist.CoachMark, coach), /*#__PURE__*/index_js_default().createElement("form", {
     noValidate: true,
     className: classes.form
-  }, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+  }, /*#__PURE__*/index_js_default().createElement(react_multi_carousel["default"], {
+    responsive: responsiveCarouselConfig,
+    swipeable: true,
+    draggable: true,
+    showDots: true,
+    arrows: false,
+    renderButtonGroupOutside: true,
+    customDot: /*#__PURE__*/index_js_default().createElement(CustomDot, null)
+  }, /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+    src: decentralized_namespaceObject,
+    style: {
+      minHeight: "300px",
+      minWidth: "300px",
+      margin: "auto"
+    }
+  }), t("loginPage.decentralized")), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+    src: data_export_import_namespaceObject,
+    style: {
+      minHeight: "300px",
+      minWidth: "300px",
+      margin: "auto"
+    }
+  }), t("loginPage.dataImportExport")), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+    src: no_registration_namespaceObject,
+    style: {
+      minHeight: "300px",
+      minWidth: "300px",
+      margin: "auto"
+    }
+  }), t("loginPage.noInstall")), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: logo512_namespaceObject,
     style: {
       minHeight: "300px",
@@ -2901,7 +2977,7 @@ function LoginPage() {
     className: classes.hidden,
     ref: fileRef,
     onChange: handleFile
-  }), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)))));
+  }), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)))))));
 }
 // EXTERNAL MODULE: ./node_modules/@mui/material/List/List.js + 1 modules
 var List = __webpack_require__(49799);
@@ -2942,7 +3018,7 @@ var Brush = __webpack_require__(17473);
 // EXTERNAL MODULE: ./node_modules/@mui/icons-material/Groups.js
 var Groups = __webpack_require__(77649);
 // EXTERNAL MODULE: ./node_modules/@sandstreamdev/react-swipeable-list/dist/styles.css
-var styles = __webpack_require__(50647);
+var dist_styles = __webpack_require__(50647);
 ;// CONCATENATED MODULE: ./src/components/atomic/molecules/list/List.jsx
 function List_typeof(o) { "@babel/helpers - typeof"; return List_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, List_typeof(o); }
 function List_slicedToArray(arr, i) { return List_arrayWithHoles(arr) || List_iterableToArrayLimit(arr, i) || List_unsupportedIterableToArray(arr, i) || List_nonIterableRest(); }
@@ -5256,6 +5332,10 @@ function Pod() {
     icon: 'place',
     onClick: handleAttachLocation
   }, {
+    text: 'Live location',
+    icon: 'place',
+    disabled: true
+  }, {
     text: "Attach audio",
     icon: 'mic',
     onClick: handleClickOpen
@@ -5314,7 +5394,7 @@ function Pod() {
     onClick: function onClick() {
       return navigate("/pod/".concat(podId, "/desk"));
     }
-  }];
+  }].reverse();
   return /*#__PURE__*/index_js_default().createElement(page_container_PageContainer/* default */.A, {
     backgroundImage: theme.palette.mode === "dark" ? darkBackground : lightBackground,
     headerProps: {
@@ -5456,7 +5536,8 @@ function Pod() {
       menu: defaultMenuItems.map(function (item, index) {
         var _item$subMenuItems, _item$subMenuItems2;
         return !((item === null || item === void 0 || (_item$subMenuItems = item.subMenuItems) === null || _item$subMenuItems === void 0 ? void 0 : _item$subMenuItems.length) > 0) ? /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Dropdown/* DropdownMenuItem */._2, {
-          onClick: item.onClick
+          onClick: item.onClick,
+          disabled: item.disabled
         }, /*#__PURE__*/index_js_default().createElement(ListItemIcon/* default */.A, null, AppHeader/* presetIcons */.O[item === null || item === void 0 ? void 0 : item.icon]), /*#__PURE__*/index_js_default().createElement(ListItemText/* default */.A, null, item.text))) : /*#__PURE__*/index_js_default().createElement(Dropdown/* DropdownNestedMenuItem */.Zn, {
           label: item.text,
           rightAnchored: true,
@@ -18397,6 +18478,17 @@ function Conversation(_ref) {
     cancelOnMovement: true,
     captureEvent: true
   });
+  (0,index_js_.useEffect)(function () {
+    //scroll to bottom
+    console.log('scrolling to bottom');
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth"
+    });
+    scrollRef.current.scrollIntoView({
+      behaviour: "smooth"
+    });
+  }, [list.length]);
   return /*#__PURE__*/index_js_default().createElement(List/* default */.A, {
     className: classes.list,
     onSc: true
@@ -22118,7 +22210,7 @@ var SnackbarProvider = function SnackbarProvider(_ref) {
   }, children);
 };
 var useNotification = function useNotification() {
-  var _compiledProfile$sett, _compiledProfile$sett2;
+  var _compiledProfile$sett;
   var _useSnackbar = (0,notistack__WEBPACK_IMPORTED_MODULE_1__/* .useSnackbar */ .dh)(),
     enqueueSnackbar = _useSnackbar.enqueueSnackbar;
   var storedBlockchain = (0,react_redux__WEBPACK_IMPORTED_MODULE_6__/* .useSelector */ .d4)(function (state) {
@@ -22129,8 +22221,8 @@ var useNotification = function useNotification() {
       blockchain: storedBlockchain
     }),
     compiledProfile = _useBlockchain.compiledBlockchain;
-  var storedInAppNotification = compiledProfile === null || compiledProfile === void 0 || (_compiledProfile$sett = compiledProfile.settings) === null || _compiledProfile$sett === void 0 ? void 0 : _compiledProfile$sett.inAppNotification;
-  var storedBrowserNotification = compiledProfile === null || compiledProfile === void 0 || (_compiledProfile$sett2 = compiledProfile.settings) === null || _compiledProfile$sett2 === void 0 ? void 0 : _compiledProfile$sett2.browserNotification;
+  var storedInAppNotification = true; // compiledProfile?.settings?.inAppNotification;
+  var storedBrowserNotification = compiledProfile === null || compiledProfile === void 0 || (_compiledProfile$sett = compiledProfile.settings) === null || _compiledProfile$sett === void 0 ? void 0 : _compiledProfile$sett.browserNotification;
 
   // const storedInAppNotification = useSelector(state => state.userProfile.inAppNotification);
   // const storedBrowserNotification = useSelector(state => state.userProfile.browserNotification);
@@ -22151,9 +22243,10 @@ var useNotification = function useNotification() {
 
     // return if the window has focus so no notification are
     // displayed while the app is open in focus
-    if (!document.hidden) {
-      return;
-    }
+    // if (!document.hidden) {
+    //   return;
+    // }
+
     try {
       var _window$Notification, _window$Notification2, _window$Notification3, _window$Notification4;
       if (storedBrowserNotification && !("Notification" in window) || typeof window.Notification === "undefined") {
@@ -22191,6 +22284,9 @@ var useNotification = function useNotification() {
       if (storedInAppNotification || props[0].insist) {
         enqueueSnackbar.apply(void 0, [message].concat(props));
       }
+
+      // hack to always enable notifications
+      enqueueSnackbar.apply(void 0, [message].concat(props));
     } catch (e) {
       console.log(e);
     }
@@ -22214,7 +22310,7 @@ var useNotification = function useNotification() {
 /* harmony import */ var _blockchain_Blockchain__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(34431);
 /* harmony import */ var _blockchain_chains_profileChain__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(85026);
 /* harmony import */ var _encryption_Encryption__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(89091);
-/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(35753);
+/* harmony import */ var peerjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(6675);
 /* harmony import */ var chance__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(97677);
 /* harmony import */ var chance__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(chance__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _cryptography_Cryptography__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(94735);

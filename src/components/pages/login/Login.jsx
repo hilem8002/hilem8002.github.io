@@ -200,6 +200,29 @@ import videoCalls from "../../../../public/home-icons/video-calls.png";
 import DocLink from "../../atomic/atom/docLink/DocLink";
 import TinderCard from 'react-tinder-card'
 
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
+const responsiveCarouselConfig = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
+
 import avatar1 from "../../../../public/avatars/1.jpg";
 import avatar2 from "../../../../public/avatars/2.jpg";
 import avatar3 from "../../../../public/avatars/3.jpg";
@@ -862,6 +885,10 @@ export default function LoginPage() {
     console.log(myIdentifier + ' left the screen')
   }
   
+  const CustomDot = ({ active, onClick }) => {
+    return active ? 
+    '🐳' : <button style={{ all: 'unset' }} onClick={onClick}>🐋</button>;
+  }
 
   return (
     <PageContainer
@@ -967,6 +994,58 @@ export default function LoginPage() {
       {/* add an imagae at the top */}
       {/* {avatarBase64 && (<img className={classes.img} src={avatarBase64} alt="random" />)} */}
       <form noValidate className={classes.form}>
+      <Carousel
+        responsive={responsiveCarouselConfig}
+        swipeable={true}
+        draggable={true}
+        showDots={true}
+        arrows={false}
+        renderButtonGroupOutside={true}
+        customDot={<CustomDot />}
+      >
+        <div>
+          <Avatar
+            src={decentralisedImage}
+            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+          />
+          {t("loginPage.decentralized")}
+        </div>
+        {/* <div>
+          <Avatar
+            src={agnosticImage}
+            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+          />
+          {t("loginPage.agnostic")}
+        </div> */}
+        <div>
+          <Avatar
+            src={dataImportExportImage}
+            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+          />
+          {t("loginPage.dataImportExport")}
+        </div>
+        <div>
+          <Avatar
+            src={noRegistration}
+            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+          />
+          {t("loginPage.noInstall")}
+        </div>
+        {/* <div>
+          <Avatar
+            src={pushNotifications}
+            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+          />
+          {t("loginPage.pushNotifications")}
+        </div> */}
+        {/* <div>
+          <Avatar
+            src={videoCalls}
+            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+          />
+          {t("loginPage.p2pCalls")}
+        </div> */}
+        <div>
         <Avatar
           src={hipaintImage}
           style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
@@ -1329,6 +1408,8 @@ export default function LoginPage() {
             }
           </>
         )}
+        </div>
+      </Carousel>
       </form>
 
       {/* <Adsense
