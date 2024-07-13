@@ -551,7 +551,7 @@ function QRInput_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var QRInput_useStyles = (0,makeStyles/* default */.A)(function (theme) {
   return {
     qrcodeReader: {
-      display: 'block',
+      display: "block",
       // height: '100vh',
       width: "100%",
       // top: 0,
@@ -667,7 +667,7 @@ var QRInput_useStyles = (0,makeStyles/* default */.A)(function (theme) {
     fullWidth: true,
     label: "WebRTC offer",
     name: "webRTC",
-    value: scanning ? 'Scanning...' : value,
+    value: scanning ? "Scanning..." : value,
     onChange: function onChange(e) {
       return !scanning && setValue(e.target.value || "");
     },
@@ -1158,10 +1158,10 @@ function WebRTCWizard_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; 
     }),
     qr: true,
     back: function back() {
-      return setMode('');
+      return setMode("");
     },
     next: function next() {
-      return setMode('scanAnswer');
+      return setMode("scanAnswer");
     }
   }), mode === "scanOffer" && /*#__PURE__*/index_js_default().createElement(QRInput, {
     scan: true,
@@ -1171,10 +1171,10 @@ function WebRTCWizard_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; 
         rtcOffer = _JSON$parse.rtcOffer;
       setRtcRemoteOffer(rtcOffer);
       setRtcRemoteIceCandidate(rtcIceCandidate);
-      setMode('createAnswer');
+      setMode("createAnswer");
     },
     back: function back() {
-      return setMode('');
+      return setMode("");
     }
   }), mode === "scanAnswer" && /*#__PURE__*/index_js_default().createElement(QRInput, {
     scan: true,
@@ -1184,10 +1184,10 @@ function WebRTCWizard_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; 
         rtcIceCandidate = _JSON$parse2.rtcIceCandidate;
       setRtcRemoteAnswer(rtcAnswer);
       setRtcRemoteIceCandidate(rtcIceCandidate);
-      setMode('sharePublicKey');
+      setMode("sharePublicKey");
     },
     back: function back() {
-      return setMode('createOffer');
+      return setMode("createOffer");
     }
   }), mode === "createAnswer" && /*#__PURE__*/index_js_default().createElement(QRInput, {
     value: JSON.stringify({
@@ -1196,28 +1196,28 @@ function WebRTCWizard_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; 
     }),
     qr: true,
     back: function back() {
-      return setMode('scanOffer');
+      return setMode("scanOffer");
     },
     next: function next() {
-      return setMode('scanPublicKey');
+      return setMode("scanPublicKey");
     }
   }), mode === "sharePublicKey" && /*#__PURE__*/index_js_default().createElement(QRInput, {
     value: serializedPublicKey,
     qr: true,
     back: function back() {
-      return setMode('scanAnswer');
+      return setMode("scanAnswer");
     },
     next: function next() {
-      return setMode('scanRemotePublicKey');
+      return setMode("scanRemotePublicKey");
     }
   }), mode === "scanPublicKey" && /*#__PURE__*/index_js_default().createElement(QRInput, {
     scan: true,
     onScan: function onScan(data) {
       setRemotePublicKey(data);
-      setMode('sharePublicKeyAndSymmetricKey');
+      setMode("sharePublicKeyAndSymmetricKey");
     },
     back: function back() {
-      return setMode('createAnswer');
+      return setMode("createAnswer");
     }
   }), mode === "scanRemotePublicKeyAndSymmetricKey" && /*#__PURE__*/index_js_default().createElement(QRInput, {
     scan: true,
@@ -1227,10 +1227,10 @@ function WebRTCWizard_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; 
         symmetricKey = _JSON$parse3.symmetricKey;
       setRemotePublicKey(remotePublicKey);
       setSymmetricKey(symmetricKey);
-      setMode('connected');
+      setMode("connected");
     },
     back: function back() {
-      return setMode('scanPublicKey');
+      return setMode("scanPublicKey");
     }
   }), mode === "sharePublicKeyAndSymmetricKey" && /*#__PURE__*/index_js_default().createElement(QRInput, {
     value: JSON.stringify({
@@ -1239,10 +1239,10 @@ function WebRTCWizard_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; 
     }),
     qr: true,
     back: function back() {
-      return setMode('scanPublicKey');
+      return setMode("scanPublicKey");
     },
     next: function next() {
-      return setMode('connected');
+      return setMode("connected");
     }
   }));
 });
@@ -1404,7 +1404,7 @@ var ConnectToPeer = function ConnectToPeer(_ref) {
     var _URL, _URL$split;
     if (!(data !== null && data !== void 0 && data.text)) return;
     data && setResult(data);
-    var peerLink = (_URL = new URL(data.text)) === null || _URL === void 0 || (_URL = _URL.hash) === null || _URL === void 0 || (_URL$split = _URL.split) === null || _URL$split === void 0 ? void 0 : _URL$split.call(_URL, '/')[2];
+    var peerLink = (_URL = new URL(data.text)) === null || _URL === void 0 || (_URL = _URL.hash) === null || _URL === void 0 || (_URL$split = _URL.split) === null || _URL$split === void 0 ? void 0 : _URL$split.call(_URL, "/")[2];
     peerLink && navigate("/login/".concat(peerLink));
     if (collapse) {
       setExpanded([]);
@@ -1594,21 +1594,21 @@ var BootstrapDialog = (0,styled/* default */.Ay)(Dialog/* default */.A)(function
   return {
     "& .MuiDialogContent-root": {
       padding: theme.spacing(2),
-      minHeight: '70vh',
-      maxHeight: '70vh',
-      display: 'flex',
-      flexDirection: 'column'
+      minHeight: "70vh",
+      maxHeight: "70vh",
+      display: "flex",
+      flexDirection: "column"
     },
     "& .MuiDialogActions-root": {
       padding: theme.spacing(1)
     },
-    "iframe": {
+    iframe: {
       width: "100%",
       height: "100%",
       backgroundColor: "white",
       // flex-grow: 1; border: none; margin: 0; padding: 0;
       flexGrow: 1,
-      border: 'none',
+      border: "none",
       margin: 0
     }
   };
@@ -1621,9 +1621,9 @@ var Transition = /*#__PURE__*/index_js_default().forwardRef(function Transition(
 });
 /* harmony default export */ const DocLink = (function (_ref2) {
   var _ref2$size = _ref2.size,
-    size = _ref2$size === void 0 ? 'large' : _ref2$size,
+    size = _ref2$size === void 0 ? "large" : _ref2$size,
     _ref2$docLink = _ref2.docLink,
-    docLink = _ref2$docLink === void 0 ? 'https://positive-intentions.com/docs/basics/getting-started/' : _ref2$docLink;
+    docLink = _ref2$docLink === void 0 ? "https://positive-intentions.com/docs/basics/getting-started/" : _ref2$docLink;
   var _useState = (0,index_js_.useState)(false),
     _useState2 = DocLink_slicedToArray(_useState, 2),
     open = _useState2[0],
@@ -1976,7 +1976,7 @@ var SimpleSlider = function SimpleSlider(_ref) {
     slidesToShow: 2,
     speed: 500,
     style: {
-      height: '108px'
+      height: "108px"
     }
   };
   // heading with artist link dark mode adjusted color based on the default from material ui for text
@@ -2174,7 +2174,7 @@ function LoginPage() {
   }, []);
 
   // list of random groups from chancejs
-  var randomGroups = ['Random String', 'Animals', 'Countries', 'Months'];
+  var randomGroups = ["Random String", "Animals", "Countries", "Months"];
   var _useState11 = (0,index_js_.useState)(randomGroups[0]),
     _useState12 = Login_slicedToArray(_useState11, 2),
     idType = _useState12[0],
@@ -2185,22 +2185,22 @@ function LoginPage() {
     setFromUser = _useState14[1];
   var removeAllNonAlphaNumeric = function removeAllNonAlphaNumeric(str) {
     // except hyphen
-    return str.replace(/[^a-zA-Z0-9-]/g, '');
+    return str.replace(/[^a-zA-Z0-9-]/g, "");
   };
   var setNewId = function setNewId() {
-    if (idType === 'Random String') {
+    if (idType === "Random String") {
       setFromUser(randomString());
-    } else if (idType === 'Animals') {
+    } else if (idType === "Animals") {
       // create list of 6 animals as a hyphen separated string
       var animals = Array.from({
         length: 6
       }, function () {
         return chance.animal();
       }).map(function (a) {
-        return a.toLowerCase().replace(/\s/g, '-');
-      }).join('-');
+        return a.toLowerCase().replace(/\s/g, "-");
+      }).join("-");
       setFromUser(removeAllNonAlphaNumeric(animals));
-    } else if (idType === 'Countries') {
+    } else if (idType === "Countries") {
       var countries = Array.from({
         length: 6
       }, function () {
@@ -2208,17 +2208,17 @@ function LoginPage() {
           full: true
         });
       }).map(function (a) {
-        return a.toLowerCase().replace(/\s/g, '-');
-      }).join('-');
+        return a.toLowerCase().replace(/\s/g, "-");
+      }).join("-");
       setFromUser(removeAllNonAlphaNumeric(countries));
-    } else if (idType === 'Months') {
+    } else if (idType === "Months") {
       var months = Array.from({
         length: 6
       }, function () {
         return chance.month();
       }).map(function (a) {
-        return a.toLowerCase().replace(/\s/g, '-');
-      }).join('-');
+        return a.toLowerCase().replace(/\s/g, "-");
+      }).join("-");
       setFromUser(months);
     }
   };
@@ -2624,17 +2624,17 @@ function LoginPage() {
   // the hipain image to use as the default file
 
   var onSwipe = function onSwipe(direction) {
-    console.log('You swiped: ' + direction);
+    console.log("You swiped: " + direction);
   };
   var onCardLeftScreen = function onCardLeftScreen(myIdentifier) {
-    console.log(myIdentifier + ' left the screen');
+    console.log(myIdentifier + " left the screen");
   };
   var CustomDot = function CustomDot(_ref5) {
     var active = _ref5.active,
       onClick = _ref5.onClick;
-    return active ? '🐳' : /*#__PURE__*/index_js_default().createElement("button", {
+    return active ? "🐳" : /*#__PURE__*/index_js_default().createElement("button", {
       style: {
-        all: 'unset'
+        all: "unset"
       },
       onClick: onClick
     }, "\uD83D\uDC0B");
@@ -2701,24 +2701,20 @@ function LoginPage() {
           //     !isInstalledPwa ? {
           //       text: t('components.menuItems.install'), icon: 'install', onClick: () => {
           //           sendNotification?.(t('components.menuItems.requestingToInstall'), { variant: 'info' })
-
           //           if (deferredPrompt) {
           //               deferredPrompt.prompt()
           //                   .then((result) => {
           //                       if (result.outcome === 'accepted') {
           //                           console.log('Installation accepted');
           //                           sendNotification?.(t('components.menuItems.installPossible'), { variant: 'success' })
-
           //                       } else {
           //                           console.log('Installation dismissed');
           //                           sendNotification?.(t('components.menuItems.installDismissed'), { variant: 'warning' })
-
           //                       }
           //                   })
           //                   .catch((error) => {
           //                       console.error('Installation prompt error:', error);
           //                       sendNotification?.(t('components.menuItems.installFailed'), { variant: 'warning' })
-
           //                   });
           //           } else {
           //               console.error('The beforeinstallprompt event has not been fired.');
@@ -2728,7 +2724,6 @@ function LoginPage() {
           //   } : null,
           //   ]
           // },
-
           // { text: t('components.menuItems.language'), icon: 'translate', onClick: () => navigate('/privacy'), subMenuItems: [
           //   { text: 'English', onClick: () => i18n.changeLanguage('en') },
           //   { text: 'Spanish', onClick: () => i18n.changeLanguage('es') },
@@ -2858,13 +2853,13 @@ function LoginPage() {
       return setIdType(e.target.value);
     }
   }, /*#__PURE__*/index_js_default().createElement(MenuItem/* default */.A, {
-    value: 'Random String'
+    value: "Random String"
   }, "Random String"), /*#__PURE__*/index_js_default().createElement(MenuItem/* default */.A, {
-    value: 'Animals'
+    value: "Animals"
   }, "Animals"), /*#__PURE__*/index_js_default().createElement(MenuItem/* default */.A, {
-    value: 'Countries'
+    value: "Countries"
   }, "Countries"), /*#__PURE__*/index_js_default().createElement(MenuItem/* default */.A, {
-    value: 'Months'
+    value: "Months"
   }, "Months"))), /*#__PURE__*/index_js_default().createElement(TextField/* default */.A, {
     variant: "outlined",
     margin: "normal",
@@ -5321,27 +5316,27 @@ function Pod() {
   };
   var defaultMenuItems = [{
     text: "Attach file",
-    icon: 'attachment',
+    icon: "attachment",
     onClick: handleAttachFile
   }, {
     text: "Attach image",
-    icon: 'image',
+    icon: "image",
     onClick: handleAttachImage
   }, {
     text: "Attach location",
-    icon: 'place',
+    icon: "place",
     onClick: handleAttachLocation
   }, {
-    text: 'Live location',
-    icon: 'place',
+    text: "Live location",
+    icon: "place",
     disabled: true
   }, {
     text: "Attach audio",
-    icon: 'mic',
+    icon: "mic",
     onClick: handleClickOpen
   }, {
     text: "Video call",
-    icon: 'camera',
+    icon: "camera",
     onClick: function onClick() {
       return makeCall({
         video: true,
@@ -5350,7 +5345,7 @@ function Pod() {
     }
   }, {
     text: "Call",
-    icon: 'call',
+    icon: "call",
     onClick: function onClick() {
       return makeCall({
         audio: true
@@ -5358,7 +5353,7 @@ function Pod() {
     }
   }, {
     text: "Screen share",
-    icon: 'screen',
+    icon: "screen",
     onClick: function onClick() {
       return makeCall({
         screen: true,
@@ -5368,7 +5363,7 @@ function Pod() {
     }
   }, {
     text: "Cast",
-    icon: 'cast',
+    icon: "cast",
     onClick: function onClick() {
       return makeCall({
         audio: true,
@@ -5378,19 +5373,19 @@ function Pod() {
     }
   }, {
     text: "Verse",
-    icon: 'verse',
+    icon: "verse",
     onClick: function onClick() {
       return navigate("/pod/".concat(podId, "/verse"));
     }
   }, {
     text: "Files",
-    icon: 'folder',
+    icon: "folder",
     onClick: function onClick() {
       return navigate("/pod/".concat(podId, "/files"));
     }
   }, {
     text: "Desk",
-    icon: 'computer',
+    icon: "computer",
     onClick: function onClick() {
       return navigate("/pod/".concat(podId, "/desk"));
     }
@@ -5429,7 +5424,7 @@ function Pod() {
       customButtons: isOnline && !activeCalls.length ? [
       // !isGroup && !isMobile && { icon: 'screen', onClick: () => makeCall({ screen: true, video: true, audio: true }) },
       !isGroup && {
-        icon: 'camera',
+        icon: "camera",
         onClick: function onClick() {
           return makeCall({
             video: true,
@@ -9162,7 +9157,7 @@ var QRText = function QRText() {
     }
   }), /*#__PURE__*/index_js_default().createElement("br", null), !scanning && /*#__PURE__*/index_js_default().createElement("div", {
     style: {
-      background: 'white',
+      background: "white",
       padding: 20
     }
   }, /*#__PURE__*/index_js_default().createElement(react_qr_code_lib/* default */.Ay, {
@@ -9194,7 +9189,7 @@ var QRText = function QRText() {
       return setScanning(!scanning);
     },
     color: scanning ? "error" : "primary"
-  }, scanning ? t("components.connectToPeer.stopScanning") : 'Scan QR'));
+  }, scanning ? t("components.connectToPeer.stopScanning") : "Scan QR"));
 };
 /* harmony default export */ const qr_text_QRText = (QRText);
 ;// CONCATENATED MODULE: ./src/components/atomic/molecules/qr-file/QRFile.jsx
@@ -9527,7 +9522,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: "full-width-tab-".concat(index),
-    'aria-controls': "full-width-tabpanel-".concat(index)
+    "aria-controls": "full-width-tabpanel-".concat(index)
   };
 }
 var ShareQR_useStyles = (0,makeStyles/* default */.A)(function (theme) {
@@ -9576,7 +9571,7 @@ function ShareQR_Maintainance() {
     }
   }, /*#__PURE__*/index_js_default().createElement(Box/* default */.A, {
     sx: {
-      bgcolor: 'background.paper'
+      bgcolor: "background.paper"
     }
   }, /*#__PURE__*/index_js_default().createElement(AppBar/* default */.A, {
     position: "static"
@@ -9592,7 +9587,7 @@ function ShareQR_Maintainance() {
   }, a11yProps(0))), /*#__PURE__*/index_js_default().createElement(Tab/* default */.A, ShareQR_extends({
     label: "Share File"
   }, a11yProps(1))))), /*#__PURE__*/index_js_default().createElement(react_swipeable_views_lib/* default */.Ay, {
-    axis: theme.direction === 'rtl' ? 'x-reverse' : 'x',
+    axis: theme.direction === "rtl" ? "x-reverse" : "x",
     index: value,
     onChangeIndex: handleChangeIndex
   }, /*#__PURE__*/index_js_default().createElement(TabPanel, {
@@ -10134,7 +10129,7 @@ Hashing_TabPanel.propTypes = {
 function Hashing_a11yProps(index) {
   return {
     id: "full-width-tab-".concat(index),
-    'aria-controls': "full-width-tabpanel-".concat(index)
+    "aria-controls": "full-width-tabpanel-".concat(index)
   };
 }
 var Hashing_useStyles = (0,makeStyles/* default */.A)(function (theme) {
@@ -10159,7 +10154,7 @@ var Hashing_QRText = function QRText() {
   };
   return /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Box/* default */.A, {
     sx: {
-      bgcolor: 'background.paper'
+      bgcolor: "background.paper"
     }
   }, /*#__PURE__*/index_js_default().createElement(AppBar/* default */.A, {
     position: "static"
@@ -10177,7 +10172,7 @@ var Hashing_QRText = function QRText() {
   }, Hashing_a11yProps(1))), /*#__PURE__*/index_js_default().createElement(Tab/* default */.A, Hashing_extends({
     label: "SHA3-512"
   }, Hashing_a11yProps(2))))), /*#__PURE__*/index_js_default().createElement(react_swipeable_views_lib/* default */.Ay, {
-    axis: theme.direction === 'rtl' ? 'x-reverse' : 'x',
+    axis: theme.direction === "rtl" ? "x-reverse" : "x",
     index: value,
     onChangeIndex: handleChangeIndex
   }, /*#__PURE__*/index_js_default().createElement(Hashing_TabPanel, {
@@ -10248,7 +10243,7 @@ Encryption_TabPanel.propTypes = {
 function Encryption_a11yProps(index) {
   return {
     id: "full-width-tab-".concat(index),
-    'aria-controls': "full-width-tabpanel-".concat(index)
+    "aria-controls": "full-width-tabpanel-".concat(index)
   };
 }
 var Encryption_useStyles = (0,makeStyles/* default */.A)(function (theme) {
@@ -10297,7 +10292,7 @@ function Encryption_Maintainance() {
     }
   }, /*#__PURE__*/index_js_default().createElement(Box/* default */.A, {
     sx: {
-      bgcolor: 'background.paper'
+      bgcolor: "background.paper"
     }
   }, /*#__PURE__*/index_js_default().createElement(AppBar/* default */.A, {
     position: "static"
@@ -10315,7 +10310,7 @@ function Encryption_Maintainance() {
   }, Encryption_a11yProps(1))), /*#__PURE__*/index_js_default().createElement(Tab/* default */.A, Encryption_extends({
     label: "Hashing"
   }, Encryption_a11yProps(2))))), /*#__PURE__*/index_js_default().createElement(react_swipeable_views_lib/* default */.Ay, {
-    axis: theme.direction === 'rtl' ? 'x-reverse' : 'x',
+    axis: theme.direction === "rtl" ? "x-reverse" : "x",
     index: value,
     onChangeIndex: handleChangeIndex
   }, /*#__PURE__*/index_js_default().createElement(Encryption_TabPanel, {
@@ -11625,12 +11620,12 @@ var FullScreenDialog = function FullScreenDialog() {
   var _useLocation = (0,react_router_dist/* useLocation */.zy)(),
     pathname = _useLocation.pathname;
   // const inPods = pathname === '/pods';
-  var inContacts = pathname === '/contacts';
-  var inContactDetails = pathname.includes('/contact/');
-  var inPod = pathname.includes('/pod/');
-  var inPodDetails = pathname.includes('/pod/') && pathname.includes('/details');
-  var inPods = pathname === '/pods';
-  var inProfile = pathname === '/profile';
+  var inContacts = pathname === "/contacts";
+  var inContactDetails = pathname.includes("/contact/");
+  var inPod = pathname.includes("/pod/");
+  var inPodDetails = pathname.includes("/pod/") && pathname.includes("/details");
+  var inPods = pathname === "/pods";
+  var inProfile = pathname === "/profile";
   var _React$useState = index_js_default().useState(inContacts),
     _React$useState2 = Layout_slicedToArray(_React$useState, 2),
     isContacts = _React$useState2[0],
@@ -11714,7 +11709,7 @@ var FullScreenDialog = function FullScreenDialog() {
     open: isProfile,
     TransitionComponent: Layout_Transition
   }, /*#__PURE__*/index_js_default().createElement(Profile_Profile, {
-    qr: pathname.includes('/profile/qr')
+    qr: pathname.includes("/profile/qr")
   })), /*#__PURE__*/index_js_default().createElement(Dialog/* default */.A, {
     fullScreen: true,
     open: isPodDetails,
@@ -11723,7 +11718,7 @@ var FullScreenDialog = function FullScreenDialog() {
 };
 function useViewport() {
   // State to store the current viewport category ('mobile', 'tablet', 'desktop')
-  var _useState = (0,index_js_.useState)('desktop'),
+  var _useState = (0,index_js_.useState)("desktop"),
     _useState2 = Layout_slicedToArray(_useState, 2),
     viewport = _useState2[0],
     setViewport = _useState2[1];
@@ -11731,11 +11726,11 @@ function useViewport() {
     var determineViewport = function determineViewport() {
       var width = window.innerWidth;
       if (width < 600) {
-        setViewport('mobile');
+        setViewport("mobile");
       } else if (width >= 600 && width < 1024) {
-        setViewport('tablet');
+        setViewport("tablet");
       } else {
-        setViewport('desktop');
+        setViewport("desktop");
       }
     };
 
@@ -11743,11 +11738,11 @@ function useViewport() {
     determineViewport();
 
     // Add event listener for window resize
-    window.addEventListener('resize', determineViewport);
+    window.addEventListener("resize", determineViewport);
 
     // Cleanup function to remove the event listener
     return function () {
-      return window.removeEventListener('resize', determineViewport);
+      return window.removeEventListener("resize", determineViewport);
     };
   }, []); // Empty dependency array ensures this effect runs only on mount and unmount
 
@@ -11799,8 +11794,8 @@ var Meshtastic_BootstrapDialog = (0,styled/* default */.Ay)(Dialog/* default */.
   return {
     "& .MuiDialogContent-root": {
       padding: theme.spacing(2),
-      display: 'flex',
-      flexDirection: 'column'
+      display: "flex",
+      flexDirection: "column"
     },
     "& .MuiDialogActions-root": {
       padding: theme.spacing(1)
@@ -11867,8 +11862,8 @@ function Meshtastic_Maintainance() {
     src: "/meshtastic/index.html",
     style: {
       height: "85vh",
-      width: '100%',
-      border: 'none'
+      width: "100%",
+      border: "none"
     }
   })), /*#__PURE__*/index_js_default().createElement(Meshtastic_BootstrapDialog, {
     onClose: handleClose,
@@ -11936,8 +11931,8 @@ var Computer_BootstrapDialog = (0,styled/* default */.Ay)(Dialog/* default */.A)
   return {
     "& .MuiDialogContent-root": {
       padding: theme.spacing(2),
-      display: 'flex',
-      flexDirection: 'column'
+      display: "flex",
+      flexDirection: "column"
     },
     "& .MuiDialogActions-root": {
       padding: theme.spacing(1)
@@ -12004,8 +11999,8 @@ function Computer_Maintainance() {
     src: "/daedal-os/index.html",
     style: {
       height: "85vh",
-      width: '100%',
-      border: 'none'
+      width: "100%",
+      border: "none"
     }
   })), /*#__PURE__*/index_js_default().createElement(Computer_BootstrapDialog, {
     onClose: handleClose,
@@ -12227,7 +12222,7 @@ var Verse = /*#__PURE__*/(0,index_js_.lazy)(function () {
           fallback: /*#__PURE__*/index_js_default().createElement("div", null, "Loading...")
         }, /*#__PURE__*/index_js_default().createElement(Verse, null))
       }, {
-        path: '/pod/:podId/desk',
+        path: "/pod/:podId/desk",
         element: /*#__PURE__*/index_js_default().createElement(Computer_Maintainance, null)
       }, {
         path: "/profile",
@@ -14265,7 +14260,7 @@ function Message(_ref2) {
       fontSize: 16,
       right: 16,
       bottom: 4,
-      position: 'absolute'
+      position: "absolute"
     }
   }))));
 }
@@ -18212,7 +18207,7 @@ function AppHeader(_ref4) {
       // sx={{ mr: 2 }}
       ,
       onClick: function onClick() {
-        if (typeof backButton === 'function') backButton();
+        if (typeof backButton === "function") backButton();
         navigate(typeof backButton === "string" ? backButton : -1);
       }
     }, /*#__PURE__*/index_js_default().createElement(Badge/* default */.A, {
@@ -18480,7 +18475,7 @@ function Conversation(_ref) {
   });
   (0,index_js_.useEffect)(function () {
     //scroll to bottom
-    console.log('scrolling to bottom');
+    console.log("scrolling to bottom");
     window.scrollTo({
       top: document.documentElement.scrollHeight,
       behavior: "smooth"
@@ -22284,9 +22279,6 @@ var useNotification = function useNotification() {
       if (storedInAppNotification || props[0].insist) {
         enqueueSnackbar.apply(void 0, [message].concat(props));
       }
-
-      // hack to always enable notifications
-      enqueueSnackbar.apply(void 0, [message].concat(props));
     } catch (e) {
       console.log(e);
     }

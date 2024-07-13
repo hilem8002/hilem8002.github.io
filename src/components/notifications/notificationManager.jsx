@@ -156,9 +156,6 @@ export const useNotification = () => {
       if (storedInAppNotification || props[0].insist) {
         enqueueSnackbar(message, ...props);
       }
-
-      // hack to always enable notifications
-      enqueueSnackbar(message, ...props);
     } catch (e) {
       console.log(e);
     }

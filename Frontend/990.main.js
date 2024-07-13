@@ -40,15 +40,15 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 var DEFAULT_LINE_WIDTH = 2;
 var DEFAULT_RADIUS = 2;
 var VIDEO_SIZE = {
-  '640 X 480': {
+  "640 X 480": {
     width: 640,
     height: 480
   },
-  '640 X 360': {
+  "640 X 360": {
     width: 640,
     height: 360
   },
-  '360 X 270': {
+  "360 X 270": {
     width: 360,
     height: 270
   }
@@ -56,14 +56,14 @@ var VIDEO_SIZE = {
 var STATE = {
   camera: {
     targetFPS: 60,
-    sizeOption: '360 X 270'
+    sizeOption: "360 X 270"
   },
-  backend: '',
+  backend: "",
   flags: {},
   modelConfig: {}
 };
 var MEDIAPIPE_HANDS_CONFIG = {
-  type: 'full',
+  type: "full",
   render3D: false
 };
 /**
@@ -90,18 +90,18 @@ var TUNABLE_FLAG_VALUE_RANGE_MAP = {
   WEBGL_FLUSH_THRESHOLD: [-1, 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
   CHECK_COMPUTATION_FOR_ERRORS: [true, false]
 };
-var BACKEND_FLAGS_MAP = _defineProperty(_defineProperty(_defineProperty({}, 'tfjs-wasm', ['WASM_HAS_SIMD_SUPPORT', 'WASM_HAS_MULTITHREAD_SUPPORT']), 'tfjs-webgl', ['WEBGL_VERSION', 'WEBGL_CPU_FORWARD', 'WEBGL_PACK', 'WEBGL_FORCE_F16_TEXTURES', 'WEBGL_RENDER_FLOAT32_CAPABLE', 'WEBGL_FLUSH_THRESHOLD']), 'mediapipe-gpu', []);
-var MODEL_BACKEND_MAP = _defineProperty({}, hand_pose_detection_esm/* SupportedModels */.J.MediaPipeHands, ['mediapipe-gpu', 'tfjs-webgl']);
+var BACKEND_FLAGS_MAP = _defineProperty(_defineProperty(_defineProperty({}, "tfjs-wasm", ["WASM_HAS_SIMD_SUPPORT", "WASM_HAS_MULTITHREAD_SUPPORT"]), "tfjs-webgl", ["WEBGL_VERSION", "WEBGL_CPU_FORWARD", "WEBGL_PACK", "WEBGL_FORCE_F16_TEXTURES", "WEBGL_RENDER_FLOAT32_CAPABLE", "WEBGL_FLUSH_THRESHOLD"]), "mediapipe-gpu", []);
+var MODEL_BACKEND_MAP = _defineProperty({}, hand_pose_detection_esm/* SupportedModels */.J.MediaPipeHands, ["mediapipe-gpu", "tfjs-webgl"]);
 var TUNABLE_FLAG_NAME_MAP = {
-  PROD: 'production mode',
-  WEBGL_VERSION: 'webgl version',
-  WASM_HAS_SIMD_SUPPORT: 'wasm SIMD',
-  WASM_HAS_MULTITHREAD_SUPPORT: 'wasm multithread',
-  WEBGL_CPU_FORWARD: 'cpu forward',
-  WEBGL_PACK: 'webgl pack',
-  WEBGL_FORCE_F16_TEXTURES: 'enforce float16',
-  WEBGL_RENDER_FLOAT32_CAPABLE: 'enable float32',
-  WEBGL_FLUSH_THRESHOLD: 'GL flush wait time(ms)'
+  PROD: "production mode",
+  WEBGL_VERSION: "webgl version",
+  WASM_HAS_SIMD_SUPPORT: "wasm SIMD",
+  WASM_HAS_MULTITHREAD_SUPPORT: "wasm multithread",
+  WEBGL_CPU_FORWARD: "cpu forward",
+  WEBGL_PACK: "webgl pack",
+  WEBGL_FORCE_F16_TEXTURES: "enforce float16",
+  WEBGL_RENDER_FLOAT32_CAPABLE: "enable float32",
+  WEBGL_FLUSH_THRESHOLD: "GL flush wait time(ms)"
 };
 // EXTERNAL MODULE: ./node_modules/@tensorflow/tfjs-core/dist/index.js + 46 modules
 var tfjs_core_dist = __webpack_require__(84373);
@@ -213,7 +213,7 @@ function _setBackendAndEnvFlags() {
           }
           return _context2.abrupt("return");
         case 4:
-          if (!(util_typeof(flagConfig) !== 'object')) {
+          if (!(util_typeof(flagConfig) !== "object")) {
             _context2.next = 6;
             break;
           }
@@ -236,14 +236,14 @@ function _setBackendAndEnvFlags() {
             _context2.next = 13;
             break;
           }
-          throw new Error("".concat(flag, " value is expected to be in the range [").concat(TUNABLE_FLAG_VALUE_RANGE_MAP[flag], "], while ").concat(flagConfig[flag]) + ' is found.');
+          throw new Error("".concat(flag, " value is expected to be in the range [").concat(TUNABLE_FLAG_VALUE_RANGE_MAP[flag], "], while ").concat(flagConfig[flag]) + " is found.");
         case 13:
           _context2.next = 7;
           break;
         case 15:
           tfjs_core_dist/* env */._K2().setFlags(flagConfig);
-          _backend$split = backend.split('-'), _backend$split2 = _slicedToArray(_backend$split, 2), runtime = _backend$split2[0], $backend = _backend$split2[1];
-          if (!(runtime === 'tfjs')) {
+          _backend$split = backend.split("-"), _backend$split2 = _slicedToArray(_backend$split, 2), runtime = _backend$split2[0], $backend = _backend$split2[1];
+          if (!(runtime === "tfjs")) {
             _context2.next = 20;
             break;
           }
@@ -310,9 +310,9 @@ function createScatterGLContext(selectors) {
   return {
     scatterGLEl: scatterGLEl,
     scatterGL: new scatter_gl_dist/* ScatterGL */.q1(scatterGLEl, {
-      'rotateOnStart': true,
-      'selectEnabled': false,
-      'styles': {
+      rotateOnStart: true,
+      selectEnabled: false,
+      styles: {
         polyline: {
           defaultOpacity: 1,
           deselectedOpacity: 1
@@ -322,14 +322,14 @@ function createScatterGLContext(selectors) {
     scatterGLHasInitialized: false
   };
 }
-var scatterGLCtxtLeftHand = createScatterGLContext('#scatter-gl-container-left');
-var scatterGLCtxtRightHand = createScatterGLContext('#scatter-gl-container-right');
+var scatterGLCtxtLeftHand = createScatterGLContext("#scatter-gl-container-left");
+var scatterGLCtxtRightHand = createScatterGLContext("#scatter-gl-container-right");
 var Camera = /*#__PURE__*/function () {
   function Camera() {
     _classCallCheck(this, Camera);
-    this.video = document.getElementById('video');
-    this.canvas = document.getElementById('output');
-    this.ctx = this.canvas.getContext('2d');
+    this.video = document.getElementById("video");
+    this.canvas = document.getElementById("output");
+    this.ctx = this.canvas.getContext("2d");
   }
 
   /**
@@ -390,7 +390,7 @@ var Camera = /*#__PURE__*/function () {
         this.drawKeypoints3D(hand.keypoints3D, hand.handedness, ctxt);
       } else {
         // Clear scatter plot.
-        this.drawKeypoints3D([], '', ctxt);
+        this.drawKeypoints3D([], "", ctxt);
       }
     }
 
@@ -403,8 +403,8 @@ var Camera = /*#__PURE__*/function () {
     key: "drawKeypoints",
     value: function drawKeypoints(keypoints, handedness) {
       var keypointsArray = keypoints;
-      this.ctx.fillStyle = handedness === 'Left' ? 'Red' : 'Blue';
-      this.ctx.strokeStyle = 'White';
+      this.ctx.fillStyle = handedness === "Left" ? "Red" : "Blue";
+      this.ctx.strokeStyle = "White";
       this.ctx.lineWidth = DEFAULT_LINE_WIDTH;
       for (var i = 0; i < keypointsArray.length; i++) {
         var y = keypointsArray[i].x;
@@ -452,9 +452,9 @@ var Camera = /*#__PURE__*/function () {
       ctxt.scatterGL.setPointColorer(function (i) {
         if (keypoints[i] == null || keypoints[i].score < scoreThreshold) {
           // hide anchor points and low-confident points.
-          return '#ffffff';
+          return "#ffffff";
         }
-        return handedness === 'Left' ? '#ff0000' : '#0000ff';
+        return handedness === "Left" ? "#ff0000" : "#0000ff";
       });
       if (!ctxt.scatterGLHasInitialized) {
         ctxt.scatterGL.render(dataset);
@@ -481,15 +481,15 @@ var Camera = /*#__PURE__*/function () {
                 _context.next = 2;
                 break;
               }
-              throw new Error('Browser API navigator.mediaDevices.getUserMedia not available');
+              throw new Error("Browser API navigator.mediaDevices.getUserMedia not available");
             case 2:
               targetFPS = cameraParam.targetFPS, sizeOption = cameraParam.sizeOption;
               $size = VIDEO_SIZE[sizeOption];
               videoConfig = {
-                'audio': false,
-                'video': {
+                audio: false,
+                video: {
                   // back camera
-                  facingMode: 'environment',
+                  facingMode: "environment",
                   // Only setting the video to a specified size for large screen, on
                   // mobile devices accept the default size.
                   // width: isMobile() ? params.VIDEO_SIZE['360 X 270'].width : $size.width,
@@ -514,9 +514,9 @@ var Camera = /*#__PURE__*/function () {
                   camera.canvas.height = camera.video.videoHeight;
 
                   // Update the container's style if necessary, can be handled with CSS
-                  var canvasContainer = document.querySelector('.canvas-wrapper');
-                  canvasContainer.style.width = '100%'; // Make the container responsive
-                  canvasContainer.style.height = 'auto'; // Adjust height based on the content
+                  var canvasContainer = document.querySelector(".canvas-wrapper");
+                  canvasContainer.style.width = "100%"; // Make the container responsive
+                  canvasContainer.style.height = "auto"; // Adjust height based on the content
                   resolve(video);
                 };
               });
@@ -531,7 +531,7 @@ var Camera = /*#__PURE__*/function () {
               // const canvasContainer = document.querySelector('.canvas-wrapper');
               // canvasContainer.style = `width: ${videoWidth}px; height: ${videoHeight}px`;
               // Because the image from camera is mirrored, need to flip horizontally.
-              if (videoConfig.video.facingMode === 'user') {
+              if (videoConfig.video.facingMode === "user") {
                 camera.ctx.translate(camera.video.videoWidth, 0);
                 camera.ctx.scale(-1, 1);
               }
@@ -539,7 +539,7 @@ var Camera = /*#__PURE__*/function () {
                 ctxt = _arr[_i2];
                 ctxt.scatterGLEl.style = "width: ".concat(videoWidth / 2, "px; height: ").concat(videoHeight / 2, "px;");
                 ctxt.scatterGL.resize();
-                ctxt.scatterGLEl.style.display = STATE.modelConfig.render3D ? 'inline-block' : 'none';
+                ctxt.scatterGLEl.style.display = STATE.modelConfig.render3D ? "inline-block" : "none";
               }
               return _context.abrupt("return", camera);
             case 18:
@@ -606,34 +606,34 @@ function _setupDatGui() {
           gui = new dat_gui_module/* default.GUI */.Ay.GUI({
             width: 300
           });
-          gui.domElement.id = 'gui';
-          gui.domElement.style.display = 'none';
+          gui.domElement.id = "gui";
+          gui.domElement.style.display = "none";
 
           // The camera folder contains options for video settings.
-          cameraFolder = gui.addFolder('Camera');
-          fpsController = cameraFolder.add(STATE.camera, 'targetFPS');
+          cameraFolder = gui.addFolder("Camera");
+          fpsController = cameraFolder.add(STATE.camera, "targetFPS");
           fpsController.onFinishChange(function (_) {
             STATE.isTargetFPSChanged = true;
           });
-          sizeController = cameraFolder.add(STATE.camera, 'sizeOption', Object.keys(VIDEO_SIZE));
+          sizeController = cameraFolder.add(STATE.camera, "sizeOption", Object.keys(VIDEO_SIZE));
           sizeController.onChange(function (_) {
             STATE.isSizeOptionChanged = true;
           });
           cameraFolder.open();
 
           // The model folder contains options for model selection.
-          modelFolder = gui.addFolder('Model');
-          model = urlParams.get('model');
-          type = urlParams.get('type');
-          maxNumHands = urlParams.get('maxNumHands');
+          modelFolder = gui.addFolder("Model");
+          model = urlParams.get("model");
+          type = urlParams.get("type");
+          maxNumHands = urlParams.get("maxNumHands");
           _context.t0 = model;
-          _context.next = _context.t0 === 'mediapipe_hands' ? 16 : 20;
+          _context.next = _context.t0 === "mediapipe_hands" ? 16 : 20;
           break;
         case 16:
           STATE.model = hand_pose_detection_esm/* SupportedModels */.J.MediaPipeHands;
-          if (type !== 'full' && type !== 'lite') {
+          if (type !== "full" && type !== "lite") {
             // Nulify invalid value.
-            type = 'lite';
+            type = "lite";
           }
           if (maxNumHands == null || maxNumHands < 1) {
             // Nulify invalid value.
@@ -641,10 +641,10 @@ function _setupDatGui() {
           }
           return _context.abrupt("break", 22);
         case 20:
-          alert("".concat(urlParams.get('model')));
+          alert("".concat(urlParams.get("model")));
           return _context.abrupt("break", 22);
         case 22:
-          modelController = modelFolder.add(STATE, 'model', Object.values(hand_pose_detection_esm/* SupportedModels */.J));
+          modelController = modelFolder.add(STATE, "model", Object.values(hand_pose_detection_esm/* SupportedModels */.J));
           modelController.onChange(function (_) {
             STATE.isModelChanged = true;
             showModelConfigs(modelFolder);
@@ -652,7 +652,7 @@ function _setupDatGui() {
           });
           showModelConfigs(modelFolder, type, maxNumHands);
           modelFolder.open();
-          backendFolder = gui.addFolder('Backend');
+          backendFolder = gui.addFolder("Backend");
           showBackendConfigs(backendFolder);
           backendFolder.open();
           return _context.abrupt("return", gui);
@@ -680,8 +680,8 @@ function _showBackendConfigs() {
           }
           backends = MODEL_BACKEND_MAP[STATE.model]; // The first element of the array is the default backend for the model.
           STATE.backend = backends[0];
-          backendController = folderController.add(STATE, 'backend', backends);
-          backendController.name('runtime-backend');
+          backendController = folderController.add(STATE, "backend", backends);
+          backendController.name("runtime-backend");
           backendController.onChange( /*#__PURE__*/function () {
             var _ref = option_panel_asyncToGenerator( /*#__PURE__*/option_panel_regeneratorRuntime().mark(function _callee2(backend) {
               return option_panel_regeneratorRuntime().wrap(function _callee2$(_context2) {
@@ -731,24 +731,24 @@ function showModelConfigs(folderController, type, maxNumHands) {
 // settings.
 function addMediaPipeHandsControllers(modelConfigFolder, type, maxNumHands) {
   STATE.modelConfig = _objectSpread({}, MEDIAPIPE_HANDS_CONFIG);
-  STATE.modelConfig.type = type != null ? type : 'full';
+  STATE.modelConfig.type = type != null ? type : "full";
   STATE.modelConfig.maxNumHands = maxNumHands != null ? maxNumHands : 2;
-  var typeController = modelConfigFolder.add(STATE.modelConfig, 'type', ['lite', 'full']);
+  var typeController = modelConfigFolder.add(STATE.modelConfig, "type", ["lite", "full"]);
   typeController.onChange(function (_) {
     // Set isModelChanged to true, so that we don't render any result during
     // changing models.
     STATE.isModelChanged = true;
   });
-  var maxNumHandsController = modelConfigFolder.add(STATE.modelConfig, 'maxNumHands', 1, 10).step(1);
+  var maxNumHandsController = modelConfigFolder.add(STATE.modelConfig, "maxNumHands", 1, 10).step(1);
   maxNumHandsController.onChange(function (_) {
     // Set isModelChanged to true, so that we don't render any result during
     // changing models.
     STATE.isModelChanged = true;
   });
-  var render3DController = modelConfigFolder.add(STATE.modelConfig, 'render3D');
+  var render3DController = modelConfigFolder.add(STATE.modelConfig, "render3D");
   render3DController.onChange(function (render3D) {
-    document.querySelector('#scatter-gl-container-left').style.display = render3D ? 'inline-block' : 'none';
-    document.querySelector('#scatter-gl-container-right').style.display = render3D ? 'inline-block' : 'none';
+    document.querySelector("#scatter-gl-container-left").style.display = render3D ? "inline-block" : "none";
+    document.querySelector("#scatter-gl-container-right").style.display = render3D ? "inline-block" : "none";
   });
 }
 
@@ -820,21 +820,21 @@ function _initDefaultValueMap() {
 }
 function getTunableRange(flag) {
   var defaultValue = TUNABLE_FLAG_DEFAULT_VALUE_MAP[flag];
-  if (flag === 'WEBGL_FORCE_F16_TEXTURES') {
+  if (flag === "WEBGL_FORCE_F16_TEXTURES") {
     return [false, true];
-  } else if (flag === 'WEBGL_VERSION') {
+  } else if (flag === "WEBGL_VERSION") {
     var tunableRange = [];
     for (var value = 1; value <= defaultValue; value++) {
       tunableRange.push(value);
     }
     return tunableRange;
-  } else if (flag === 'WEBGL_FLUSH_THRESHOLD') {
+  } else if (flag === "WEBGL_FLUSH_THRESHOLD") {
     var _tunableRange = [-1];
     for (var _value = 0; _value <= 2; _value += 0.25) {
       _tunableRange.push(_value);
     }
     return _tunableRange;
-  } else if (typeof defaultValue === 'boolean') {
+  } else if (typeof defaultValue === "boolean") {
     return defaultValue ? [false, true] : [false];
   } else if (TUNABLE_FLAG_VALUE_RANGE_MAP[flag] != null) {
     return TUNABLE_FLAG_VALUE_RANGE_MAP[flag];
@@ -865,7 +865,7 @@ function showBackendFlagSettings(folderController, backendName) {
       return 1; // continue
     }
     var flagController;
-    if (typeof flagValueRange[0] === 'boolean') {
+    if (typeof flagValueRange[0] === "boolean") {
       // Show checkbox for boolean flags.
       flagController = folderController.add(STATE.flags, flag);
     } else {
@@ -987,8 +987,8 @@ function _createDetector() {
           _context.next = _context.t0 === hand_pose_detection_esm/* SupportedModels */.J.MediaPipeHands ? 3 : 10;
           break;
         case 3:
-          runtime = STATE.backend.split('-')[0];
-          if (!(runtime === 'mediapipe')) {
+          runtime = STATE.backend.split("-")[0];
+          if (!(runtime === "mediapipe")) {
             _context.next = 8;
             break;
           }
@@ -999,7 +999,7 @@ function _createDetector() {
             solutionPath: "https://chat.positive-intentions.com/wasm"
           }));
         case 8:
-          if (!(runtime === 'tfjs')) {
+          if (!(runtime === "tfjs")) {
             _context.next = 10;
             break;
           }
@@ -1184,7 +1184,6 @@ function _renderPrediction() {
   }));
   return _renderPrediction.apply(this, arguments);
 }
-;
 function app() {
   return _app.apply(this, arguments);
 }
@@ -1196,9 +1195,9 @@ function _app() {
         case 0:
           // Gui content will change depending on which model is in the query string.
           urlParams = new URLSearchParams(window.location.search);
-          if (!urlParams.has('model')) {
+          if (!urlParams.has("model")) {
             // set default model to "mediapipe_hands"
-            urlParams.set('model', 'mediapipe_hands');
+            urlParams.set("model", "mediapipe_hands");
           }
           _context5.next = 4;
           return setupDatGui(urlParams);
@@ -1223,7 +1222,6 @@ function _app() {
   }));
   return _app.apply(this, arguments);
 }
-;
 app();
 
 /***/ }),
