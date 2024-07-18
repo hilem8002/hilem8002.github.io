@@ -888,13 +888,21 @@ export default function LoginPage() {
   };
 
   const CustomDot = ({ active, onClick }) => {
-    return active ? (
-      "🐳"
-    ) : (
-      <button style={{ all: "unset" }} onClick={onClick}>
-        🐋
+    return (
+      <button
+      type="button"
+      style={{
+        background: "transparent",
+        padding: '15px 7px',
+        border: 'none',
+        cursor: 'pointer',
+        overflow: 'hidden',
+        outline: 'none',
+      }}
+      onClick={onClick}>
+        {active ? '🐳' : '🐋'}
       </button>
-    );
+    )
   };
 
   return (
@@ -1007,10 +1015,26 @@ export default function LoginPage() {
         >
           <div>
             <Avatar
+              src={hipaintImage}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            <center>
+            {t("loginPage.welcomeImage")}
+            </center>
+            <br />
+            <br />
+          </div>
+          <div>
+            <Avatar
               src={decentralisedImage}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
+            <center>
             {t("loginPage.decentralized")}
+
+            </center>
+            <br />
+            <br />
           </div>
           {/* <div>
           <Avatar
@@ -1024,14 +1048,22 @@ export default function LoginPage() {
               src={dataImportExportImage}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
+            <center>
             {t("loginPage.dataImportExport")}
+            </center>
+            <br />
+            <br />
           </div>
           <div>
             <Avatar
               src={noRegistration}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
+            <center>
             {t("loginPage.noInstall")}
+            </center>
+            <br />
+            <br />
           </div>
           {/* <div>
           <Avatar
@@ -1050,7 +1082,7 @@ export default function LoginPage() {
           <div>
             <Avatar
               src={hipaintImage}
-              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+              style={{ height: "100px", width: "100px", margin: "auto" }}
             />
             {!false && (
               <>
@@ -1409,6 +1441,8 @@ export default function LoginPage() {
                 )}
               </>
             )}
+            <br />
+            <br />
           </div>
         </Carousel>
       </form>
