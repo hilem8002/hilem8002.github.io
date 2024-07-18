@@ -1007,10 +1007,22 @@ export default function LoginPage() {
         >
           <div>
             <Avatar
+              src={hipaintImage}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            <center>
+            {t("loginPage.welcomeImage")}
+            </center>
+          </div>
+          <div>
+            <Avatar
               src={decentralisedImage}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
+            <center>
             {t("loginPage.decentralized")}
+
+            </center>
           </div>
           {/* <div>
           <Avatar
@@ -1024,14 +1036,18 @@ export default function LoginPage() {
               src={dataImportExportImage}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
+            <center>
             {t("loginPage.dataImportExport")}
+            </center>
           </div>
           <div>
             <Avatar
               src={noRegistration}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
+            <center>
             {t("loginPage.noInstall")}
+            </center>
           </div>
           {/* <div>
           <Avatar
@@ -1050,7 +1066,7 @@ export default function LoginPage() {
           <div>
             <Avatar
               src={hipaintImage}
-              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+              style={{ height: "100px", width: "100px", margin: "auto" }}
             />
             {!false && (
               <>

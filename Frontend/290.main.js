@@ -2745,31 +2745,38 @@ function LoginPage() {
     renderButtonGroupOutside: true,
     customDot: /*#__PURE__*/index_js_default().createElement(CustomDot, null)
   }, /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+    src: logo512_namespaceObject,
+    style: {
+      minHeight: "300px",
+      minWidth: "300px",
+      margin: "auto"
+    }
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.welcomeImage"))), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: decentralized_namespaceObject,
     style: {
       minHeight: "300px",
       minWidth: "300px",
       margin: "auto"
     }
-  }), t("loginPage.decentralized")), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.decentralized"))), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: data_export_import_namespaceObject,
     style: {
       minHeight: "300px",
       minWidth: "300px",
       margin: "auto"
     }
-  }), t("loginPage.dataImportExport")), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.dataImportExport"))), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: no_registration_namespaceObject,
     style: {
       minHeight: "300px",
       minWidth: "300px",
       margin: "auto"
     }
-  }), t("loginPage.noInstall")), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.noInstall"))), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: logo512_namespaceObject,
     style: {
-      minHeight: "300px",
-      minWidth: "300px",
+      height: "100px",
+      width: "100px",
       margin: "auto"
     }
   }),  true && /*#__PURE__*/index_js_default().createElement((index_js_default()).Fragment, null, storedUsername && contacts.length === 0 ? /*#__PURE__*/index_js_default().createElement("div", {
@@ -14475,6 +14482,7 @@ i18next/* default.use */.Ay.use(i18nextBrowserLanguageDetector/* default */.A).u
           displayName: "Display Name",
           cryptoSignature: "Crypto Signature",
           connectionId: "Connection ID",
+          welcomeImage: "Welcome to positive-intentions",
           decentralized: "Decentralized - Experience true privacy with our P2P chat app. No centralized servers, no hidden data storage—just secure, direct conversations.",
           noInstall: "No Install/Registration - Start communicating right away without worrying about lengthy sign-up processes. Jump in and connect instantly.",
           p2pCalls: "Video Calls - More than just a chat app, our platform facilitates face-to-face conversations. Enjoy clear, efficient video calls wherever you are.",
