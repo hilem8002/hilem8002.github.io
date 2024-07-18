@@ -2632,12 +2632,18 @@ function LoginPage() {
   var CustomDot = function CustomDot(_ref5) {
     var active = _ref5.active,
       onClick = _ref5.onClick;
-    return active ? "🐳" : /*#__PURE__*/index_js_default().createElement("button", {
+    return /*#__PURE__*/index_js_default().createElement("button", {
+      type: "button",
       style: {
-        all: "unset"
+        background: "transparent",
+        padding: '15px 7px',
+        border: 'none',
+        cursor: 'pointer',
+        overflow: 'hidden',
+        outline: 'none'
       },
       onClick: onClick
-    }, "\uD83D\uDC0B");
+    }, active ? '🐳' : '🐋');
   };
   return /*#__PURE__*/index_js_default().createElement(page_container_PageContainer/* default */.A, {
     headerProps: {
@@ -2751,28 +2757,28 @@ function LoginPage() {
       minWidth: "300px",
       margin: "auto"
     }
-  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.welcomeImage"))), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.welcomeImage")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: decentralized_namespaceObject,
     style: {
       minHeight: "300px",
       minWidth: "300px",
       margin: "auto"
     }
-  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.decentralized"))), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.decentralized")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: data_export_import_namespaceObject,
     style: {
       minHeight: "300px",
       minWidth: "300px",
       margin: "auto"
     }
-  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.dataImportExport"))), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.dataImportExport")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: no_registration_namespaceObject,
     style: {
       minHeight: "300px",
       minWidth: "300px",
       margin: "auto"
     }
-  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.noInstall"))), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.noInstall")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: logo512_namespaceObject,
     style: {
       height: "100px",
@@ -2979,7 +2985,7 @@ function LoginPage() {
     className: classes.hidden,
     ref: fileRef,
     onChange: handleFile
-  }), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)))))));
+  }), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null))), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)))));
 }
 // EXTERNAL MODULE: ./node_modules/@mui/material/List/List.js + 1 modules
 var List = __webpack_require__(49799);

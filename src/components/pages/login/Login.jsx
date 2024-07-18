@@ -888,13 +888,21 @@ export default function LoginPage() {
   };
 
   const CustomDot = ({ active, onClick }) => {
-    return active ? (
-      "🐳"
-    ) : (
-      <button style={{ all: "unset" }} onClick={onClick}>
-        🐋
+    return (
+      <button
+      type="button"
+      style={{
+        background: "transparent",
+        padding: '15px 7px',
+        border: 'none',
+        cursor: 'pointer',
+        overflow: 'hidden',
+        outline: 'none',
+      }}
+      onClick={onClick}>
+        {active ? '🐳' : '🐋'}
       </button>
-    );
+    )
   };
 
   return (
@@ -1013,6 +1021,8 @@ export default function LoginPage() {
             <center>
             {t("loginPage.welcomeImage")}
             </center>
+            <br />
+            <br />
           </div>
           <div>
             <Avatar
@@ -1023,6 +1033,8 @@ export default function LoginPage() {
             {t("loginPage.decentralized")}
 
             </center>
+            <br />
+            <br />
           </div>
           {/* <div>
           <Avatar
@@ -1039,6 +1051,8 @@ export default function LoginPage() {
             <center>
             {t("loginPage.dataImportExport")}
             </center>
+            <br />
+            <br />
           </div>
           <div>
             <Avatar
@@ -1048,6 +1062,8 @@ export default function LoginPage() {
             <center>
             {t("loginPage.noInstall")}
             </center>
+            <br />
+            <br />
           </div>
           {/* <div>
           <Avatar
@@ -1425,6 +1441,8 @@ export default function LoginPage() {
                 )}
               </>
             )}
+            <br />
+            <br />
           </div>
         </Carousel>
       </form>
