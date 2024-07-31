@@ -35,14 +35,6 @@ A chat app designed to work within your browser, with a focus on browser-based s
 - **Image Board**: Share and discover images in a community-driven space.
 - **Webtop Environment**: Desktop experience on the browser.
 
-### How You Can Help
-
-- **Feedback**: Your insights are invaluable. Share your thoughts on current features, suggest new ones, or report any bugs you encounter.
-- **Development**: Interested in contributing code? [Let's talk!](https://www.reddit.com/r/positive_intentions) While the app isn't fully open-source yet, parts of it are, and we're keen on opening more in the future.
-- **Spread the Word**: Help us grow by sharing the app with others who value privacy and control over their digital communication.
-- **Github Stars**: If you like the project, consider starring the repository. It helps others discover it and boosts our motivation.
-- **Sponsorship**: Development is fueled by passion and coffee. Your sponsorship helps keep both flowing.
-
 
 ## Getting Started
 
@@ -110,3 +102,10 @@ To build for desktop, you need to install the dependencies with the `npm i` comm
 ## Join Us on This Journey
 
 Pushing the boundaries of what's possible with current web technologies to create a chat app that prioritizes user empowerment and privacy. But this is just the beginning. With your support, we can explore new features, refine the user experience, and expand the app's capabilities.
+
+### How You Can Help
+
+- **Feedback**: Your insights are invaluable. Share your thoughts on current features, suggest new ones, or report any bugs you encounter.
+- **Spread the Word**: Help us grow by sharing the app with others who value privacy and control over their digital communication.
+- **Github Stars**: If you like the project, consider starring the repository. It helps others discover it and boosts our motivation.
+- **Sponsorship**: Development is fueled by passion and coffee. Your sponsorship helps keep both flowing.
