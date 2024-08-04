@@ -98,6 +98,16 @@ To build for mobile, you need to have respective build tools installed on your c
 
 To build for desktop, you need to install the dependencies with the `npm i` command, then you may also need to install rust on your system as described [here](https://tauri.app/v1/guides/getting-started/prerequisites/). The desktop build is based on Tauri found [here](https://tauri.app/). You can create a build by running `npm run tauri build`. the build will be found in the `tauri/target/release/bundle` folder (you may need to add executable permissions `chmod +x <filename>`).
 
+### Security and privacy recommendations
+
+This project is aiming to create the most secure and private chat app. It will heavily depend on how you use it. Here are some reccomended security optimizations/advice to keep your data secure and private:
+
+- Use a self-hosted instance of the app.
+- Use a VPN to protect your data from being intercepted.
+- Only connect to trusted peers.
+- You and your peer should use a secure device/os/browser with the latest updates.
+- use general security practices like not sharing sensitive information, not clicking on suspicious links, etc.
+
 
 ## Join Us on This Journey
 
