@@ -115,7 +115,7 @@ async function renderResult() {
   if (camera.video.readyState < 2) {
     await new Promise((resolve) => {
       camera.video.onloadeddata = () => {
-        resolve(video);
+        resolve(camera.video);
       };
     });
   }

@@ -82,23 +82,23 @@ function GroupsListPage() {
         name:
           pod.users?.length > 2
             ? pod.name
-            : storedContacts.find(
+            : (storedContacts.find(
                 (contact) =>
                   contact.connectionId ===
                   pod.users?.filter(
                     (memberId) => memberId !== storedPersonalId,
                   )[0],
-              )?.displayName ?? "Please wait",
+              )?.displayName ?? "Please wait"),
         avatarUrl:
           pod.users?.length > 2
             ? pod.avatar
-            : storedContacts.find(
+            : (storedContacts.find(
                 (contact) =>
                   contact.connectionId ===
                   pod.users?.filter(
                     (memberId) => memberId !== storedPersonalId,
                   )[0],
-              )?.avatar ?? "-",
+              )?.avatar ?? "-"),
         isOnline: pod.users
           .filter((c) => c !== storedPersonalId)
           .every((c) => activeConnections.includes(c)),

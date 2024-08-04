@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 function calculateSHA256(str) {
   const charToCode = (char) => char.charCodeAt(0);
   const leftRotate = (value, shift) =>

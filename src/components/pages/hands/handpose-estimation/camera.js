@@ -130,7 +130,7 @@ export class Camera {
         const canvasContainer = document.querySelector(".canvas-wrapper");
         canvasContainer.style.width = "100%"; // Make the container responsive
         canvasContainer.style.height = "auto"; // Adjust height based on the content
-        resolve(video);
+        resolve(camera.video);
       };
     });
 

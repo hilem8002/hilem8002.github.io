@@ -1,5 +1,4 @@
 //disable linting file
-/* eslint-disable */
 
 // Check if BigInt is not defined
 if (typeof window.BigInt === "undefined") {

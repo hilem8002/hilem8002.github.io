@@ -890,19 +890,20 @@ export default function LoginPage() {
   const CustomDot = ({ active, onClick }) => {
     return (
       <button
-      type="button"
-      style={{
-        background: "transparent",
-        padding: '15px 7px',
-        border: 'none',
-        cursor: 'pointer',
-        overflow: 'hidden',
-        outline: 'none',
-      }}
-      onClick={onClick}>
-        {active ? '🐳' : '🐋'}
+        type="button"
+        style={{
+          background: "transparent",
+          padding: "15px 7px",
+          border: "none",
+          cursor: "pointer",
+          overflow: "hidden",
+          outline: "none",
+        }}
+        onClick={onClick}
+      >
+        {active ? "🐳" : "🐋"}
       </button>
-    )
+    );
   };
 
   return (
@@ -1018,9 +1019,7 @@ export default function LoginPage() {
               src={hipaintImage}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
-            <center>
-            {t("loginPage.welcomeImage")}
-            </center>
+            <center>{t("loginPage.welcomeImage")}</center>
             <br />
             <br />
           </div>
@@ -1029,10 +1028,7 @@ export default function LoginPage() {
               src={decentralisedImage}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
-            <center>
-            {t("loginPage.decentralized")}
-
-            </center>
+            <center>{t("loginPage.decentralized")}</center>
             <br />
             <br />
           </div>
@@ -1048,9 +1044,7 @@ export default function LoginPage() {
               src={dataImportExportImage}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
-            <center>
-            {t("loginPage.dataImportExport")}
-            </center>
+            <center>{t("loginPage.dataImportExport")}</center>
             <br />
             <br />
           </div>
@@ -1059,9 +1053,7 @@ export default function LoginPage() {
               src={noRegistration}
               style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
             />
-            <center>
-            {t("loginPage.noInstall")}
-            </center>
+            <center>{t("loginPage.noInstall")}</center>
             <br />
             <br />
           </div>

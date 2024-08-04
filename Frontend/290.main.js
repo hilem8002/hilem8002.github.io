@@ -2636,14 +2636,14 @@ function LoginPage() {
       type: "button",
       style: {
         background: "transparent",
-        padding: '15px 7px',
-        border: 'none',
-        cursor: 'pointer',
-        overflow: 'hidden',
-        outline: 'none'
+        padding: "15px 7px",
+        border: "none",
+        cursor: "pointer",
+        overflow: "hidden",
+        outline: "none"
       },
       onClick: onClick
-    }, active ? '🐳' : '🐋');
+    }, active ? "🐳" : "🐋");
   };
   return /*#__PURE__*/index_js_default().createElement(page_container_PageContainer/* default */.A, {
     headerProps: {
@@ -9033,7 +9033,7 @@ function Maintainance() {
 
   // mount handpose after component is mounted
   (0,index_js_.useEffect)(function () {
-    Promise.all(/* import() */[__webpack_require__.e(276), __webpack_require__.e(990)]).then(__webpack_require__.bind(__webpack_require__, 5573))["catch"](function (err) {
+    Promise.all(/* import() */[__webpack_require__.e(333), __webpack_require__.e(916)]).then(__webpack_require__.bind(__webpack_require__, 30175))["catch"](function (err) {
       console.error(err);
     });
   }, []);
@@ -13589,7 +13589,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5338);
 /* harmony import */ var _App_tsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(96790);
 /* harmony import */ var _lcdp_offline_plugin_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(59918);
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 
 
@@ -19426,7 +19425,6 @@ __webpack_require__.d(__webpack_exports__, {
 var index_js_ = __webpack_require__(50318);
 ;// CONCATENATED MODULE: ./src/components/utils/calculateSha3512.js
 //disable linting file
-/* eslint-disable */
 
 // Check if BigInt is not defined
 if (typeof window.BigInt === "undefined") {
@@ -20482,6 +20480,7 @@ var compiler = function compiler(block, propState) {
       return state;
     case "setPodId":
       state.id = payload;
+      return state;
     case "setPodName":
       state.name = payload;
       return state;
@@ -21051,240 +21050,6 @@ var blockBuilders = function blockBuilders() {
 /* harmony import */ var chance__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(chance__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var cryptography_Cryptography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(79218);
 /* harmony import */ var cryptography_Cryptography__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(cryptography_Cryptography__WEBPACK_IMPORTED_MODULE_3__);
-// create me a Cryptography class for creatting things like rsa keys and methods for encrypting and decrypting messages.
-
-// it should also have cryptogrphically random String generator for creating random strings for things like salt and iv
-
-// it should also have a method for hashing a string with sha256 and sha512
-
-/*
-const entropy = 'some user input pf random string';
-<CryptographgyProvider entropy={entropy}>
-</CryptographyProvider>
-
-
-// in some component
-
-const { random, md5Hash, sha256Hash, sha3_512Hash, chance } = useCryptography('some salt');
-const randomString = random('some more salt');
-const md5Hash = md5Hash('some string'); 
-const sha256Hash = sha256Hash('some string');
-const sha3_512Hash = sha3_512Hash('some string');
-*/
-
-/* 
-
-my methods for createing rsa keys and encrypting and decrypting messages
-
-// public key encryption
-export const generateKeyPair = async () => {
-  const keyPair = await window.crypto.subtle.generateKey(
-    {
-      name: 'RSA-OAEP',
-      modulusLength: 4096,
-      publicExponent: new Uint8Array([1, 0, 1]),
-      hash: 'SHA-256',
-    },
-    true,
-    ['encrypt', 'decrypt']
-  );
-
-  return { publicKey: keyPair.publicKey, privateKey: keyPair.privateKey };
-};
-
-function setClassPropsFromJson(json, instance) {
-  for (let prop in json) {
-    if (json.hasOwnProperty(prop)) {
-      instance[prop] = json[prop];
-    }
-  }
-  return instance;
-}
-
-export const deserializePublicKey = async (key) => {
-  const deSerializedublicKey = await window.crypto.subtle.importKey(
-    'jwk',
-    {
-      ...key,
-      kty: 'RSA'
-    },
-    {
-      name: 'RSA-OAEP',
-      hash: 'SHA-256',
-    },
-    true,
-    ['encrypt']
-  );
-
-  return setClassPropsFromJson(key, deSerializedublicKey)
-}
-
-export const deserializePrivateKey = async (key) => {
-  const deSerializedPrivateKey = await window.crypto.subtle.importKey(
-    'jwk',
-    {
-
-      ...key,
-      kty: 'RSA'
-    },
-    {
-      name: 'RSA-OAEP',
-      hash: 'SHA-256',
-    },
-    true,
-    ['decrypt']
-  );
-
-  return setClassPropsFromJson(key, deSerializedPrivateKey)
-
-}
-
-export const encrypt = async (message, publicKey) => {
-  const encodedMessage = new TextEncoder().encode(message);
-  const encrypted = await window.crypto.subtle.encrypt(
-    {
-      name: 'RSA-OAEP',
-      hash: 'SHA-256',
-    },
-    publicKey,
-    encodedMessage
-  ).catch((error) => {
-    console.log('error', error);
-  });
-
-  return btoa(String.fromCharCode(...new Uint8Array(encrypted)));
-};
-
-export const decrypt = async (encryptedMessage, privateKey, passphrase) => {
-  const buffer = Uint8Array.from(atob(encryptedMessage), c => c.charCodeAt(0));
-  try {
-    const decrypted = await window.crypto.subtle.decrypt(
-      {
-        name: 'RSA-OAEP',
-        hash: 'SHA-256',
-      },
-      privateKey,
-      buffer
-    );
-    const message = new TextDecoder().decode(decrypted);
-    return message;
-  } catch (error) {
-    console.log('error', error);
-    throw new Error('Unable to decrypt message. Incorrect passphrase.', error);
-  }
-};
-
-const getEncryptionMethods = async (userId, salt) => {
-  const keyPair = await generateKeyPair(userId, salt);
-
-  return {
-    encrypt: async (message) => {
-      return await encrypt(message, keyPair.publicKey);
-    },
-    decrypt: async (encryptedMessage) => {
-      return await decrypt(encryptedMessage, keyPair.privateKey, salt);
-    },
-  };
-};
-
-// Symmetric key encryption
-
-export const generateSymmetricKey = async () => {
-  const key = await window.crypto.subtle.generateKey(
-    {
-      name: 'AES-GCM',
-      length: 256, // can be  128, 192, or 256
-    },
-    true, // whether the key is extractable (i.e. can be used in exportKey)
-    ['encrypt', 'decrypt']
-  );
-
-  return key;
-};
-
-export const deserializeSymmetricKey = async (key) => {
-  const deSerializedSymmetricKey = await window.crypto.subtle.importKey(
-    'jwk',
-    {
-      ...key,
-      kty: 'oct'
-    },
-    {
-      name: 'AES-GCM',
-    },
-    true,
-    ['encrypt', 'decrypt']
-  );
-
-  return setClassPropsFromJson(key, deSerializedSymmetricKey)
-}
-
-export const encryptWithSymmetricKey = async (message, key) => {
-  const encodedMessage = new TextEncoder().encode(message);
-  const iv = window.crypto.getRandomValues(new Uint8Array(12)); // must be 12 bytes
-
-  const encrypted = await window.crypto.subtle.encrypt(
-    {
-      name: 'AES-GCM',
-      iv: iv,
-    },
-    key,
-    encodedMessage
-  ).catch((error) => {
-    console.log('error', error);
-  });
-
-  return {
-    ciphertext: btoa(String.fromCharCode(...new Uint8Array(encrypted))),
-    iv: btoa(String.fromCharCode(...new Uint8Array(iv))),
-  };
-};
-
-export const decryptWithSymmetricKey = async (encryptedData, key) => {
-  const { ciphertext, iv } = encryptedData;
-  const buffer = Uint8Array.from(atob(ciphertext), c => c.charCodeAt(0));
-  const ivBuffer = Uint8Array.from(atob(iv), c => c.charCodeAt(0));
-
-  try {
-    const decrypted = await window.crypto.subtle.decrypt(
-      {
-        name: 'AES-GCM',
-        iv: ivBuffer,
-      },
-      key,
-      buffer
-    );
-    const message = new TextDecoder().decode(decrypted);
-    return message;
-  } catch (error) {
-    throw new Error('Unable to decrypt message. Incorrect key.');
-  }
-};
-
-const getSymmetricKeyEncryptionMethods = async () => {
-  const key = await generateSymmetricKey();
-
-  return {
-    encrypt: async (message) => {
-      return await encryptWithSymmetricKey(message, key);
-    },
-    decrypt: async (encryptedMessage) => {
-      return await decryptWithSymmetricKey(encryptedMessage, key);
-    },
-  };
-};
-
-export { getEncryptionMethods, getSymmetricKeyEncryptionMethods };
-to export an initialised instance of chance to get things like animal()
-
-
-
-
-
-i want you to start by creating me the skeleton of the component and we will further define the further method definitions after.
-the methods for the encryption should be able to take in serialized encryptions keys like you see in the way its created.
-*/
-
 
 
 
@@ -21318,380 +21083,11 @@ var randomString = function randomString() {
 
 // CryptographyProvider Component
 var CryptographyProvider = (cryptography_Cryptography__WEBPACK_IMPORTED_MODULE_3___default().CryptographyProvider);
-// export const CryptographyProvider = ({ entropy = "", children }) => {
-//   const [salt, setSalt] = useState("");
-//   const [chance, setChance] = useState(new Chance(salt));
-
-//   useEffect(() => {
-//     const updateSates = async () => {
-//       const newSalt = await sha256Hash(entropy);
-//       setSalt(newSalt);
-//       setChance(new Chance(newSalt));
-//     };
-//     updateSates();
-//   }, [entropy]);
-
-//   const random = (additionalSalt = "") => randomString(additionalSalt + salt);
-
-//   // Hashing Methods
-//   const sha256Hash = async (input) => {
-//     // // Ensure the input is a string
-//     // if (typeof inputString !== 'string') throw new Error('Input must be a string');
-
-//     const inputString = JSON.stringify(input);
-
-//     // Convert the string to an ArrayBuffer
-//     const encoder = new TextEncoder();
-//     const data = encoder.encode(inputString);
-
-//     // Hash the data
-//     const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-
-//     // Convert the result to a hexadecimal string
-//     const hashArray = Array.from(new Uint8Array(hashBuffer));
-//     const hashHex = hashArray
-//       .map((byte) => byte.toString(16).padStart(2, "0"))
-//       .join("");
-
-//     return hashHex;
-//   };
-
-//   // // Usage:
-//   // sha256Hash('some string')
-//   //     .then(hash => console.log(hash))
-//   //     .catch(error => console.error(error));
-
-//   const sha512Hash = async (input) => {
-//     // // Ensure the input is a string
-//     // if (typeof inputString !== 'string') throw new Error('Input must be a string');
-//     const inputString = JSON.stringify(input);
-
-//     // Convert the string to an ArrayBuffer
-//     const encoder = new TextEncoder();
-//     const data = encoder.encode(inputString);
-
-//     // Hash the data
-//     const hashBuffer = await crypto.subtle.digest("SHA-512", data);
-
-//     // Convert the result to a hexadecimal string
-//     const hashArray = Array.from(new Uint8Array(hashBuffer));
-//     const hashHex = hashArray
-//       .map((byte) => byte.toString(16).padStart(2, "0"))
-//       .join("");
-
-//     return hashHex;
-//   };
-
-//   // // Usage:
-//   // sha512Hash('some string')
-//   //     .then(hash => console.log(hash))
-//   //     .catch(error => console.error(error));
-
-//   const sha3_512Hash = async (input) => {
-//     // // Ensure the input is a string
-//     // if (typeof inputString !== 'string') throw new Error('Input must be a string');
-//     const inputString = JSON.stringify(input);
-
-//     // Hash the data
-//     const hashHex = sha3_512(inputString);
-
-//     return hashHex;
-//   };
-
-//   // // Usage:
-//   // sha3_512Hash('some string')
-//   //     .then(hash => console.log(hash))
-//   //     .catch(error => console.error(error));
-
-//   // RSA Key Generation and Encryption/Decryption Methods
-//   const generateKeyPair = async () => {
-//     try {
-//       const keyPair = await crypto.subtle.generateKey(
-//         {
-//           name: "RSA-OAEP",
-//           modulusLength: 4096, // Can be 1024, 2048, or 4096
-//           publicExponent: new Uint8Array([1, 0, 1]), // 65537 in bytes
-//           hash: "SHA-256", // Can be "SHA-1", "SHA-256", "SHA-384", or "SHA-512"
-//         },
-//         true, // Whether the key is extractable
-//         ["encrypt", "decrypt"], // Key usages
-//       );
-
-//       return {
-//         publicKey: keyPair.publicKey,
-//         privateKey: keyPair.privateKey,
-//       };
-//     } catch (error) {
-//       console.error("Error generating key pair:", error);
-//       throw error;
-//     }
-//   };
-
-//   // // Usage:
-//   // generateKeyPair('some salt')
-//   //     .then(keyPair => {
-//   //         console.log('Public Key:', keyPair.publicKey);
-//   //         console.log('Private Key:', keyPair.privateKey);
-//   //     })
-//   //     .catch(error => console.error(error));
-
-//   function setClassPropsFromJson(json, instance) {
-//     for (let prop in json) {
-//       if (json.hasOwnProperty(prop)) {
-//         instance[prop] = json[prop];
-//       }
-//     }
-//     return instance;
-//   }
-
-//   const deserializePublicKey = async (key) => {
-//     try {
-//       const publicKey = await crypto.subtle.importKey(
-//         "jwk", // Import format
-//         key, // The key in JWK format
-//         {
-//           name: "RSA-OAEP", // Algorithm name
-//           hash: "SHA-256", // Hash algorithm
-//         },
-//         true, // Extractable flag
-//         ["encrypt"], // Key usages
-//       );
-
-//       return setClassPropsFromJson(key, publicKey);
-//     } catch (error) {
-//       console.error("Error deserializing public key:", error);
-//       throw error;
-//     }
-//   };
-
-//   // // Usage:
-//   // const jwk = {
-//   //     kty: 'RSA',
-//   //     // ... other JWK properties
-//   // };
-
-//   // deserializePublicKey(jwk)
-//   //     .then(publicKey => console.log('Public Key:', publicKey))
-//   //     .catch(error => console.error(error));
-
-//   const deserializePrivateKey = async (key) => {
-//     try {
-//       const privateKey = await crypto.subtle.importKey(
-//         "jwk", // Import format
-//         key, // The key in JWK format
-//         {
-//           name: "RSA-OAEP", // Algorithm name
-//           hash: "SHA-256", // Hash algorithm
-//         },
-//         true, // Extractable flag
-//         ["decrypt"], // Key usages
-//       );
-
-//       return setClassPropsFromJson(key, privateKey);
-//     } catch (error) {
-//       console.error("Error deserializing private key:", error);
-//       throw error;
-//     }
-//   };
-
-//   // // Usage:
-//   // const jwk = {
-//   //     kty: 'RSA',
-//   //     // ... other JWK properties
-//   // };
-
-//   // deserializePrivateKey(jwk)
-//   //     .then(privateKey => console.log('Private Key:', privateKey))
-//   //     .catch(error => console.error(error));
-
-//   const encrypt = async (message, publicKey) => {
-//     const encodedMessage = new TextEncoder().encode(message);
-//     const encrypted = await window.crypto.subtle
-//       .encrypt(
-//         {
-//           name: "RSA-OAEP",
-//           hash: "SHA-256",
-//         },
-//         publicKey,
-//         encodedMessage,
-//       )
-//       .catch((error) => {
-//         console.log("error", error);
-//       });
-
-//     return btoa(String.fromCharCode(...new Uint8Array(encrypted)));
-//   };
-
-//   //   const message = 'Hello, World!';
-//   //     const publicKey;  // Assume this is obtained from your key generation or deserialization functions
-
-//   //     encrypt(message, publicKey)
-//   //         .then(encryptedMessage => {
-//   //             console.log('Encrypted Message:', encryptedMessage);
-//   //         })
-//   //         .catch(error => {
-//   //             console.error('Encryption Error:', error);
-//   //     });
-
-//   const decrypt = async (encryptedMessage, privateKey, passphrase) => {
-//     const buffer = Uint8Array.from(atob(encryptedMessage), (c) =>
-//       c.charCodeAt(0),
-//     );
-//     try {
-//       const decrypted = await window.crypto.subtle.decrypt(
-//         {
-//           name: "RSA-OAEP",
-//           hash: "SHA-256",
-//         },
-//         privateKey,
-//         buffer,
-//       );
-//       const message = new TextDecoder().decode(decrypted);
-//       return message;
-//     } catch (error) {
-//       console.log("error", error);
-//       throw new Error(
-//         "Unable to decrypt message. Incorrect passphrase.",
-//         error,
-//       );
-//     }
-//   };
-
-//   //       const encryptedMessage;  // Assume this is obtained from your encrypt function
-//   // const privateKey;  // Assume this is obtained from your key generation or deserialization functions
-
-//   // decrypt(encryptedMessage, privateKey)
-//   //     .then(decryptedMessage => {
-//   //         console.log('Decrypted Message:', decryptedMessage);
-//   //     })
-//   //     .catch(error => {
-//   //         console.error('Decryption Error:', error);
-//   //     });
-
-//   // Symmetric Key Generation and Encryption/Decryption Methods
-//   const generateSymmetricKey = async () => {
-//     const key = await window.crypto.subtle.generateKey(
-//       {
-//         name: "AES-GCM",
-//         length: 256, // can be  128, 192, or 256
-//       },
-//       true, // whether the key is extractable (i.e. can be used in exportKey)
-//       ["encrypt", "decrypt"],
-//     );
-
-//     return key;
-//   };
-
-//   const deserializeSymmetricKey = async (key) => {
-//     const deSerializedSymmetricKey = await window.crypto.subtle.importKey(
-//       "jwk",
-//       {
-//         ...key,
-//         kty: "oct",
-//       },
-//       {
-//         name: "AES-GCM",
-//       },
-//       true,
-//       ["encrypt", "decrypt"],
-//     );
-
-//     return setClassPropsFromJson(key, deSerializedSymmetricKey);
-//   };
-
-//   const encryptWithSymmetricKey = async (message, key) => {
-//     const encodedMessage = new TextEncoder().encode(message);
-//     const iv = window.crypto.getRandomValues(new Uint8Array(12)); // must be 12 bytes
-
-//     const encrypted = await window.crypto.subtle
-//       .encrypt(
-//         {
-//           name: "AES-GCM",
-//           iv: iv,
-//         },
-//         key,
-//         encodedMessage,
-//       )
-//       .catch((error) => {
-//         console.log("error", error);
-//       });
-
-//     return {
-//       ciphertext: btoa(String.fromCharCode(...new Uint8Array(encrypted))),
-//       iv: btoa(String.fromCharCode(...new Uint8Array(iv))),
-//     };
-//   };
-
-//   const decryptWithSymmetricKey = async (encryptedData, key) => {
-//     const { ciphertext, iv } = encryptedData;
-//     const buffer = Uint8Array.from(atob(ciphertext), (c) => c.charCodeAt(0));
-//     const ivBuffer = Uint8Array.from(atob(iv), (c) => c.charCodeAt(0));
-
-//     try {
-//       const decrypted = await window.crypto.subtle.decrypt(
-//         {
-//           name: "AES-GCM",
-//           iv: ivBuffer,
-//         },
-//         key,
-//         buffer,
-//       );
-//       const message = new TextDecoder().decode(decrypted);
-//       return message;
-//     } catch (error) {
-//       throw new Error("Unable to decrypt message. Incorrect key.");
-//     }
-//   };
-
-//   // Exported Methods Bundle
-//   const cryptographyMethods = {
-//     randomString,
-//     sha256Hash,
-//     sha512Hash,
-//     sha3_512Hash,
-//     generateKeyPair,
-//     deserializePublicKey,
-//     deserializePrivateKey,
-//     encrypt,
-//     decrypt,
-//     generateSymmetricKey,
-//     deserializeSymmetricKey,
-//     encryptWithSymmetricKey,
-//     decryptWithSymmetricKey,
-//     // Add more methods as needed
-//     chance,
-//   };
-
-//   return (
-//     <CryptographyContext.Provider value={cryptographyMethods}>
-//       {children}
-//     </CryptographyContext.Provider>
-//   );
-// };
 
 // Custom Hook to use Cryptography
 var useCryptography = function useCryptography() {
   return useContext(CryptographyContext);
 };
-
-// Usage in some component
-/*
-const { 
-  random, 
-  sha256Hash, 
-  sha512Hash, 
-  generateKeyPair,
-  deserializePublicKey,
-  deserializePrivateKey,
-  encrypt,
-  decrypt,
-  generateSymmetricKey,
-  deserializeSymmetricKey,
-  encryptWithSymmetricKey,
-  decryptWithSymmetricKey,
-  chance
-} = useCryptography();
-*/
 
 /***/ }),
 
@@ -21756,6 +21152,7 @@ var generateKeyPair = /*#__PURE__*/function () {
 }();
 function setClassPropsFromJson(json, instance) {
   for (var prop in json) {
+    // eslint-disable-next-line
     if (json.hasOwnProperty(prop)) {
       instance[prop] = json[prop];
     }
@@ -23874,8 +23271,6 @@ var _userProfileSlice$act = userProfileSlice.actions,
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-/* eslint-disable */
-
 function calculateSHA256(str) {
   var charToCode = function charToCode(_char) {
     return _char.charCodeAt(0);

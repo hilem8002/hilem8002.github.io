@@ -16,6 +16,7 @@ export const generateKeyPair = async () => {
 
 function setClassPropsFromJson(json, instance) {
   for (let prop in json) {
+    // eslint-disable-next-line
     if (json.hasOwnProperty(prop)) {
       instance[prop] = json[prop];
     }

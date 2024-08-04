@@ -1188,8 +1188,8 @@ export default function Pod() {
   });
   const pageTitle =
     podBlockchain?.users?.length > 2
-      ? podBlockchain?.name ?? "Pod"
-      : contactDetails?.displayName ?? "Contact";
+      ? (podBlockchain?.name ?? "Pod")
+      : (contactDetails?.displayName ?? "Contact");
 
   const isOnline = (podBlockchain.users ?? [])
     .filter((c) => c !== storedConnectionId)

@@ -35,6 +35,7 @@ export const compiler = (block, propState) => {
       return state;
     case "setPodId":
       state.id = payload;
+      return state;
     case "setPodName":
       state.name = payload;
       return state;

@@ -4,7 +4,6 @@ import { ChatWorkerHandler, ChatModule } from "@mlc-ai/web-llm";
 const chat = new ChatModule();
 const handler = new ChatWorkerHandler(chat);
 
-// eslint-disable-next-line no-restricted-globals
 self.onmessage = (msg) => {
   handler.onmessage(msg);
 };
