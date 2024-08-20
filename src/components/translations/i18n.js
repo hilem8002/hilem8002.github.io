@@ -156,6 +156,13 @@ i18n
             connectionId: "Connection ID",
             registerNewDevice: "Register New Device",
             blockContact: "Block Contact",
+            keys: "Keys",
+            shareToValidatePublicKey: "Share to validate public key",
+            regenerateKeys: "Regenerate keys",
+            myPublicKeyHash: "My public key hash",
+            peerPublicKeyHash: "Peer public key hash",
+            downloadForPeer: "Download for peer",
+            uploadFromPeer: "Upload file from peer",
           },
           podPage: {
             podDetails: "Pod Details",

@@ -165,7 +165,7 @@ export default function Profile() {
   const { t } = useTranslation();
   const { contactId } = useParams();
   const userProfileBlockchain = useSelector(
-    (state) => state.userProfile.blockchain,
+    (state) => state.userProfile.blockchain
   );
   const addToBlockchainDispatch = (update) => dispatch(addToBlockchain(update));
   const { compiledBlockchain: userProfile, addBlocks: addBlocksToProfile } =
@@ -178,7 +178,7 @@ export default function Profile() {
   // const userProfileId = useSelector((state) => state.userProfile.connectionId);
   const contacts = useSelector((state) => state.contacts);
   const contact = contacts.find(
-    (contact) => contact.connectionId === contactId,
+    (contact) => contact.connectionId === contactId
   );
   const { connectToPeer, sendMessage, activeConnections } = usePeer([
     contactId,
@@ -189,7 +189,7 @@ export default function Profile() {
     dispatch(removeContact({ id: contactId }));
   const updateContactDisplayNameDispatch = (newDisplayName) =>
     dispatch(
-      updateContactDisplayName({ id: contactId, displayName: newDisplayName }),
+      updateContactDisplayName({ id: contactId, displayName: newDisplayName })
     );
   const createNewPodDispatch = (newPod) => dispatch(createNewPod(newPod));
   const removeUserFromConversationFromAllPodsDispatch = (userId) =>
@@ -211,7 +211,7 @@ export default function Profile() {
         compiledBlockchain?.users?.length === 2 &&
         compiledBlockchain.users.includes(contactId)
       );
-    }),
+    })
   );
 
   const storedPods = useSelector((state) => state.pods);
@@ -234,7 +234,7 @@ export default function Profile() {
         const compiledBlockchain = podBlockchain.compile();
 
         return compiledBlockchain.users.includes(contactId);
-      }),
+      })
   );
 
   const handleAddPeerToGroup = (contact, pod) => {
@@ -272,9 +272,15 @@ export default function Profile() {
 
   const numberOfPod = useSelector((state) => state.pods.length);
 
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState([]);
   const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+    if (isExpanded) {
+      setExpanded((prevExpanded) => [...prevExpanded, panel]);
+    } else {
+      setExpanded((prevExpanded) =>
+        prevExpanded.filter((item) => item !== panel)
+      );
+    }
   };
 
   const handleConnectToPeer = () => {
@@ -345,7 +351,7 @@ export default function Profile() {
           console.log({ canCreateClone });
           if (!anyPodWithPeer) createNewPodDispatch(newPod);
           return navigate(`/pod/${newPod.id}`);
-        },
+        }
       );
     }
   };
@@ -509,7 +515,7 @@ export default function Profile() {
             {!podWithPeer && (
               <Accordion
                 ref={ref2}
-                expanded={expanded === "panel4"}
+                expanded={expanded.includes("panel4")}
                 onChange={handleChange("panel4")}
               >
                 <AccordionSummary
@@ -573,7 +579,7 @@ export default function Profile() {
 
             <Accordion
               ref={ref3}
-              expanded={expanded === "advanced"}
+              expanded={expanded.includes("advanced")}
               onChange={handleChange("advanced")}
             >
               <AccordionSummary
@@ -640,6 +646,152 @@ export default function Profile() {
                     {t("contactDetailsPage.blockContact")}
                   </Button>
                 )}
+                <Accordion
+                  expanded={expanded.includes("keys")}
+                  onChange={handleChange("keys")}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel4bh-content"
+                    id="panel4bh-header"
+                  >
+                    <Typography sx={{ flexShrink: 0 }}>
+                      {t("contactDetailsPage.keys")}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <TextField
+                      variant="outlined"
+                      margin="normal"
+                      fullWidth
+                      id="peerId"
+                      label={t("contactDetailsPage.shareToValidatePublicKey")}
+                      name="peerId"
+                      value={contact ? contact.id : ""}
+                      InputProps={{
+                        readOnly: true,
+                      }}
+                    />
+                    <Accordion
+                      expanded={expanded.includes("regenerateKeys")}
+                      // onChange={handleChange("regenerateKeys")}
+                    >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel4bh-content"
+                        id="panel4bh-header"
+                      >
+                        <Typography sx={{ flexShrink: 0 }}>
+                          {t("contactDetailsPage.regenerateKeys")}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <TextField
+                          variant="outlined"
+                          margin="normal"
+                          fullWidth
+                          id="peerId"
+                          label={t("contactDetailsPage.myPublicKeyHash")}
+                          name="peerId"
+                          value={contact ? contact.id : ""}
+                          InputProps={{
+                            readOnly: true,
+                          }}
+                        />
+                        <TextField
+                          variant="outlined"
+                          margin="normal"
+                          fullWidth
+                          id="peerId"
+                          label={t("contactDetailsPage.peerPublicKeyHash")}
+                          name="peerId"
+                          value={contact ? contact.id : ""}
+                          InputProps={{
+                            readOnly: true,
+                          }}
+                        />
+
+                        <Button
+                          type="button"
+                          className={classes.button}
+                          fullWidth
+                          variant="contained"
+                          color="primary"
+                          disabled={!chatName}
+                          onClick={() => {
+                            // removeContactDispatch(contact.id);
+                            // createNewPodDispatch();
+                            // navigate(-2);
+                            handleCreateNewPod();
+                          }}
+                        >
+                          {t("contactDetailsPage.regenerateKeys")}
+                        </Button>
+
+                        <Button
+                          type="button"
+                          className={classes.button}
+                          fullWidth
+                          variant="contained"
+                          color="primary"
+                          disabled={!chatName}
+                          onClick={() => {
+                            // removeContactDispatch(contact.id);
+                            // createNewPodDispatch();
+                            // navigate(-2);
+                            handleCreateNewPod();
+                          }}
+                        >
+                          {t("contactDetailsPage.downloadForPeer")}
+                        </Button>
+                        <Button
+                          type="button"
+                          className={classes.button}
+                          fullWidth
+                          variant="contained"
+                          color="primary"
+                          disabled={!chatName}
+                          onClick={() => {
+                            // removeContactDispatch(contact.id);
+                            // createNewPodDispatch();
+                            // navigate(-2);
+                            handleCreateNewPod();
+                          }}
+                        >
+                          {t("contactDetailsPage.uploadFromPeer")}
+                        </Button>
+                        <Accordion
+                          expanded={expanded.includes("shareQrKeys")}
+                          onChange={handleChange("shareQrKeys")}
+                        >
+                          <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel4bh-content"
+                            id="panel4bh-header"
+                          >
+                            <Typography sx={{ flexShrink: 0 }}>
+                              {t("contactDetailsPage.shareQrKeys")}
+                            </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <TextField
+                              variant="outlined"
+                              margin="normal"
+                              fullWidth
+                              id="peerId"
+                              label={t("contactDetailsPage.myPublicKeyHash")}
+                              name="peerId"
+                              value={contact ? contact.id : ""}
+                              InputProps={{
+                                readOnly: true,
+                              }}
+                            />
+                          </AccordionDetails>
+                        </Accordion>
+                      </AccordionDetails>
+                    </Accordion>
+                  </AccordionDetails>
+                </Accordion>
               </AccordionDetails>
             </Accordion>
           </>
