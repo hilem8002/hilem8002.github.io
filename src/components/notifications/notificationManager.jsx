@@ -98,14 +98,6 @@ export const useNotification = () => {
 
   return (message, ...props) => {
     // Check if the browser supports notifications
-    console.log({
-      storedInAppNotification,
-      storedBrowserNotification,
-      Notification: window.Notification,
-      hidden: document.hidden,
-      message,
-      props,
-    });
 
     // return if the window has focus so no notification are
     // displayed while the app is open in focus
@@ -113,52 +105,53 @@ export const useNotification = () => {
     //   return;
     // }
 
-    try {
-      if (
-        (storedBrowserNotification && !("Notification" in window)) ||
-        typeof window.Notification === "undefined"
-      ) {
-        alert("This browser does not support desktop notification");
-      }
+    // try {
+    //   if (
+    //     (storedBrowserNotification && !("Notification" in window)) ||
+    //     typeof window.Notification === "undefined"
+    //   ) {
+    //     alert("This browser does not support desktop notification");
+    //   }
 
-      // Check if permission is already granted
-      else if (window.Notification?.permission === "granted") {
-        if (document.hidden) {
-          // If it's okay, let's create a notification
-          if (storedBrowserNotification) {
-            let notification = new window.Notification(message);
-          }
-        }
-      }
+    //   // Check if permission is already granted
+    //   else if (window.Notification?.permission === "granted") {
+    //     if (document.hidden) {
+    //       // If it's okay, let's create a notification
+    //       if (storedBrowserNotification) {
+    //         let notification = new window.Notification(message);
+    //       }
+    //     }
+    //   }
 
-      // Check if permission is already granted
-      else if (window.Notification?.permission === "denied") {
-        // If it's okay, let's create a notification
-        if (storedInAppNotification) {
-          enqueueSnackbar(message, ...props);
-        }
-      }
+    //   // Check if permission is already granted
+    //   else if (window.Notification?.permission === "denied") {
+    //     // If it's okay, let's create a notification
+    //     if (storedInAppNotification) {
+    //       enqueueSnackbar(message, ...props);
+    //     }
+    //   }
 
-      // Otherwise, we need to ask the user for permission
-      else if (
-        storedBrowserNotification &&
-        (window.Notification?.permission !== "denied" ||
-          window.Notification?.permission === "default")
-      ) {
-        window.Notification?.requestPermission(function (permission) {
-          // If the user accepts, let's create a notification
-          if (permission === "granted") {
-            let notification = new window.Notification(message);
-          }
-        });
-      }
+    //   // Otherwise, we need to ask the user for permission
+    //   else if (
+    //     storedBrowserNotification &&
+    //     (window.Notification?.permission !== "denied" ||
+    //       window.Notification?.permission === "default")
+    //   ) {
+    //     window.Notification?.requestPermission(function (permission) {
+    //       // If the user accepts, let's create a notification
+    //       if (permission === "granted") {
+    //         let notification = new window.Notification(message);
+    //       }
+    //     });
+    //   }
 
-      if (storedInAppNotification || props[0].insist) {
-        enqueueSnackbar(message, ...props);
-      }
-    } catch (e) {
-      console.log(e);
-    }
+    //   if (storedInAppNotification || props[0].insist) {
+    //     enqueueSnackbar(message, ...props);
+    //   }
+    // } catch (e) {
+    //   console.log(e);
+    // }
+    enqueueSnackbar(message, ...props);
   };
 };
 
