@@ -6486,6 +6486,8 @@ function ContactsListPage(_ref) {
     }
   }));
 }
+// EXTERNAL MODULE: ./node_modules/@mui/material/Alert/Alert.js + 6 modules
+var Alert = __webpack_require__(89502);
 ;// CONCATENATED MODULE: ./src/components/pages/contactDetails/ContactDetails.jsx
 function ContactDetails_typeof(o) { "@babel/helpers - typeof"; return ContactDetails_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, ContactDetails_typeof(o); }
 function ContactDetails_toConsumableArray(arr) { return ContactDetails_arrayWithoutHoles(arr) || ContactDetails_iterableToArray(arr) || ContactDetails_unsupportedIterableToArray(arr) || ContactDetails_nonIterableSpread(); }
@@ -6497,6 +6499,9 @@ function ContactDetails_objectSpread(e) { for (var r = 1; r < arguments.length; 
 function ContactDetails_defineProperty(obj, key, value) { key = ContactDetails_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function ContactDetails_toPropertyKey(t) { var i = ContactDetails_toPrimitive(t, "string"); return "symbol" == ContactDetails_typeof(i) ? i : i + ""; }
 function ContactDetails_toPrimitive(t, r) { if ("object" != ContactDetails_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != ContactDetails_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function ContactDetails_regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ ContactDetails_regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == ContactDetails_typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(ContactDetails_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function ContactDetails_asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function ContactDetails_asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { ContactDetails_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { ContactDetails_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 function ContactDetails_slicedToArray(arr, i) { return ContactDetails_arrayWithHoles(arr) || ContactDetails_iterableToArrayLimit(arr, i) || ContactDetails_unsupportedIterableToArray(arr, i) || ContactDetails_nonIterableRest(); }
 function ContactDetails_nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function ContactDetails_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return ContactDetails_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return ContactDetails_arrayLikeToArray(o, minLen); }
@@ -6626,6 +6631,7 @@ function ContactDetails_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr
 
 
 
+
 var ContactDetails_useStyles = (0,makeStyles/* default */.A)(function (theme) {
   return {
     root: {
@@ -6655,7 +6661,8 @@ var ContactDetails_useStyles = (0,makeStyles/* default */.A)(function (theme) {
 });
 function ContactDetails_Profile() {
   var _useCryptography = (0,Cryptography.useCryptography)(),
-    chance = _useCryptography.chance;
+    chance = _useCryptography.chance,
+    sha256Hash = _useCryptography.sha256Hash;
   var classes = ContactDetails_useStyles();
   var _useTranslation = (0,es/* useTranslation */.Bd)(),
     t = _useTranslation.t;
@@ -6686,6 +6693,57 @@ function ContactDetails_Profile() {
     connectToPeer = _usePeer.connectToPeer,
     sendMessage = _usePeer.sendMessage,
     activeConnections = _usePeer.activeConnections;
+  var enyptionKeys = (0,react_redux/* useSelector */.d4)(function (state) {
+    return state.encryption[contactId];
+  });
+  // const myPublicKeyHash = sha256Hash(JSON.stringify(enyptionKeys.publicKey));
+  // const peerPublicKeyHash = sha256Hash(
+  //   JSON.stringify(enyptionKeys.remotePublicKey)
+  // );
+
+  var _useState = (0,index_js_.useState)(""),
+    _useState2 = ContactDetails_slicedToArray(_useState, 2),
+    myPublicKeyHash = _useState2[0],
+    setMyPublicKeyHash = _useState2[1];
+  var _useState3 = (0,index_js_.useState)(""),
+    _useState4 = ContactDetails_slicedToArray(_useState3, 2),
+    peerPublicKeyHash = _useState4[0],
+    setPeerPublicKeyHash = _useState4[1];
+  var _useState5 = (0,index_js_.useState)(""),
+    _useState6 = ContactDetails_slicedToArray(_useState5, 2),
+    inputPeerPublicKeyHash = _useState6[0],
+    setInputPeerPublicKeyHash = _useState6[1];
+  (0,index_js_.useEffect)(function () {
+    var getPublicKeyHash = /*#__PURE__*/function () {
+      var _ref = ContactDetails_asyncToGenerator( /*#__PURE__*/ContactDetails_regeneratorRuntime().mark(function _callee() {
+        var publicKeyHash, peerPublicKeyHash;
+        return ContactDetails_regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return sha256Hash(JSON.stringify(enyptionKeys === null || enyptionKeys === void 0 ? void 0 : enyptionKeys.publicKey));
+            case 2:
+              publicKeyHash = _context.sent;
+              _context.next = 5;
+              return sha256Hash(JSON.stringify(enyptionKeys === null || enyptionKeys === void 0 ? void 0 : enyptionKeys.remotePublicKey));
+            case 5:
+              peerPublicKeyHash = _context.sent;
+              setMyPublicKeyHash(publicKeyHash);
+              setPeerPublicKeyHash(peerPublicKeyHash);
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }));
+      return function getPublicKeyHash() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+    if (enyptionKeys) {
+      getPublicKeyHash();
+    }
+  }, [enyptionKeys]);
   var dispatch = (0,react_redux/* useDispatch */.wA)();
   var navigate = (0,react_router_dist/* useNavigate */.Zp)();
   var removeContactDispatch = function removeContactDispatch(contactId) {
@@ -6707,12 +6765,12 @@ function ContactDetails_Profile() {
       userId: userId
     }));
   };
-  var _useState = (0,index_js_.useState)(chance.country({
+  var _useState7 = (0,index_js_.useState)(chance.country({
       full: true
     })),
-    _useState2 = ContactDetails_slicedToArray(_useState, 2),
-    chatName = _useState2[0],
-    setChatName = _useState2[1];
+    _useState8 = ContactDetails_slicedToArray(_useState7, 2),
+    chatName = _useState8[0],
+    setChatName = _useState8[1];
   var isOnline = activeConnections.includes(contact === null || contact === void 0 ? void 0 : contact.connectionId);
   var podWithPeer = (0,react_redux/* useSelector */.d4)(function (state) {
     return state.pods.find(function (pod) {
@@ -6751,10 +6809,6 @@ function ContactDetails_Profile() {
   });
   var handleAddPeerToGroup = function handleAddPeerToGroup(contact, pod) {
     var _storedPods$find$bloc, _storedPods$find;
-    console.log({
-      contact: contact,
-      pod: pod
-    });
     var addNewUserBlocks = (0,podChain/* blockBuilders */.e3)().addMember({
       userId: contact.connectionId
     });
@@ -6783,13 +6837,23 @@ function ContactDetails_Profile() {
   var numberOfPod = (0,react_redux/* useSelector */.d4)(function (state) {
     return state.pods.length;
   });
-  var _React$useState = index_js_default().useState(false),
+  var _React$useState = index_js_default().useState([]),
     _React$useState2 = ContactDetails_slicedToArray(_React$useState, 2),
     expanded = _React$useState2[0],
     setExpanded = _React$useState2[1];
   var handleChange = function handleChange(panel) {
     return function (event, isExpanded) {
-      setExpanded(isExpanded ? panel : false);
+      if (isExpanded) {
+        setExpanded(function (prevExpanded) {
+          return [].concat(ContactDetails_toConsumableArray(prevExpanded), [panel]);
+        });
+      } else {
+        setExpanded(function (prevExpanded) {
+          return prevExpanded.filter(function (item) {
+            return item !== panel;
+          });
+        });
+      }
     };
   };
   var handleConnectToPeer = function handleConnectToPeer() {
@@ -6823,9 +6887,6 @@ function ContactDetails_Profile() {
   var handleRegisterNewDevice = function handleRegisterNewDevice() {
     if (anyPodWithPeer) {
       compiledPods.forEach(function (pod) {
-        console.log({
-          pod: pod
-        });
         handleAddPeerToGroup(contact, pod);
       });
     } else {
@@ -6846,9 +6907,6 @@ function ContactDetails_Profile() {
       podBlockchain.addBlocks(newPodBlocks);
       var pendingUpdate = podBlockchain.getUpdate();
       var newPod = ContactDetails_objectSpread(ContactDetails_objectSpread({}, pendingUpdate), newPodDetails);
-      console.log({
-        compiledPods: compiledPods
-      });
 
       // compiledPods.forEach((pod) => {
       //     console.log({ pod })
@@ -6858,12 +6916,9 @@ function ContactDetails_Profile() {
       sendMessage({
         type: "addNewPod",
         payload: newPod
-      }).then(function (_ref) {
-        var canCreateClone = _ref.canCreateClone;
+      }).then(function (_ref2) {
+        var canCreateClone = _ref2.canCreateClone;
         if (!canCreateClone) return;
-        console.log({
-          canCreateClone: canCreateClone
-        });
         if (!anyPodWithPeer) createNewPodDispatch(newPod);
         return navigate("/pod/".concat(newPod.id));
       });
@@ -6882,10 +6937,10 @@ function ContactDetails_Profile() {
     e.preventDefault();
     updateContactDisplayNameDispatch(e.target.value);
   };
-  var _useState3 = (0,index_js_.useState)(null),
-    _useState4 = ContactDetails_slicedToArray(_useState3, 2),
-    activatedNumber = _useState4[0],
-    setActivateNumber = _useState4[1];
+  var _useState9 = (0,index_js_.useState)(null),
+    _useState10 = ContactDetails_slicedToArray(_useState9, 2),
+    activatedNumber = _useState10[0],
+    setActivateNumber = _useState10[1];
   var NextButton = /*#__PURE__*/index_js_default().createElement(Button/* default */.A, {
     variant: "contained",
     color: "primary",
@@ -6993,7 +7048,7 @@ function ContactDetails_Profile() {
     }]
   }), !podWithPeer && /*#__PURE__*/index_js_default().createElement(Accordion/* default */.A, {
     ref: ref2,
-    expanded: expanded === "panel4",
+    expanded: expanded.includes("panel4"),
     onChange: handleChange("panel4")
   }, /*#__PURE__*/index_js_default().createElement(AccordionSummary/* default */.A, {
     expandIcon: /*#__PURE__*/index_js_default().createElement(ExpandMore/* default */.A, null),
@@ -7045,7 +7100,7 @@ function ContactDetails_Profile() {
     }
   }, t("contactDetailsPage.createPod")))), /*#__PURE__*/index_js_default().createElement(Accordion/* default */.A, {
     ref: ref3,
-    expanded: expanded === "advanced",
+    expanded: expanded.includes("advanced"),
     onChange: handleChange("advanced")
   }, /*#__PURE__*/index_js_default().createElement(AccordionSummary/* default */.A, {
     expandIcon: /*#__PURE__*/index_js_default().createElement(ExpandMore/* default */.A, null),
@@ -7082,7 +7137,43 @@ function ContactDetails_Profile() {
     InputProps: {
       readOnly: true
     }
-  }),  false && /*#__PURE__*/0)))));
+  }),  false && /*#__PURE__*/0, /*#__PURE__*/index_js_default().createElement(Accordion/* default */.A, {
+    expanded: expanded.includes("keys"),
+    onChange: handleChange("keys")
+  }, /*#__PURE__*/index_js_default().createElement(AccordionSummary/* default */.A, {
+    expandIcon: /*#__PURE__*/index_js_default().createElement(ExpandMore/* default */.A, null),
+    "aria-controls": "panel4bh-content",
+    id: "panel4bh-header"
+  }, /*#__PURE__*/index_js_default().createElement(Typography_Typography/* default */.A, {
+    sx: {
+      flexShrink: 0
+    }
+  }, t("contactDetailsPage.keys"))), /*#__PURE__*/index_js_default().createElement(AccordionDetails/* default */.A, null, /*#__PURE__*/index_js_default().createElement(TextField/* default */.A, {
+    variant: "outlined",
+    margin: "normal",
+    fullWidth: true,
+    id: "myPublicKeyHash",
+    label: t("contactDetailsPage.shareToValidatePublicKey"),
+    name: "myPublicKeyHash",
+    value: myPublicKeyHash,
+    InputProps: {
+      readOnly: true
+    }
+  }), /*#__PURE__*/index_js_default().createElement(TextField/* default */.A, {
+    variant: "outlined",
+    margin: "normal",
+    fullWidth: true,
+    id: "peerPublicKeyHash",
+    label: t("contactDetailsPage.inputPeerPublicKeyHash"),
+    name: "peerPublicKeyHash",
+    value: inputPeerPublicKeyHash,
+    autoComplete: "off",
+    onChange: function onChange(e) {
+      return setInputPeerPublicKeyHash(e.target.value);
+    }
+  }), inputPeerPublicKeyHash && /*#__PURE__*/index_js_default().createElement(Alert/* default */.A, {
+    severity: inputPeerPublicKeyHash === peerPublicKeyHash ? "success" : "error"
+  }, inputPeerPublicKeyHash === peerPublicKeyHash ? t("contactDetailsPage.keysMatch") : t("contactDetailsPage.keysDontMatch")),  false && /*#__PURE__*/0)))))));
 }
 // EXTERNAL MODULE: ./node_modules/file-saver/dist/FileSaver.min.js
 var FileSaver_min = __webpack_require__(4213);
@@ -14550,7 +14641,17 @@ i18next/* default.use */.Ay.use(i18nextBrowserLanguageDetector/* default */.A).u
           peerId: "Peer ID",
           connectionId: "Connection ID",
           registerNewDevice: "Register New Device",
-          blockContact: "Block Contact"
+          blockContact: "Block Contact",
+          keys: "Validate Keys",
+          shareToValidatePublicKey: "Share public key hash to validate",
+          regenerateKeys: "Regenerate keys",
+          myPublicKeyHash: "My public key hash",
+          peerPublicKeyHash: "Peer public key hash",
+          downloadForPeer: "Download for peer",
+          uploadFromPeer: "Upload file from peer",
+          inputPeerPublicKeyHash: "Input peer's public key hash to validate",
+          keysMatch: "Keys match",
+          keysDontMatch: "Keys do not match!"
         },
         podPage: {
           podDetails: "Pod Details",
@@ -21638,14 +21739,6 @@ var useNotification = function useNotification() {
       props[_key - 1] = arguments[_key];
     }
     // Check if the browser supports notifications
-    console.log({
-      storedInAppNotification: storedInAppNotification,
-      storedBrowserNotification: storedBrowserNotification,
-      Notification: window.Notification,
-      hidden: document.hidden,
-      message: message,
-      props: props
-    });
 
     // return if the window has focus so no notification are
     // displayed while the app is open in focus
@@ -21653,46 +21746,53 @@ var useNotification = function useNotification() {
     //   return;
     // }
 
-    try {
-      var _window$Notification, _window$Notification2, _window$Notification3, _window$Notification4;
-      if (storedBrowserNotification && !("Notification" in window) || typeof window.Notification === "undefined") {
-        alert("This browser does not support desktop notification");
-      }
+    // try {
+    //   if (
+    //     (storedBrowserNotification && !("Notification" in window)) ||
+    //     typeof window.Notification === "undefined"
+    //   ) {
+    //     alert("This browser does not support desktop notification");
+    //   }
 
-      // Check if permission is already granted
-      else if (((_window$Notification = window.Notification) === null || _window$Notification === void 0 ? void 0 : _window$Notification.permission) === "granted") {
-        if (document.hidden) {
-          // If it's okay, let's create a notification
-          if (storedBrowserNotification) {
-            var notification = new window.Notification(message);
-          }
-        }
-      }
+    //   // Check if permission is already granted
+    //   else if (window.Notification?.permission === "granted") {
+    //     if (document.hidden) {
+    //       // If it's okay, let's create a notification
+    //       if (storedBrowserNotification) {
+    //         let notification = new window.Notification(message);
+    //       }
+    //     }
+    //   }
 
-      // Check if permission is already granted
-      else if (((_window$Notification2 = window.Notification) === null || _window$Notification2 === void 0 ? void 0 : _window$Notification2.permission) === "denied") {
-        // If it's okay, let's create a notification
-        if (storedInAppNotification) {
-          enqueueSnackbar.apply(void 0, [message].concat(props));
-        }
-      }
+    //   // Check if permission is already granted
+    //   else if (window.Notification?.permission === "denied") {
+    //     // If it's okay, let's create a notification
+    //     if (storedInAppNotification) {
+    //       enqueueSnackbar(message, ...props);
+    //     }
+    //   }
 
-      // Otherwise, we need to ask the user for permission
-      else if (storedBrowserNotification && (((_window$Notification3 = window.Notification) === null || _window$Notification3 === void 0 ? void 0 : _window$Notification3.permission) !== "denied" || ((_window$Notification4 = window.Notification) === null || _window$Notification4 === void 0 ? void 0 : _window$Notification4.permission) === "default")) {
-        var _window$Notification5;
-        (_window$Notification5 = window.Notification) === null || _window$Notification5 === void 0 || _window$Notification5.requestPermission(function (permission) {
-          // If the user accepts, let's create a notification
-          if (permission === "granted") {
-            var _notification = new window.Notification(message);
-          }
-        });
-      }
-      if (storedInAppNotification || props[0].insist) {
-        enqueueSnackbar.apply(void 0, [message].concat(props));
-      }
-    } catch (e) {
-      console.log(e);
-    }
+    //   // Otherwise, we need to ask the user for permission
+    //   else if (
+    //     storedBrowserNotification &&
+    //     (window.Notification?.permission !== "denied" ||
+    //       window.Notification?.permission === "default")
+    //   ) {
+    //     window.Notification?.requestPermission(function (permission) {
+    //       // If the user accepts, let's create a notification
+    //       if (permission === "granted") {
+    //         let notification = new window.Notification(message);
+    //       }
+    //     });
+    //   }
+
+    //   if (storedInAppNotification || props[0].insist) {
+    //     enqueueSnackbar(message, ...props);
+    //   }
+    // } catch (e) {
+    //   console.log(e);
+    // }
+    enqueueSnackbar.apply(void 0, [message].concat(props));
   };
 };
 
