@@ -456,7 +456,7 @@ export default function LoginPage() {
       setFromUser(removeAllNonAlphaNumeric(animals));
     } else if (idType === "Countries") {
       const countries = Array.from({ length: 6 }, () =>
-        chance.country({ full: true }),
+        chance.country({ full: true })
       )
         .map((a) => a.toLowerCase().replace(/\s/g, "-"))
         .join("-");
@@ -510,14 +510,14 @@ export default function LoginPage() {
   // }, []);
 
   const [appNotifications, setAppNotifications] = useState(
-    storedInAppNotification ?? true,
+    storedInAppNotification ?? true
   );
   const [browserNotifications, setBrowserNotifications] = useState(
-    storedBrowserNotification ?? false,
+    storedBrowserNotification ?? false
   );
 
   const [experimentalFeatures, setExperimentalFeatures] = useState(
-    storedExperimentalFeatures ?? false,
+    storedExperimentalFeatures ?? false
   );
 
   const handleAppNotificationChange = (event) => {
@@ -835,7 +835,7 @@ export default function LoginPage() {
 
   const handleCopyConnectionIdToClipboard = () => {
     navigator.clipboard.writeText(
-      `${window.location.origin}/#/login/${storedConnectionId}`,
+      `${window.location.origin}/#/login/${storedConnectionId}`
     );
   };
 
@@ -1014,49 +1014,6 @@ export default function LoginPage() {
           renderButtonGroupOutside={true}
           customDot={<CustomDot />}
         >
-          <div>
-            <Avatar
-              src={hipaintImage}
-              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
-            />
-            <center>{t("loginPage.welcomeImage")}</center>
-            <br />
-            <br />
-          </div>
-          <div>
-            <Avatar
-              src={decentralisedImage}
-              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
-            />
-            <center>{t("loginPage.decentralized")}</center>
-            <br />
-            <br />
-          </div>
-          {/* <div>
-          <Avatar
-            src={agnosticImage}
-            style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
-          />
-          {t("loginPage.agnostic")}
-        </div> */}
-          <div>
-            <Avatar
-              src={dataImportExportImage}
-              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
-            />
-            <center>{t("loginPage.dataImportExport")}</center>
-            <br />
-            <br />
-          </div>
-          <div>
-            <Avatar
-              src={noRegistration}
-              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
-            />
-            <center>{t("loginPage.noInstall")}</center>
-            <br />
-            <br />
-          </div>
           {/* <div>
           <Avatar
             src={pushNotifications}
@@ -1433,6 +1390,49 @@ export default function LoginPage() {
                 )}
               </>
             )}
+            <br />
+            <br />
+          </div>
+          <div>
+            <Avatar
+              src={hipaintImage}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            <center>{t("loginPage.welcomeImage")}</center>
+            <br />
+            <br />
+          </div>
+          <div>
+            <Avatar
+              src={decentralisedImage}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            <center>{t("loginPage.decentralized")}</center>
+            <br />
+            <br />
+          </div>
+          <div>
+            <Avatar
+              src={agnosticImage}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            {t("loginPage.agnostic")}
+          </div>
+          <div>
+            <Avatar
+              src={dataImportExportImage}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            <center>{t("loginPage.dataImportExport")}</center>
+            <br />
+            <br />
+          </div>
+          <div>
+            <Avatar
+              src={noRegistration}
+              style={{ minHeight: "300px", minWidth: "300px", margin: "auto" }}
+            />
+            <center>{t("loginPage.noInstall")}</center>
             <br />
             <br />
           </div>

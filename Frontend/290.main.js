@@ -2753,34 +2753,6 @@ function LoginPage() {
   }, /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
     src: logo512_namespaceObject,
     style: {
-      minHeight: "300px",
-      minWidth: "300px",
-      margin: "auto"
-    }
-  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.welcomeImage")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
-    src: decentralized_namespaceObject,
-    style: {
-      minHeight: "300px",
-      minWidth: "300px",
-      margin: "auto"
-    }
-  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.decentralized")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
-    src: data_export_import_namespaceObject,
-    style: {
-      minHeight: "300px",
-      minWidth: "300px",
-      margin: "auto"
-    }
-  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.dataImportExport")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
-    src: no_registration_namespaceObject,
-    style: {
-      minHeight: "300px",
-      minWidth: "300px",
-      margin: "auto"
-    }
-  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.noInstall")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
-    src: logo512_namespaceObject,
-    style: {
       height: "100px",
       width: "100px",
       margin: "auto"
@@ -2985,7 +2957,42 @@ function LoginPage() {
     className: classes.hidden,
     ref: fileRef,
     onChange: handleFile
-  }), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null))), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)))));
+  }), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null))), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+    src: logo512_namespaceObject,
+    style: {
+      minHeight: "300px",
+      minWidth: "300px",
+      margin: "auto"
+    }
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.welcomeImage")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+    src: decentralized_namespaceObject,
+    style: {
+      minHeight: "300px",
+      minWidth: "300px",
+      margin: "auto"
+    }
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.decentralized")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+    src: agnostic_namespaceObject,
+    style: {
+      minHeight: "300px",
+      minWidth: "300px",
+      margin: "auto"
+    }
+  }), t("loginPage.agnostic")), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+    src: data_export_import_namespaceObject,
+    style: {
+      minHeight: "300px",
+      minWidth: "300px",
+      margin: "auto"
+    }
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.dataImportExport")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)), /*#__PURE__*/index_js_default().createElement("div", null, /*#__PURE__*/index_js_default().createElement(Avatar/* default */.A, {
+    src: no_registration_namespaceObject,
+    style: {
+      minHeight: "300px",
+      minWidth: "300px",
+      margin: "auto"
+    }
+  }), /*#__PURE__*/index_js_default().createElement("center", null, t("loginPage.noInstall")), /*#__PURE__*/index_js_default().createElement("br", null), /*#__PURE__*/index_js_default().createElement("br", null)))));
 }
 // EXTERNAL MODULE: ./node_modules/@mui/material/List/List.js + 1 modules
 var List = __webpack_require__(49799);
