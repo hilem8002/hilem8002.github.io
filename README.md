@@ -1,4 +1,4 @@
-
+by
 
 <p align="center">
   <img src="public/logo192.png" alt="App Logo" />
@@ -40,6 +40,9 @@ A chat app designed to work within your browser, with a focus on browser-based s
 - **Image Board**: Share and discover images in a community-driven space. [Gram preview](https://chat.positive-intentions.com/#/feed)
 - **Webtop Environment**: Desktop experience on the browser. [Desk preview](https://chat.positive-intentions.com/#/desk)
 
+<p align="center">
+  <img width="50%" src="https://positive-intentions.com/assets/images/phones-7e2bee3441aae5ebb4da3d2671d8f568.png" alt="multi-platform Logo" />
+</p>
 
 ## Getting Started
 
