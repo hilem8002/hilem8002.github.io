@@ -27,13 +27,18 @@
 
 A chat app designed to work within your browser, with a focus on browser-based security and decentralization.
 
+
+<p align="center">
+  <img width="50%" src="https://positive-intentions.com/assets/images/computers-b515cec053bf6448ec611a096c944e9c.png" alt="multi-platform Logo" />
+</p>
+
 **Feature-Rich Experience**:
 - **Secure Messaging**: End-to-end encryption for all messages.
 - **File Sharing**: Seamlessly share files with peers using cutting-edge WebRTC technology.
 - **Voice and Video Calls**: Connect more personally with high-quality calls.
-- **Mixed-Reality Spaces**: Dive into shared virtual environments for a new way of interaction.
-- **Image Board**: Share and discover images in a community-driven space.
-- **Webtop Environment**: Desktop experience on the browser.
+- **Mixed-Reality Spaces**: Dive into shared virtual environments for a new way of interaction.[VR preview](https://www.youtube.com/watch?v=2gTTu4OqoiM), [AR preview](https://www.youtube.com/shorts/8vYCwMg7T7E), [ML/TF preview](https://positive-intentions.com/assets/images/hand-pose-ef32ea87200e51c333629846287d20ea.gif)
+- **Image Board**: Share and discover images in a community-driven space. [Gram preview](https://chat.positive-intentions.com/#/feed)
+- **Webtop Environment**: Desktop experience on the browser. [Desk preview](https://chat.positive-intentions.com/#/desk)
 
 
 ## Getting Started
@@ -88,6 +93,10 @@ Finally click "Save" to enable Github Pages.
 
 ## iOS, Android and Desktop
 
+<p align="center">
+  <img width="50%" src="https://positive-intentions.com/assets/images/native-560076a3f27240fc0ea3b39da576637b.png" alt="multi-platform Logo" />
+</p>
+
 The app can be installed on iOS, Android and Desktop. The project is not mature enough to be published on the app stores ([exception](https://store.app/chat-staging-positive-intentions-com)?). This repository has the necessary files to build the app for these platforms. This should be done by someone with experience in building apps for these platforms.
 
 ### iOS and Android
@@ -98,13 +107,18 @@ To build for mobile, you need to have respective build tools installed on your c
 
 To build for desktop, you need to install the dependencies with the `npm i` command, then you may also need to install rust on your system as described [here](https://tauri.app/v1/guides/getting-started/prerequisites/). The desktop build is based on Tauri found [here](https://tauri.app/). You can create a build by running `npm run tauri build`. the build will be found in the `tauri/target/release/bundle` folder (you may need to add executable permissions `chmod +x <filename>`).
 
-### Security and privacy recommendations
+## Security and privacy recommendations
+
+<p align="center">
+  <img width="50%"src="https://positive-intentions.com/assets/images/lock-f89d113c69bad9225d302acbf8e3dbf5.png" alt="lock Logo" />
+</p>
 
 This project is aiming to create the most secure and private chat app. It will heavily depend on how you use it. Here are some reccomended security optimizations/advice to keep your data secure and private:
 
 - Use a self-hosted instance of the app.
 - Use a VPN to protect your data from being intercepted.
 - Only connect to trusted peers.
+- Validate public key hashes.
 - You and your peer should use a secure device/os/browser with the latest updates.
 - use general security practices like not sharing sensitive information, not clicking on suspicious links, etc.
 
@@ -119,3 +133,7 @@ Pushing the boundaries of what's possible with current web technologies to creat
 - **Spread the Word**: Help us grow by sharing the app with others who value privacy and control over their digital communication.
 - **Github Stars**: If you like the project, consider starring the repository. It helps others discover it and boosts our motivation.
 - **Sponsorship**: Development is fueled by passion and coffee. Your sponsorship helps keep both flowing.
+
+<p align="center">
+  <img width="50%"src="https://positive-intentions.com/assets/images/s3-e623a564940533aa8cda04a1634f6f01.png" alt="decentalize Logo" />
+</p>
