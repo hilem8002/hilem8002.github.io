@@ -1,5 +1,3 @@
-by
-
 <p align="center">
   <img src="public/logo192.png" alt="App Logo" />
 </p>
