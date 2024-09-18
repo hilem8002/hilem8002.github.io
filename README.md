@@ -135,6 +135,12 @@ Pushing the boundaries of what's possible with current web technologies to creat
 - **Github Stars**: If you like the project, consider starring the repository. It helps others discover it and boosts our motivation.
 - **Sponsorship**: Development is fueled by passion and coffee. Your sponsorship helps keep both flowing.
 
-<p align="center">
-  <img width="50%"src="https://positive-intentions.com/assets/images/s3-e623a564940533aa8cda04a1634f6f01.png" alt="decentalize Logo" />
-</p>
+## Star History
+
+<a href="https://star-history.com/#Positive-intentions/chat&Timeline">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Positive-intentions/chat&type=Timeline&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Positive-intentions/chat&type=Timeline" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Positive-intentions/chat&type=Timeline" />
+ </picture>
+</a>
