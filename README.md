@@ -4,7 +4,7 @@
 
 <div align="center">
   
-[Live App](https://chat.positive-intentions.com) | [Docs](https://positive-intentions.com) | [Reddit](https://www.reddit.com/r/positive_intentions) | [Medium](https://medium.com/@positive.intentions.com) | [Discord](https://discord.gg/unnQnR67nR)
+[Live App](https://chat.positive-intentions.com) | [Docs](https://positive-intentions.com) | [Reddit](https://www.reddit.com/r/positive_intentions) | [Discord](https://discord.gg/unnQnR67nR)
 </div>
 
 <div align="center">
@@ -137,10 +137,10 @@ Pushing the boundaries of what's possible with current web technologies to creat
 
 ## Star History
 
-<a href="https://star-history.com/#Positive-intentions/chat&Timeline">
+<a href="https://star-history.com/#positive-intentions/chat&Timeline">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Positive-intentions/chat&type=Timeline&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Positive-intentions/chat&type=Timeline" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Positive-intentions/chat&type=Timeline" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=positive-intentions/chat&type=Timeline&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=positive-intentions/chat&type=Timeline" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=positive-intentions/chat&type=Timeline" />
  </picture>
 </a>
