@@ -200,7 +200,7 @@ var __wpo = {
     "17f63c6f6131389462ba3d814b7ddf83344705f9": "./2630a3e3eab21c607e21.svg",
     "3331eebdd4ba348ef25abe00c39ffbe867d46575": "./c94f7671dcc99dce43e2.ttf",
     "af91c12f0f406a4f801aeb3b398768fe41d8f864": "./295183786cd8a1389865.woff",
-    "dc7f2bfce2fac9338a3a0676d6ef02e27a7af690": "./",
+    "3c552fd5ba80a82f8ff013c0c78c6edeefc103ed": "./",
     "b230d196ee70ab539697958f88afef75b93b409b": "./manifest.json",
     "23eabefd581630e03980b7ba0defe6f46b1b5597": "./icon_512x512.6ba19993e5858a75794f64b511eec86f.png",
     "257409fc478411d71c79efa757bb9912be69eba3": "./icon_384x384.734cd7de30db54389e945c5a7daffd6b.png",
@@ -212,7 +212,7 @@ var __wpo = {
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "10/8/2024, 5:30:23 PM",
+  "version": "10/11/2024, 2:55:32 PM",
   "name": "webpack-offline",
   "pluginVersion": "5.1.1",
   "relativePaths": true
