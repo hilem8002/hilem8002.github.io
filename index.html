@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Basit İnteraktif Web sitesi</title>
+</head>
+<body>
+  <h1>Basit İnteraktif Web sitesi</h1>
+
+  <hr>
+
+  <h2>Ruh Hali Sayacı</h2>
+  <p>Butona bastıkça sayaç artar.</p>
+  <p>Sayaç değeri: <span id="count">0</span></p>
+  <button id="increase">Arttır</button>
+  <button id="reset">Sıfırla</button>
+  <p>Durum: <span id="mood">Nötr</span></p>
+
+  <hr>
+
+  <h2>Notunuzu Yazın</h2>
+  <p>Kısa bir başlık ve açıklama yazabilirsiniz.</p>
+  <p>
+    Başlık:<br>
+    <input id="titleInput" type="text">
+  </p>
+  <p>
+    Açıklama:<br>
+    <textarea id="detailInput" rows="4" cols="40"></textarea>
+  </p>
+  <button id="saveNote">Notu Göster</button>
+
+  <h3>Son Not</h3>
+  <p id="noteArea">Henüz bir not yok.</p>
+
+  <hr>
+
+  <p id="timeInfo"></p>
+
+  <script>
+    // Sayaç
+    var countSpan = document.getElementById("count");
+    var moodSpan = document.getElementById("mood");
+    var count = 0;
+
+    function updateMood() {
+      var text = "Nötr";
+      if (count <= -1) text = "Düşük";
+      if (count >= 1 && count <= 3) text = "İdare Eder";
+      if (count >= 4 && count <= 6) text = "Keyifli";
+      if (count >= 7) text = "Harika";
+      moodSpan.textContent = text;
+    }
+
+    document.getElementById("increase").onclick = function () {
+      count++;
+      countSpan.textContent = count;
+      updateMood();
+    };
+
+    document.getElementById("reset").onclick = function () {
+      count = 0;
+      countSpan.textContent = count;
+      updateMood();
+    };
+
+    // Not alanı
+    var titleInput = document.getElementById("titleInput");
+    var detailInput = document.getElementById("detailInput");
+    var noteArea = document.getElementById("noteArea");
+
+    document.getElementById("saveNote").onclick = function () {
+      var t = titleInput.value.trim();
+      var d = detailInput.value.trim();
+
+      if (!t && !d) {
+        alert("Lütfen en az bir alanı doldurun.");
+        return;
+      }
+
+      if (!t) t = "Başlıksız not";
+      if (!d) d = "Açıklama yok.";
+
+      noteArea.innerHTML = "<strong>" + t + "</strong><br>" + d;
+    };
+
+    // Saat bilgisi
+    var timeInfo = document.getElementById("timeInfo");
+    function updateTime() {
+      var now = new Date();
+      timeInfo.textContent = "Şu an: " + now.toLocaleString("tr-TR");
+    }
+    updateTime();
+    setInterval(updateTime, 60000);
+  </script>
+  <p>Etkileşimli Web sitesi <br> Mustafa ibrahim <br> 12/AV NUMARA</p>
+</body>
+</html>
